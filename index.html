@@ -244,8 +244,6 @@
 
           
           
-          
-          
           <li>
             <a href="/about/">
               
@@ -268,10 +266,12 @@
           
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/categories/">
               
-              TAGS
+              CATEGORIES
               
               
             </a>
@@ -280,9 +280,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/tags/">
               
-              CATEGORIES
+              TAGS
               
               
             </a>
@@ -478,6 +478,227 @@
   <!-- top end -->
   
 
+  <a href="/undefined/C++—class和struct的区别（4月的第一篇博客）/">
+    <h2 class="post-title">
+      C++——class和struct的区别（4月的第一篇博客）
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      hexo new “C++——class和struct的区别（4月的第一篇博客）”
+class 和 struct 最本质的区别 : class 是引用类型，它在堆中分配空间，栈中保存的只是引用；而 struct 是值类型，它在栈中分配空间。
+什么是class?
+class（类）是面向对象编程的基本概念，是一种自定义数据结构类型，通常包含字段、属性、方法、构造函数、索引器、操作符等。在.NET......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-04-01
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/undefined/C++——内存分区模型/">
+    <h2 class="post-title">
+      C++——内存分区模型
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      C++——内存分区模型
+一、内存四区
+C++程序在执行时，将内存大方向划分为4个区域
+●代码区:存放函数体的二进制代码，由操作系统进行管理的
+●全局区:存放全局变量和静态变量以及常量
+●栈区:由编译器自动分配释放,存放函数的参数值,局部变量等
+●堆区:由程序员分配和释放,若程序员不释放程序结束时由操作系统回收
+意义：
+不同区域的数据，赋予不同的生命周期，可以灵活编程
+二、程序运行前
+在程序编......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-03-31
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/undefined/js——反转字符串/">
+    <h2 class="post-title">
+      js——反转字符串
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      js——反转字符串
+字符串作在程序中是非常常见的，因为程序中绝大部分的数据都可以当作字符串来处理。在这里介绍几种翻转字符串的方法。
+（1）使用字符串函数
+1234567891011121314//使用数组翻转函数function reverseString(str)&#123;    var array = str.split(&#x27;&#x27;);  //转换成字符串数组    ar......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-03-31
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/undefined/js——互动方式/">
+    <h2 class="post-title">
+      js——互动方式
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      js——互动方式
+js推荐使用单引号
+1.document.write();
+（1）这行代码里面的内容将在页面中直接输出（直接向HTML的输出流写内容），但需要加上双引号
+（2）也可以通过一个变量进行输出，不用加双引号
+（3）输出多项内容可以用+号进行连接
+（4）用于输出换行
+2.alert(字符串或变量)；
+这行代码里的内容将会以弹窗的方式显示在页面上
+3.confirm——确认
+包含一个......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-03-31
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/undefined/js中this的使用（转载）/">
+    <h2 class="post-title">
+      js中this的使用（转载）
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      js——this的使用（区分this和e.target）
+一、什么是this
+1.解析器在调用函数时，美的都会向函数内部传递进一个隐含的参数
+2.这个隐含的参数就是this，this是一个对象
+3.这个对象我们称为函数执行的上下文对象
+4.根据函数的调用方式不同，this会指向不同的对象
+1234567891011function fun()&#123;    console.log(thi......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-03-31
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/undefined/js——事件的冒泡和捕获/">
+    <h2 class="post-title">
+      js——事件的冒泡和捕获
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      js——事件冒泡和捕获
+一、理解
+12345&lt;div id=&quot;root&quot; onclick=&quot;fun1&quot;&gt;    &lt;p onclick = &quot;fun2&quot;&gt;        click me!    &lt;/p&gt;&lt;/div&gt;
+如果两个元素都有一个click的处理函数，那么我们怎么才能知道哪一个函......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-03-31
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
   <a href="/undefined/Vuex/">
     <h2 class="post-title">
       Vuex
@@ -486,8 +707,13 @@
       
     </h3>
     <div class="post-content-preview">
-      Vuex一、Vuex是什么1.概念:​    专门在Vue中实现集中式状态(数据)管理的一个Vue插件,对vue应用中多个组件的共享状态进行集中式的管理(读/写) ，也是一种组件间通信的方式，且适用于任意组件间通信。
-so？什么是状态管理1234567891011121314151617181920new Vue(&#123;  // state  data() &#123;    retu......
+      Vuex
+一、Vuex是什么
+1.概念:
+​	专门在Vue中实现集中式状态(数据)管理的一个Vue插件,对vue应用中
+多个组件的共享状态进行集中式的管理(读/写) ，也是一种组件间通信的方式，且适用于任意组件间通信。
+so？什么是状态管理
+1234567891011121314151617181920new Vue(&#123;  // state  data() &#123;    re......
     </div>
   </a>
   
@@ -518,13 +744,15 @@ so？什么是状态管理1234567891011121314151617181920new Vue(&#123;  // stat
       
     </h3>
     <div class="post-content-preview">
-      Vue——路由一、何为路由——vue-router路由其实就是一种对应关系（一组key-value）：对于前端来说，key—路径；value—组件
+      Vue——路由
+一、何为路由——vue-router
+路由其实就是一种对应关系（一组key-value）：对于前端来说，key—路径；value—组件
 对于后端来说，value是function 用于处理客户端的请求，根据请求路径来匹配函数
-​    多个路由需要经过路由器
+​	多个路由需要经过路由器
 1.单页web（SPA应用）
 2.只有一个完整的页面
 3.点击导航链接不会刷新页面，只会做页面的局部刷新
-4.数据需要通过......
+4.数据需要通过a......
     </div>
   </a>
   
@@ -555,10 +783,13 @@ so？什么是状态管理1234567891011121314151617181920new Vue(&#123;  // stat
       
     </h3>
     <div class="post-content-preview">
-      Vue——组件间通信全局事件总线：任意组件间通信
-一、父子间通信（props和emit）在通信中，无论是子组件向父组件传值还是父组件向子组件传值，他们都有一个共同点就是有中间介质，子向父的介质是自定义事件，父向子的介质是props中的属性。抓准这两点对于父子通信就好理解了。
-X、父子间通信-父传子（props）1、props作用props的作用是父组件单向传递数据给子组件。为单向数据流
-pr......
+      Vue——组件间通信
+全局事件总线：任意组件间通信
+一、父子间通信（props和emit）
+在通信中，无论是子组件向父组件传值还是父组件向子组件传值，他们都有一个共同点就是有中间介质，子向父的介质是自定义事件，父向子的介质是props中的属性。抓准这两点对于父子通信就好理解了。
+X、父子间通信-父传子（props）
+1、props作用
+props的作用是父组件单向传递数据给子组件。为单向数据......
     </div>
   </a>
   
@@ -589,41 +820,9 @@ pr......
       
     </h3>
     <div class="post-content-preview">
-      解决npm install -g hexo-cli报错hexo not found问题作为一个初入IT的小白，最近想搭建一个个人博客算是记录自己的学习，但是安装hexo的时候一直报错bash: hexo: command not found，官网的安装命令如下：
-12345671.npm install hexo-cli -g2.hexo init blog3.cd blog4.npm in......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-03-31
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/C++/C-的inline关键字的理解/">
-    <h2 class="post-title">
-      C++的inline关键字的理解
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      C++中inline关键字的理解一、为什么使用inline​    使用inline关键词 在c/c++中，为了解决一些频繁调用的小函数大量消耗栈空间（栈内存）的问题，特别的引入了inline修饰符，表示为内联函数。
-​    栈空间就是放置程序的局部数据（也就是函数内数据）的内存空间。
-​    在系统下，栈空间是有限的，假如频繁大量的使用就会造成因栈空间不足而导致程序出错的问题，如，函数......
+      解决npm install -g hexo-cli报错hexo not found问题
+作为一个初入IT的小白，最近想搭建一个个人博客算是记录自己的学习，但是安装hexo的时候一直报错bash: hexo: command not found，官网的安装命令如下：
+12345671.npm install hexo-cli -g2.hexo init blog3.cd blog4.npm i......
     </div>
   </a>
   
@@ -643,6 +842,10 @@ pr......
   <!-- Pager -->
   <ul class="pager">
     
+    
+    <li class="next">
+      <a href="/archives/2/">Newer Posts &rarr;</a>
+    </li>
     
   </ul>
 
@@ -751,24 +954,24 @@ pr......
 <div class="widget">
   <ul>
     
-    <a href="undefined/Vuex/">
-      <li>Vuex</li>
+    <a href="undefined/C++%E2%80%94class%E5%92%8Cstruct%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%884%E6%9C%88%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%89/">
+      <li>C++——class和struct的区别（4月的第一篇博客）</li>
     </a>
     
-    <a href="Vue/Vue%E2%80%94%E2%80%94%E8%B7%AF%E7%94%B1/">
-      <li>Vue——路由</li>
+    <a href="undefined/C++%E2%80%94%E2%80%94%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B/">
+      <li>C++——内存分区模型</li>
     </a>
     
-    <a href="Vue/Vue%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1/">
-      <li>Vue——组件间通信</li>
+    <a href="undefined/js%E2%80%94%E2%80%94%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+      <li>js——反转字符串</li>
     </a>
     
-    <a href="hexo/%E8%A7%A3%E5%86%B3npm-install-g-hexo-cli%E6%8A%A5%E9%94%99hexo-not-found%E9%97%AE%E9%A2%98/">
-      <li>解决npm install -g hexo-cli报错hexo not found问题</li>
+    <a href="undefined/js%E2%80%94%E2%80%94%E4%BA%92%E5%8A%A8%E6%96%B9%E5%BC%8F/">
+      <li>js——互动方式</li>
     </a>
     
-    <a href="C++/C-%E7%9A%84inline%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3/">
-      <li>C++的inline关键字的理解</li>
+    <a href="undefined/js%E4%B8%ADthis%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/">
+      <li>js中this的使用（转载）</li>
     </a>
     
   </ul>
@@ -786,7 +989,7 @@ pr......
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">5</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">10</span></li></ul>
 </div>
 
 
