@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://yummyx02.github.io/undefined/C＋＋友元函数/">
+  <link rel="canonical" href="https://yummyx02.github.io/C++/C＋＋中的this/">
   <title>
     
-      C＋＋友元函数 - either strugle | or die
+      C＋＋中的this - either strugle | or die
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -244,8 +244,6 @@
 
           
           
-          
-          
           <li>
             <a href="/about/">
               
@@ -256,15 +254,6 @@
           </li>
           
           
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
           
           
           
@@ -283,6 +272,17 @@
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -390,7 +390,7 @@
             <div class="tags">
               
             </div>
-            <h1>C＋＋友元函数</h1>
+            <h1>C＋＋中的this</h1>
             <h2 class="subheading"></h2>
             <span class="meta">
               Posted by 王翔_x on
@@ -406,7 +406,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">352</span> In Total
+              Words <span class="post-count">373</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -468,17 +468,17 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1>C++友元函数</h1>
-<h2 id="一、友元的作用">一、友元的作用</h2>
-<p>​	 在C++中，我们使用类对数据进行了<strong>隐藏和封装</strong>，类的数据成员一般都定义为私有成员，成员函数一般都定义为公有的，以此<strong>提供类与外界的通讯接口</strong>。但是，有时需要定义一些函数，这些函数<strong>不是类的一部分</strong>，但又需要<strong>频繁地访问类的数据成员</strong>，这时可以将这些函数定义为该函数的友元函数。除了友元函数外，还有友元类，两者统称为友元。友元的作用是提高了程序的运行效率（即减少了类型检查和安全性检查等都需要时间开销），但它破坏了类的封装性和隐藏性，使得非成员函数可以访问类的私有成员</p>
-<h2 id="二、何为友元函数">二、何为友元函数</h2>
-<p>​	所谓友元函数即为：<strong>声明在类内部，定义在类外的普通函数</strong>，但是可以访问类的私有成员</p>
-<p>声明时在前面加上friend即可</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">friend 类型 函数名(类名<span class="meta">&amp;obj)</span></span><br></pre></td></tr></table></figure>
-<h3 id="tips">tips</h3>
-<p>1.一个函数可以是多个类的友元函数，只需在多个类中进行声明即可</p>
-<p>2.友元函数在类外进行定义时不需要加上类的限制</p>
-<p>3.友元函数的声明可以放在public也可以放在private</p>
+        <h1>C++——this的妙用</h1>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"> <span class="keyword">int</span> i;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> A * p = <span class="literal">NULL</span>;</span><br><span class="line"> p-&gt;<span class="built_in">Hello</span>(); <span class="comment">//结果会怎样？</span></span><br><span class="line">&#125;</span><br><span class="line">#结果会输出hello</span><br><span class="line"><span class="comment">//用C语言思想转换一下看看</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125; </span><br><span class="line"># 成员函数相当于如下形式：</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">(A * <span class="keyword">this</span> )</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line"> </span><br><span class="line">p-&gt;<span class="built_in">Hello</span>(); </span><br><span class="line"># 执行<span class="built_in">Hello</span>()形式相当于：</span><br><span class="line"><span class="built_in">Hello</span>(p);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>所以，实际上每个成员函数的第一个参数默认都有个指向对象的 this 指针，上述情况下如果该指向的对象是空，相当于成员函数的第一个参数是NULL，那么只要成员函数没有使用到成员变量，也是可以正常执行</strong></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">()</span> </span>&#123; cout &lt;&lt; i &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">  <span class="comment">// -&gt;&gt; void Hello(A * this ) &#123; cout &lt;&lt; this-&gt;i &lt;&lt; &quot;hello&quot; &lt;&lt; endl; &#125;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  A * p = <span class="literal">NULL</span>;</span><br><span class="line">  p-&gt;<span class="built_in">Hello</span>(); <span class="comment">// -&gt;&gt; Hello(p); </span></span><br><span class="line">&#125;</span><br><span class="line">#这个程序会崩溃，因为p指针是空的，但却用空指针指向了成员变量</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>其作用就是指向成员函数所作用的对象，所以非静态成员函数中可以直接使用 this 来代表指向该函数作用的对象的指针</strong></li>
+</ul>
+<h2 id="tips">tips</h2>
+<p>静态成员函数是不能使用 this 指针，因为静态成员函数相当于是共享的变量，不属于某个对象的变量。</p>
 
 
         <hr>
@@ -486,12 +486,12 @@
         <ul class="pager">
           
           <li class="previous">
-            <a href="/undefined/C＋＋中的this/" data-toggle="tooltip" data-placement="top" title="C＋＋中的this">&larr; Previous Post</a>
+            <a href="/undefined/静态成员必须初始化吗？/" data-toggle="tooltip" data-placement="top" title="静态成员必须初始化吗？">&larr; Previous Post</a>
           </li>
           
           
           <li class="next">
-            <a href="/undefined/C++反转字符串/" data-toggle="tooltip" data-placement="top" title="C++反转字符串">Next Post &rarr;</a>
+            <a href="/C++/C＋＋友元函数/" data-toggle="tooltip" data-placement="top" title="C＋＋友元函数">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -540,7 +540,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=C＋＋友元函数&body=Hi,I found this website and thought you might like it https://yummyx02.github.io/undefined/C＋＋友元函数/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=C＋＋中的this&body=Hi,I found this website and thought you might like it https://yummyx02.github.io/C++/C＋＋中的this/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -575,7 +575,7 @@
       repo: '',
       owner: '',
       admin: '',
-      id: 'Fri Apr 01 2022 17:25:24 GMT+0800', // Ensure uniqueness and length less than 50
+      id: 'Fri Apr 01 2022 21:30:14 GMT+0800', // Ensure uniqueness and length less than 50
       distractionFreeMode: false, // Facebook-like distraction free mode
       perPage: 10,
       pagerDirection: 'last',
@@ -628,7 +628,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">C++友元函数</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%80%E3%80%81%E5%8F%8B%E5%85%83%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">一、友元的作用</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%8C%E3%80%81%E4%BD%95%E4%B8%BA%E5%8F%8B%E5%85%83%E5%87%BD%E6%95%B0"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">二、何为友元函数</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#tips"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">tips</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">C++——this的妙用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#tips"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">tips</span></a></li></ol></li></ol>
         
         </div>
       </aside>

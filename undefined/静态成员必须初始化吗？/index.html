@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://yummyx02.github.io/archive/">
+  <link rel="canonical" href="https://yummyx02.github.io/undefined/静态成员必须初始化吗？/">
   <title>
     
-      Archives - either strugle | or die
+      静态成员必须初始化吗？ - either strugle | or die
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -300,29 +300,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      English
-    </span>
-    <select id="lang-select" data-canonical="archive/index.html">
-      
-      
-      <option value="en"  selected >
-        English
-      </option>
-      
-      <option value="cn" >
-        简体中文
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -374,19 +352,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('img/header_img/archive_bg.jpg');
-      --intro-header-background-image-url-page: url('/img/header_img/archive_bg.jpg');
+      --intro-header-background-image-url-post: url('');
+      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('img/header_img/archive_bg.jpg');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
     }
 
     header.intro-header {
-       /*page*/
-        background-image: var(--intro-header-background-image-url-page);
-        /* background-image: url('/img/header_img/archive_bg.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url(''); */
       
     }
 
@@ -408,10 +386,42 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Archives</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">Don&#39;t rush and never settle...... If it&#39;s meant to be, it will be......</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#C++" title="C++">C++</a>
+              
+            </div>
+            <h1>静态成员必须初始化吗？</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by 王翔_x on
+              2022-04-01
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">2</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">532</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -452,406 +462,256 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+        <h1>静态成员变量必须初始化吗？</h1>
+<p>我们知道C++类的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E9%9D%99%E6%80%81%E6%88%90%E5%91%98&amp;spm=1001.2101.3001.7020">静态成员</a>变量是需要初始化的，但为什么要初始化呢。</p>
+<p>其实这句话“静态成员变量是需要初始化的”是有一定问题的，应该说“静态成员变量需要定义”才是准确的，而不是初始化。</p>
+<p>两者的区别在于：初始化是赋一个初始值，而定义是分配<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%86%85%E5%AD%98&amp;spm=1001.2101.3001.7020">内存</a>。</p>
+<p>静态成员变量在类中仅仅是声明，没有定义，所以要在类的外面定义，实际上是给静态成员变量分配内存。</p>
+<p>可以通过以下几个例子更形象的说明这个问题：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//test.cpp </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span> </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span></span><br><span class="line"><span class="class">&#123;</span> </span><br><span class="line">    <span class="keyword">public</span>: </span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">int</span> a; <span class="comment">//声明但未定义</span></span><br><span class="line">&#125;; </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    A p;</span><br><span class="line">    cout &lt;&lt; p.a;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译以上代码会出现“对‘A::a’未定义的引用”错误。这是因为静态成员变量a未定义，也就是还没有分配内存，显然是不可以访问的。</p>
+<p>再看下例：<strong>注意静态成员初始化方式</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//test.cpp </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span> </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span></span><br><span class="line"><span class="class">&#123;</span> </span><br><span class="line">    <span class="keyword">public</span>: </span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">int</span> a; <span class="comment">//声明但未定义</span></span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">int</span> A::a = <span class="number">3</span>;         <span class="comment">//定义了静态成员变量，同时初始化。也可以写&quot;int A:a;&quot;，即不给初值，同样可以通过编译</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    A p;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p.a;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就对了，因为给a分配了内存，所以可以访问静态成员变量a了。</p>
+<p>注意：在类外面  这样子写 ：int A::a ； 也可以表示声明了，这样就表示我们已经定义了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> once</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">MyStruct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">   <span class="keyword">int</span> name;</span><br><span class="line">   <span class="keyword">int</span> year;</span><br><span class="line">&#125;infoList;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">statics</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="built_in">statics</span>();</span><br><span class="line">   <span class="keyword">static</span> <span class="keyword">int</span> m_nums;</span><br><span class="line">   <span class="keyword">static</span> infoList  m_lists;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//cpp文件的声明</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&quot;stdafx.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&quot;statics.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> statics::m_nums;       <span class="comment">//定义</span></span><br><span class="line"> </span><br><span class="line">infoList statics::m_lists; <span class="comment">//定义 这样子可以有些成员我们不知道怎么初始化，或者说必须在用的过程才赋值。</span></span><br><span class="line">                           <span class="comment">//可以使用这种方法</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">statics::<span class="built_in">statics</span>()</span><br><span class="line">&#123;</span><br><span class="line">   std::cout&lt;&lt;<span class="string">&quot;static class &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>转载于:<a target="_blank" rel="noopener" href="https://my.oschina.net/u/3557041/blog/1592909">https://my.oschina.net/u/3557041/blog/1592909</a></p>
 
-      <!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
 
-      
-
-      <!-- 归档列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-          <span class="tag-text">2022</span>
-        </span>
-        <ul>
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
           
-          <li>
-            04-01
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/静态成员必须初始化吗？/" style="color: #0085a1">
-              <span>
-                静态成员必须初始化吗？
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
           
-          <li>
-            04-01
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/C++/C＋＋中的this/" style="color: #0085a1">
-              <span>
-                C＋＋中的this
-                
-                -- C++
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-01
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/C++/C＋＋友元函数/" style="color: #0085a1">
-              <span>
-                C＋＋友元函数
-                
-                -- C++
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-01
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/C++/C++反转字符串/" style="color: #0085a1">
-              <span>
-                C++反转字符串
-                
-                -- C++
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-01
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/C++/C++—class和struct的区别（4月的第一篇博客）/" style="color: #0085a1">
-              <span>
-                C++——class和struct的区别（4月的第一篇博客）
-                
-                -- C++
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-31
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/C++/C++——内存分区模型/" style="color: #0085a1">
-              <span>
-                C++——内存分区模型
-                
-                -- C++
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-31
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/js/js——反转字符串/" style="color: #0085a1">
-              <span>
-                js——反转字符串
-                
-                -- js
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-31
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/js/js——互动方式/" style="color: #0085a1">
-              <span>
-                js——互动方式
-                
-                -- js
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-31
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/js/js中this的使用（转载）/" style="color: #0085a1">
-              <span>
-                js中this的使用（转载）
-                
-                -- js
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-31
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/js/js——事件的冒泡和捕获/" style="color: #0085a1">
-              <span>
-                js——事件的冒泡和捕获
-                
-                -- js
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-31
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/Vue/Vuex/" style="color: #0085a1">
-              <span>
-                Vuex
-                
-                -- Vue
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-31
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/Vue/Vue——路由/" style="color: #0085a1">
-              <span>
-                Vue——路由
-                
-                -- Vue
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-31
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/Vue/Vue——组件间通信/" style="color: #0085a1">
-              <span>
-                Vue——组件间通信
-                
-                -- Vue
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-31
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/hexo/解决npm-install-g-hexo-cli报错hexo-not-found问题/" style="color: #0085a1">
-              <span>
-                解决npm install -g hexo-cli报错hexo not found问题
-                
-                -- hexo
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-31
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/C++/C-的inline关键字的理解/" style="color: #0085a1">
-              <span>
-                C++的inline关键字的理解
-                
-                -- C++
-                
-              </span>
-            </a>
+          <li class="next">
+            <a href="/C++/C＋＋中的this/" data-toggle="tooltip" data-placement="top" title="C＋＋中的this">Next Post &rarr;</a>
           </li>
           
         </ul>
-      </div>
-      
-    </div>
-  </div>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
 </div>
+<!-- tip end -->
 
+        <!-- tip end -->
+        
 
-      <!-- 如果开启评论功能 -->
-      
-      <hr>
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
 
-      
-
-      
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Visitors -->
-<h5><a href="/">VISITORS</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-
-        <hr>
-    
-        <!-- Featured Tags -->
-
-<section>
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#C++" title="C++" rel="1">C++</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/img/avatar/slide.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>lazy people have no future, either struggle or die...</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/yummyX02">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-      <li>
-        <a target="_blank" href="http://weibo.com/梦GluTtoNy">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
-        <!-- RECENT POSTS -->
-
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../undefined/%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%BF%85%E9%A1%BB%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%97%EF%BC%9F/">
-      <li>静态成员必须初始化吗？</li>
-    </a>
-    
-    <a href="../C++/C%EF%BC%8B%EF%BC%8B%E4%B8%AD%E7%9A%84this/">
-      <li>C＋＋中的this</li>
-    </a>
-    
-    <a href="../C++/C%EF%BC%8B%EF%BC%8B%E5%8F%8B%E5%85%83%E5%87%BD%E6%95%B0/">
-      <li>C＋＋友元函数</li>
-    </a>
-    
-    <a href="../C++/C++%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-      <li>C++反转字符串</li>
-    </a>
-    
-    <a href="../C++/C++%E2%80%94class%E5%92%8Cstruct%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%884%E6%9C%88%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%89/">
-      <li>C++——class和struct的区别（4月的第一篇博客）</li>
-    </a>
-    
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=静态成员必须初始化吗？&body=Hi,I found this website and thought you might like it https://yummyx02.github.io/undefined/静态成员必须初始化吗？/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
   </ul>
 </div>
 
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
 
+        <!-- Sharing End -->
+        
         <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Fri Apr 01 2022 22:44:32 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
     
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">静态成员变量必须初始化吗？</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#C++" title="C++">C++</a>
+            
+          </div>
+        </section>
+        
+
         <!-- Friends Blog -->
-
-
-        <hr>
-    
-        <!-- Archives -->
-
-<h5><a href="/archives/">archives</a></h5>
-<div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/04/">April 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/03/">March 2022</a><span class="archive-list-count">10</span></li></ul>
-</div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-
-        <hr>
-    
-</div>
-
-
-    
+        
+      </div>
+    </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->
