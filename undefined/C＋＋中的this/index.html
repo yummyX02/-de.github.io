@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://yummyx02.github.io/">
+  <link rel="canonical" href="https://yummyx02.github.io/undefined/C＋＋中的this/">
   <title>
     
-      either strugle | or die
+      C＋＋中的this - either strugle | or die
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -300,29 +300,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      English
-    </span>
-    <select id="lang-select" data-canonical="index.html">
-      
-      
-      <option value="en"  selected >
-        English
-      </option>
-      
-      <option value="cn" >
-        简体中文
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -384,9 +362,9 @@
     }
 
     header.intro-header {
-       /*config*/
-        background-image: var(--intro-header-background-image-url-home);
-        /* background-image: url('/img/header_img/newhome_bg.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url(''); */
       
     }
 
@@ -408,10 +386,40 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Struggle in my life</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">王翔的博客</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+            </div>
+            <h1>C＋＋中的this</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by 王翔_x on
+              2022-04-01
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">1</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">373</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -452,551 +460,251 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h1>C++——this的妙用</h1>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"> <span class="keyword">int</span> i;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> A * p = <span class="literal">NULL</span>;</span><br><span class="line"> p-&gt;<span class="built_in">Hello</span>(); <span class="comment">//结果会怎样？</span></span><br><span class="line">&#125;</span><br><span class="line">#结果会输出hello</span><br><span class="line"><span class="comment">//用C语言思想转换一下看看</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125; </span><br><span class="line"># 成员函数相当于如下形式：</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">(A * <span class="keyword">this</span> )</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line"> </span><br><span class="line">p-&gt;<span class="built_in">Hello</span>(); </span><br><span class="line"># 执行<span class="built_in">Hello</span>()形式相当于：</span><br><span class="line"><span class="built_in">Hello</span>(p);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>所以，实际上每个成员函数的第一个参数默认都有个指向对象的 this 指针，上述情况下如果该指向的对象是空，相当于成员函数的第一个参数是NULL，那么只要成员函数没有使用到成员变量，也是可以正常执行</strong></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">()</span> </span>&#123; cout &lt;&lt; i &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">  <span class="comment">// -&gt;&gt; void Hello(A * this ) &#123; cout &lt;&lt; this-&gt;i &lt;&lt; &quot;hello&quot; &lt;&lt; endl; &#125;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  A * p = <span class="literal">NULL</span>;</span><br><span class="line">  p-&gt;<span class="built_in">Hello</span>(); <span class="comment">// -&gt;&gt; Hello(p); </span></span><br><span class="line">&#125;</span><br><span class="line">#这个程序会崩溃，因为p指针是空的，但却用空指针指向了成员变量</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>其作用就是指向成员函数所作用的对象，所以非静态成员函数中可以直接使用 this 来代表指向该函数作用的对象的指针</strong></li>
+</ul>
+<h2 id="tips">tips</h2>
+<p>静态成员函数是不能使用 this 指针，因为静态成员函数相当于是共享的变量，不属于某个对象的变量。</p>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/undefined/C＋＋友元函数/" data-toggle="tooltip" data-placement="top" title="C＋＋友元函数">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
     
-
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-
-      <!-- Main Content -->
-
-
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/undefined/C＋＋中的this/">
-    <h2 class="post-title">
-      C＋＋中的this
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      C++——this的妙用
-123456789101112131415161718192021class A&#123; int i; public: void Hello() &#123; cout &lt;&lt; &quot;hello&quot; &lt;&lt; endl; &#125;&#125;; int main()&#123; A * p = NULL; p-&gt;Hell......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-01
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
   </p>
-  <div class="tags">
-    
-  </div>
-  
-
 </div>
-<hr>
+<!-- tip end -->
 
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
+        <!-- tip end -->
+        
 
-  <a href="/undefined/C＋＋友元函数/">
-    <h2 class="post-title">
-      C＋＋友元函数
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      C++友元函数
-一、友元的作用
-​	 在C++中，我们使用类对数据进行了隐藏和封装，类的数据成员一般都定义为私有成员，成员函数一般都定义为公有的，以此提供类与外界的通讯接口。但是，有时需要定义一些函数，这些函数不是类的一部分，但又需要频繁地访问类的数据成员，这时可以将这些函数定义为该函数的友元函数。除了友元函数外，还有友元类，两者统称为友元。友元的作用是提高了程序的运行效率（即减少了类型检查......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-01
-  </p>
-  <div class="tags">
-    
-  </div>
-  
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
 
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/undefined/C++反转字符串/">
-    <h2 class="post-title">
-      C++反转字符串
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      C++字符串反转的3种方法
-一、调用reverse（）函数
-reverse函数用于反转在[first,last)范围内的顺序（包括first指向的元素，不包括last指向的元素），reverse函数**没有返回值**
-
-123//语法规范template &lt;class BidirectionalIterator&gt;void reverse (BidirectionalIterato......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-01
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/undefined/C++—class和struct的区别（4月的第一篇博客）/">
-    <h2 class="post-title">
-      C++——class和struct的区别（4月的第一篇博客）
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      hexo new “C++——class和struct的区别（4月的第一篇博客）”
-class 和 struct 最本质的区别 : class 是引用类型，它在堆中分配空间，栈中保存的只是引用；而 struct 是值类型，它在栈中分配空间。
-什么是class?
-class（类）是面向对象编程的基本概念，是一种自定义数据结构类型，通常包含字段、属性、方法、构造函数、索引器、操作符等。在.NET......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-01
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/undefined/C++——内存分区模型/">
-    <h2 class="post-title">
-      C++——内存分区模型
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      C++——内存分区模型
-一、内存四区
-C++程序在执行时，将内存大方向划分为4个区域
-●代码区:存放函数体的二进制代码，由操作系统进行管理的
-●全局区:存放全局变量和静态变量以及常量
-●栈区:由编译器自动分配释放,存放函数的参数值,局部变量等
-●堆区:由程序员分配和释放,若程序员不释放程序结束时由操作系统回收
-意义：
-不同区域的数据，赋予不同的生命周期，可以灵活编程
-二、程序运行前
-在程序编......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-03-31
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/undefined/js——反转字符串/">
-    <h2 class="post-title">
-      js——反转字符串
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      js——反转字符串
-字符串作在程序中是非常常见的，因为程序中绝大部分的数据都可以当作字符串来处理。在这里介绍几种翻转字符串的方法。
-（1）使用字符串函数
-1234567891011121314//使用数组翻转函数function reverseString(str)&#123;    var array = str.split(&#x27;&#x27;);  //转换成字符串数组    ar......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-03-31
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/undefined/js——互动方式/">
-    <h2 class="post-title">
-      js——互动方式
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      js——互动方式
-js推荐使用单引号
-1.document.write();
-（1）这行代码里面的内容将在页面中直接输出（直接向HTML的输出流写内容），但需要加上双引号
-（2）也可以通过一个变量进行输出，不用加双引号
-（3）输出多项内容可以用+号进行连接
-（4）用于输出换行
-2.alert(字符串或变量)；
-这行代码里的内容将会以弹窗的方式显示在页面上
-3.confirm——确认
-包含一个......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-03-31
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/undefined/js中this的使用（转载）/">
-    <h2 class="post-title">
-      js中this的使用（转载）
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      js——this的使用（区分this和e.target）
-一、什么是this
-1.解析器在调用函数时，美的都会向函数内部传递进一个隐含的参数
-2.这个隐含的参数就是this，this是一个对象
-3.这个对象我们称为函数执行的上下文对象
-4.根据函数的调用方式不同，this会指向不同的对象
-1234567891011function fun()&#123;    console.log(thi......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-03-31
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/undefined/js——事件的冒泡和捕获/">
-    <h2 class="post-title">
-      js——事件的冒泡和捕获
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      js——事件冒泡和捕获
-一、理解
-12345&lt;div id=&quot;root&quot; onclick=&quot;fun1&quot;&gt;    &lt;p onclick = &quot;fun2&quot;&gt;        click me!    &lt;/p&gt;&lt;/div&gt;
-如果两个元素都有一个click的处理函数，那么我们怎么才能知道哪一个函......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-03-31
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/undefined/Vuex/">
-    <h2 class="post-title">
-      Vuex
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      Vuex
-一、Vuex是什么
-1.概念:
-​	专门在Vue中实现集中式状态(数据)管理的一个Vue插件,对vue应用中
-多个组件的共享状态进行集中式的管理(读/写) ，也是一种组件间通信的方式，且适用于任意组件间通信。
-so？什么是状态管理
-1234567891011121314151617181920new Vue(&#123;  // state  data() &#123;    re......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-03-31
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-
-  <!-- Pager -->
-  <ul class="pager">
-    
-    
-    <li class="next">
-      <a href="/archives/2/">Newer Posts &rarr;</a>
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
     </li>
-    
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=C＋＋中的this&body=Hi,I found this website and thought you might like it https://yummyx02.github.io/undefined/C＋＋中的this/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
   </ul>
-
-
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Visitors -->
-<h5><a href="/">VISITORS</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
 </div>
 
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
 
+        <!-- Sharing End -->
+        
         <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Fri Apr 01 2022 21:30:14 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
     
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">C++——this的妙用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#tips"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">tips</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
         <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+          </div>
+        </section>
+        
 
-<section>
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/img/avatar/slide.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>lazy people have no future, either struggle or die...</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/yummyX02">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-      <li>
-        <a target="_blank" href="http://weibo.com/梦GluTtoNy">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
-        <!-- RECENT POSTS -->
-
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="undefined/C%EF%BC%8B%EF%BC%8B%E4%B8%AD%E7%9A%84this/">
-      <li>C＋＋中的this</li>
-    </a>
-    
-    <a href="undefined/C%EF%BC%8B%EF%BC%8B%E5%8F%8B%E5%85%83%E5%87%BD%E6%95%B0/">
-      <li>C＋＋友元函数</li>
-    </a>
-    
-    <a href="undefined/C++%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-      <li>C++反转字符串</li>
-    </a>
-    
-    <a href="undefined/C++%E2%80%94class%E5%92%8Cstruct%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%884%E6%9C%88%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%89/">
-      <li>C++——class和struct的区别（4月的第一篇博客）</li>
-    </a>
-    
-    <a href="undefined/C++%E2%80%94%E2%80%94%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B/">
-      <li>C++——内存分区模型</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-
-        <hr>
-    
-        <!-- Archives -->
-
-<h5><a href="/archives/">archives</a></h5>
-<div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/04/">April 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">10</span></li></ul>
-</div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-
-        <hr>
-    
-</div>
-
-
-    
+        
+      </div>
+    </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->
