@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yummyx02.github.io/undefined/C-%E8%AF%BB%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/</loc>
+    
+    <lastmod>2022-04-03</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yummyx02.github.io/categories/index.html</loc>
     
     <lastmod>2022-04-01</lastmod>
@@ -151,14 +158,14 @@
 
   
   <url>
-    <loc>https://yummyx02.github.io/tags/C/</loc>
+    <loc>https://yummyx02.github.io/tags/Vue/</loc>
     <lastmod>2022-04-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://yummyx02.github.io/tags/Vue/</loc>
+    <loc>https://yummyx02.github.io/tags/C/</loc>
     <lastmod>2022-04-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
