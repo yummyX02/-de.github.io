@@ -244,28 +244,6 @@
 
           
           
-          <li>
-            <a href="/categories/">
-              
-              CATEGORIES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/tags/">
-              
-              TAGS
-              
-              
-            </a>
-          </li>
-          
-          
-          
           
           
           <li>
@@ -280,9 +258,31 @@
           
           
           <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
             <a href="/archive/">
               
               ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              TAGS
               
               
             </a>
@@ -478,6 +478,46 @@
   <!-- top end -->
   
 
+  <a href="/undefined/C-迭代器/">
+    <h2 class="post-title">
+      C++迭代器
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      C++迭代器
+迭代器 (iterator) 是 C++ 程序中常用的一种设计模式，它最重要的作用是为访问容器提供了统一的接口，将容器和算法连接起来
+
+C++ STL 有许多容器，例如 vector、list、deque、map、unordered_map
+
+一、为什么使用迭代器
+** 要访问顺序容器和关联容器中的元素，需要通过“迭代器&quot;
+** 迭代器是一个变量，相当于容器和操纵容器......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-04-04
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#C++" title="C++">C++</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
   <a href="/undefined/C-sort函数详解（转载）/">
     <h2 class="post-title">
       C++ sort函数详解（转载）
@@ -527,11 +567,12 @@ using namespace std;
     <div class="post-content-preview">
       C++ 中lower_bound函数
 该函数内置在#include中，使用了二分查找的思想
+tips：返回的是地址
 
 
 在由小到大的排序数组中
 lower_bound( begin,end,num)：从数组的begin位置到end-1位置二分查找第一个大于或等于num的数字，找到返回该数字的地址，不存在则返回end。通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。
-upper_bound( beg......
+uppe......
     </div>
   </a>
   
@@ -802,42 +843,6 @@ reverse函数用于反转在[first,last)范围内的顺序（包括first指向�
 </div>
 <hr>
 
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/C++/C++—class和struct的区别（4月的第一篇博客）/">
-    <h2 class="post-title">
-      C++——class和struct的区别（4月的第一篇博客）
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      hexo new “C++——class和struct的区别（4月的第一篇博客）”
-class 和 struct 最本质的区别 : class 是引用类型，它在堆中分配空间，栈中保存的只是引用；而 struct 是值类型，它在栈中分配空间。
-什么是class?
-class（类）是面向对象编程的基本概念，是一种自定义数据结构类型，通常包含字段、属性、方法、构造函数、索引器、操作符等。在.NET......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-01
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#C++" title="C++">C++</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
 
   <!-- Pager -->
   <ul class="pager">
@@ -886,11 +891,11 @@ class（类）是面向对象编程的基本概念，是一种自定义数据结
   <div class="tags">
     
     
-    <a href="/tags/#js" title="js" rel="4">js</a>
+    <a href="/tags/#C++" title="C++" rel="12">C++</a>
     
     
     
-    <a href="/tags/#C++" title="C++" rel="11">C++</a>
+    <a href="/tags/#Vue" title="Vue" rel="3">Vue</a>
     
     
     
@@ -898,7 +903,7 @@ class（类）是面向对象编程的基本概念，是一种自定义数据结
     
     
     
-    <a href="/tags/#Vue" title="Vue" rel="3">Vue</a>
+    <a href="/tags/#js" title="js" rel="4">js</a>
     
     
     
@@ -974,6 +979,10 @@ class（类）是面向对象编程的基本概念，是一种自定义数据结
 <div class="widget">
   <ul>
     
+    <a href="undefined/C-%E8%BF%AD%E4%BB%A3%E5%99%A8/">
+      <li>C++迭代器</li>
+    </a>
+    
     <a href="undefined/C-sort%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/">
       <li>C++ sort函数详解（转载）</li>
     </a>
@@ -988,10 +997,6 @@ class（类）是面向对象编程的基本概念，是一种自定义数据结
     
     <a href="undefined/vs-code-F5%E8%B0%83%E8%AF%95%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81/">
       <li>vs code F5调试中文乱码</li>
-    </a>
-    
-    <a href="undefined/C-%E8%AF%BB%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/">
-      <li>C++读取字符串的三种方式</li>
     </a>
     
   </ul>
@@ -1009,7 +1014,7 @@ class（类）是面向对象编程的基本概念，是一种自定义数据结
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/04/">April 2022</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">10</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/04/">April 2022</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">10</span></li></ul>
 </div>
 
 
