@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yummyx02.github.io/C++/C-%E2%80%94%E2%80%94%E4%B8%89%E7%A7%8D%E7%BB%A7%E6%89%BF%E5%92%8C%E6%9E%84%E9%80%A0-%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2022-04-15</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yummyx02.github.io/js/%E7%94%A8%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%98%E5%8C%96/</loc>
+    
+    <lastmod>2022-04-11</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yummyx02.github.io/C++/C-%E8%BF%AD%E4%BB%A3%E5%99%A8/</loc>
     
     <lastmod>2022-04-04</lastmod>
@@ -186,7 +200,7 @@
 
   <url>
     <loc>https://yummyx02.github.io/</loc>
-    <lastmod>2022-04-05</lastmod>
+    <lastmod>2022-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -194,39 +208,53 @@
   
   <url>
     <loc>https://yummyx02.github.io/tags/C/</loc>
-    <lastmod>2022-04-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://yummyx02.github.io/tags/Vue/</loc>
-    <lastmod>2022-04-05</lastmod>
+    <lastmod>2022-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://yummyx02.github.io/tags/js/</loc>
-    <lastmod>2022-04-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://yummyx02.github.io/tags/vs-code/</loc>
-    <lastmod>2022-04-05</lastmod>
+    <lastmod>2022-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://yummyx02.github.io/tags/hexo/</loc>
-    <lastmod>2022-04-05</lastmod>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yummyx02.github.io/tags/vs-code/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yummyx02.github.io/tags/Vue/</loc>
+    <lastmod>2022-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
 
+  
+  <url>
+    <loc>https://yummyx02.github.io/categories/C/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yummyx02.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2022-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
   
 </urlset>

@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://yummyx02.github.io/">
+  <link rel="canonical" href="https://yummyx02.github.io/C++/C-——三种继承和构造-析构函数/">
   <title>
     
-      either strugle | or die
+      C++——三种继承和构造/析构函数 - either strugle | or die
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -300,29 +300,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      English
-    </span>
-    <select id="lang-select" data-canonical="index.html">
-      
-      
-      <option value="en"  selected >
-        English
-      </option>
-      
-      <option value="cn" >
-        简体中文
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -384,9 +362,9 @@
     }
 
     header.intro-header {
-       /*config*/
-        background-image: var(--intro-header-background-image-url-home);
-        /* background-image: url('/img/header_img/newhome_bg.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url(''); */
       
     }
 
@@ -408,10 +386,42 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Struggle in my life</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">王翔的博客</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#C++" title="C++">C++</a>
+              
+            </div>
+            <h1>C++——三种继承和构造/析构函数</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by 王翔_x on
+              2022-04-15
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">5</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">1.3k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -452,605 +462,312 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h1>C++——继承</h1>
+<h2 id="1）基类成员对派生类的可见性">1）基类成员对派生类的可见性</h2>
+<ol>
+<li>
+<p>公有继承(public) ：基类的公有成员和保护成员作为派生类的成员时，它们都保持原有的状态，而基类的私有成员仍然是私有的，不能被这个派生类的子类所访问。</p>
+</li>
+<li>
+<p>私有继承(private) ：基类的公有成员和保护成员都作为派生类的私有成员，并且不能被这个派生类的子类所访问。</p>
+</li>
+<li>
+<p>保护继承(protected) ：基类的所有公有成员和保护成员都成为派生类的保护成员，并且只能被它的派生类成员函数或友元访问，基类的私有成员仍然是私有的。</p>
+</li>
+</ol>
+<p>下面列出三种不同的继承方式的基类特性和派生类特性。</p>
+<pre><code>表一：基类成员对派生类的可见性                                        public    protected     private
+
+公有继承        可见       可见     不可见    
+
+私有继承        可见       可见     不可见     
+
+保护继承        可见       可见     不可见
+</code></pre>
+<p>2）基类成员对派生类对象的可见性</p>
+<pre><code>表二：基类成员对派生类对象的可见性                         				public    protected     private
+公有继承       可见      不可见     不可见                                                                                     
+私有继承      不可见      不可见     不可见                                                                          
+保护继承      不可见      不可见     不可见                                 
+</code></pre>
+<p>在公有继承时，派生类的对象可以访问基类中的公有成员；派生类的成员函数可以访问基类中的公有成员和保护成员。</p>
+<p>在私有继承时，基类的成员只能由直接派生类访问，而无法再往下继承。</p>
+<p>上述所说的可见性也就是可访问性。称派生类的对象对基类访问为水平访问，称派生类的派生类对基类的访问为垂直访问。</p>
+<blockquote>
+<p>公有继承时，水平访问和垂直访问对基类中的公有成员不受限制；</p>
+</blockquote>
+<blockquote>
+<p>私有继承时，水平访问和垂直访问对基类中的公有成员也不能访问；</p>
+</blockquote>
+<blockquote>
+<p>保护继承时，对于垂直访问同于公有继承，对于水平访问同于私有继承。</p>
+</blockquote>
+<p>基类中的私有成员，只能被基类中的成员函数和友元函数所访问，不能被其他的函数访问。</p>
+<p>公有继承、私有继承和保护继承都可以通过函数访问父类的保护变量，但不可以访问父类的私有变量。</p>
+<p><strong>无论采用什么派生的方式，派生类中都不能访问基类的私有成员</strong></p>
+<h2 id="（2）虚基类的继承（virtual）">（2）虚基类的继承（virtual）</h2>
+<h3 id="为何存在？">为何存在？</h3>
+<p>为了解决在多继承的环境下产生的二义性问题，即：访问某个数据，但是编译器不知道到底该访问哪个</p>
+<p>eg:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span></span><br><span class="line">    Public:</span><br><span class="line">    	<span class="built_in">Base</span>()&#123;</span><br><span class="line">        	age = <span class="number">17</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">int</span> age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base1</span> :</span>Public Base &#123;</span><br><span class="line">	<span class="keyword">int</span> age1</span><br><span class="line">   Public:</span><br><span class="line">    <span class="built_in">Base1</span>()&#123;</span><br><span class="line">        age1 = <span class="number">19</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base2</span> :</span> Public Base&#123;</span><br><span class="line">	<span class="keyword">int</span> age2</span><br><span class="line">   Public:</span><br><span class="line">    <span class="built_in">Base2</span>()&#123;</span><br><span class="line">        age2 = <span class="number">20</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> :</span>Public Base1,Public Base2&#123;</span><br><span class="line">    Public:</span><br><span class="line">    	<span class="built_in">Son</span>()&#123;</span><br><span class="line">            age3 = <span class="number">18</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">int</span> age3;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Son s;</span><br><span class="line">    s.age = <span class="number">16</span>;<span class="comment">//报错：Base1 and Base2 都有age这个数据</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>解决办法</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种：加作用域标识符</span></span><br><span class="line"><span class="built_in">void</span> test()&#123;</span><br><span class="line">    Son s;</span><br><span class="line">    s.Base1::s.age = <span class="number">16</span>;<span class="comment">//报错：Base1 and Base2 都有age这个数据</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//第二种：加virtual关键词（虚继承）</span></span><br><span class="line"><span class="keyword">class</span> <span class="symbol">Base1</span> :<span class="symbol">virtual</span> <span class="symbol">Public</span> <span class="symbol">Base</span> &#123;</span><br><span class="line">	<span class="built_in">int</span> age1</span><br><span class="line">   Public:</span><br><span class="line">    Base1()&#123;</span><br><span class="line">        age1 = <span class="number">19</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="symbol">Base2</span> : <span class="symbol">virtual</span> <span class="symbol">Public</span> <span class="symbol">Base</span>&#123;</span><br><span class="line">	<span class="built_in">int</span> age2</span><br><span class="line">   Public:</span><br><span class="line">    Base2()&#123;</span><br><span class="line">        age2 = <span class="number">20</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>tips：虚继承相当于是共享被继承的类，里面的数据只有一份，其底层原理是：</p>
+<blockquote>
+<p>当使用虚继承时，会自动给继承的类分配一个虚继承指针，通过指针的偏移来访问被继承类里面的数据</p>
+<p>且当发生多继承时，这些指针都是独立存在的，偏移的量也不同，但是最后访问到的数据是同一个</p>
+</blockquote>
+<p>注意：</p>
+<p>当使用继承后，想要使用初始化列表来进行成员数据初始化，必须显示调用基类构造函数，否则调用的是默认构造函数</p>
+<p>eg:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base1</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="keyword">int</span> data1;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Base1</span>(<span class="keyword">int</span> a = <span class="number">8</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        data1 = a;</span><br><span class="line">        cout &lt;&lt; data1 &lt;&lt; <span class="string">&quot;, Base Constructor1\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">Base1</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; data1 &lt;&lt; <span class="string">&quot;, Base Destructor1\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base2</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="keyword">int</span> data2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Base2</span>(<span class="keyword">int</span> a = <span class="number">9</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        data2 = a;</span><br><span class="line">        cout &lt;&lt; data2 &lt;&lt; <span class="string">&quot;, Base Constructor2\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">Base2</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; data2 &lt;&lt; <span class="string">&quot;, Base Destructor2\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span> :</span> <span class="keyword">public</span> Base1, <span class="keyword">public</span> Base2</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> d;</span><br><span class="line">    Base1 b1, b2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Derived</span>(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z) : <span class="built_in">Base1</span>(x), <span class="built_in">Base2</span>(y), <span class="built_in">b1</span>(x + y), <span class="built_in">b2</span>(x + z)</span><br><span class="line">    &#123;</span><br><span class="line">        d = z;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Derived Constructor\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">Derived</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Derived Destructor\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Show</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        cout &lt;&lt; data1 &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; data2 &lt;&lt; <span class="string">&#x27;,&#x27;</span> &lt;&lt; d &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>构造函数的调用顺序：</p>
+<p><strong>1.</strong> <strong>构造函数的调用次序</strong></p>
+<p>在创建一个派生类的对象时</p>
+<p>先调用其基类的构造函数</p>
+<p>再调用本类对象成员的构造函数</p>
+<p>最后才调用本类的构造函数</p>
+<p>注意：当使用virtual关键字时，被继承的类构造函数只调用一次！（因为是共享的数据）</p>
+<p><strong>2.</strong> <strong>析构函数的调用次序</strong></p>
+<p>先调用本类的析构函数</p>
+<p>再调用本类对象成员的析构函数</p>
+<p>最后才调用其基类的析构函数</p>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/js/用作用域解释一个变量的变化/" data-toggle="tooltip" data-placement="top" title="用作用域解释一个变量的变化">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
     
-
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-
-      <!-- Main Content -->
-
-
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/C++/C-——三种继承和构造-析构函数/">
-    <h2 class="post-title">
-      C++——三种继承和构造/析构函数
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      C++——继承
-1）基类成员对派生类的可见性
-
-
-公有继承(public) ：基类的公有成员和保护成员作为派生类的成员时，它们都保持原有的状态，而基类的私有成员仍然是私有的，不能被这个派生类的子类所访问。
-
-
-私有继承(private) ：基类的公有成员和保护成员都作为派生类的私有成员，并且不能被这个派生类的子类所访问。
-
-
-保护继承(protected) ：基类的所有公有成员和保护成员都成......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-15
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
   </p>
-  <div class="tags">
-    
-    <a href="/tags/#C++" title="C++">C++</a>
-    
-  </div>
-  
-
 </div>
-<hr>
+<!-- tip end -->
 
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
+        <!-- tip end -->
+        
 
-  <a href="/js/用作用域解释一个变量的变化/">
-    <h2 class="post-title">
-      用作用域解释一个变量的变化
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      js的作用域角度解释a变量的变化
-123456789101112function foo(func)&#123;    func(&quot;changed&quot;)&#125;function bar()&#123;    let a=&quot;unchanged&quot;;    function b(res)&#123;        a=res    &#125;    fo......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-11
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#js" title="js">js</a>
-    
-  </div>
-  
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
 
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/C++/C-迭代器/">
-    <h2 class="post-title">
-      C++迭代器
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      C++迭代器
-迭代器 (iterator) 是 C++ 程序中常用的一种设计模式，它最重要的作用是为访问容器提供了统一的接口，将容器和算法连接起来
-
-C++ STL 有许多容器，例如 vector、list、deque、map、unordered_map
-
-一、为什么使用迭代器
-** 要访问顺序容器和关联容器中的元素，需要通过“迭代器&quot;
-** 迭代器是一个变量，相当于容器和操纵容器......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-04
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#C++" title="C++">C++</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/C++/C-sort函数详解（转载）/">
-    <h2 class="post-title">
-      C++ sort函数详解（转载）
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      C++sort函数详解
-1.sort
-使用：#include 
-using namespace std;
-作用：排序
-时间复杂度：n*lg(n)
-实现原理：sort并不是简单的快速排序，它对普通的快速排序进行了优化，此外，它还结合了插入排序和推排序。系统会根据你的数据形式和数据量自动选择合适的排序方法，这并不是说它每次排序只选择一种方法，它是在一次完整排序中不同的情况选用不同方法，比如给一个......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-03
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#C++" title="C++">C++</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/C++/C-lower-bound-and-upper-bound函数一些记录/">
-    <h2 class="post-title">
-      C++ lower_bound and upper_bound函数一些记录
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      C++ 中lower_bound函数
-该函数内置在#include中，使用了二分查找的思想
-tips：返回的是地址
-
-
-在由小到大的排序数组中
-lower_bound( begin,end,num)：从数组的begin位置到end-1位置二分查找第一个大于或等于num的数字，找到返回该数字的地址，不存在则返回end。通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。
-uppe......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-03
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#C++" title="C++">C++</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/C++/C-中几乎万能的头文件/">
-    <h2 class="post-title">
-      C++中几乎万能的头文件
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      C++几乎万能的头文件
-1#include&lt;bits/stdc++.h&gt;
-了解发现它是C++中支持的一个几乎万能的头文件，几乎包含所有的可用到的C++库函数。以后写代码就可以直接引用这一个头文件了，不需要在写一大堆vector、string、map、stack…
-这是该头文件的详细内容：
-1234567891011121314151617181920212223242526272......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-03
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#C++" title="C++">C++</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/vs code/vs-code-F5调试中文乱码/">
-    <h2 class="post-title">
-      vs code F5调试中文乱码
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      12345//在tasks.json里的args中添加&quot;-fexec-charset=GBK&quot;,   // 处理mingw中文编码问题&quot;-finput-charset=UTF-8&quot;,// 处理mingw中文编码问题
-完美解决F5调试乱码的问题
-...
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-03
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#vs code" title="vs code">vs code</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/C++/C-读取字符串的三种方式/">
-    <h2 class="post-title">
-      C++读取字符串的三种方式
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      C++读取字符串的三种方式
-一、cin
-tips：cin遇到&quot;空格&quot; “TAB” &quot;回车&quot;就会结束读取
-
-1234567891011121314#include&lt;iostream&gt;using namespace std;int main()&#123;    char s[20];    cin &gt;&gt; s;    cout &l......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-03
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#C++" title="C++">C++</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/C++/静态成员必须初始化吗？/">
-    <h2 class="post-title">
-      静态成员必须初始化吗？
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      静态成员变量必须初始化吗？
-我们知道C++类的静态成员变量是需要初始化的，但为什么要初始化呢。
-其实这句话“静态成员变量是需要初始化的”是有一定问题的，应该说“静态成员变量需要定义”才是准确的，而不是初始化。
-两者的区别在于：初始化是赋一个初始值，而定义是分配内存。
-静态成员变量在类中仅仅是声明，没有定义，所以要在类的外面定义，实际上是给静态成员变量分配内存。
-可以通过以下几个例子更形象的说......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-01
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#C++" title="C++">C++</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/C++/C＋＋中的this/">
-    <h2 class="post-title">
-      C＋＋中的this
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      C++——this的妙用
-123456789101112131415161718192021class A&#123; int i; public: void Hello() &#123; cout &lt;&lt; &quot;hello&quot; &lt;&lt; endl; &#125;&#125;; int main()&#123; A * p = NULL; p-&gt;Hell......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-01
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#C++" title="C++">C++</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-
-  <!-- Pager -->
-  <ul class="pager">
-    
-    
-    <li class="next">
-      <a href="/archives/2/">Newer Posts &rarr;</a>
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
     </li>
-    
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=C++——三种继承和构造/析构函数&body=Hi,I found this website and thought you might like it https://yummyx02.github.io/C++/C-——三种继承和构造-析构函数/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
   </ul>
-
-
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Visitors -->
-<h5><a href="/">VISITORS</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
 </div>
 
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
 
+        <!-- Sharing End -->
+        
         <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Fri Apr 15 2022 21:43:54 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
     
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">C++——继承</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1%EF%BC%89%E5%9F%BA%E7%B1%BB%E6%88%90%E5%91%98%E5%AF%B9%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E5%8F%AF%E8%A7%81%E6%80%A7"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1）基类成员对派生类的可见性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%EF%BC%882%EF%BC%89%E8%99%9A%E5%9F%BA%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%EF%BC%88virtual%EF%BC%89"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">（2）虚基类的继承（virtual）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%BA%E4%BD%95%E5%AD%98%E5%9C%A8%EF%BC%9F"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">为何存在？</span></a></li></ol></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
         <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#C++" title="C++">C++</a>
+            
+          </div>
+        </section>
+        
 
-<section>
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#C++" title="C++" rel="13">C++</a>
-    
-    
-    
-    <a href="/tags/#js" title="js" rel="5">js</a>
-    
-    
-    
-    <a href="/tags/#hexo" title="hexo" rel="1">hexo</a>
-    
-    
-    
-    <a href="/tags/#vs code" title="vs code" rel="1">vs code</a>
-    
-    
-    
-    <a href="/tags/#Vue" title="Vue" rel="3">Vue</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/img/avatar/slide.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>lazy people have no future, either struggle or die...</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/yummyX02">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-      <li>
-        <a target="_blank" href="http://weibo.com/梦GluTtoNy">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
-        <!-- RECENT POSTS -->
-
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="C++/C-%E2%80%94%E2%80%94%E4%B8%89%E7%A7%8D%E7%BB%A7%E6%89%BF%E5%92%8C%E6%9E%84%E9%80%A0-%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/">
-      <li>C++——三种继承和构造/析构函数</li>
-    </a>
-    
-    <a href="js/%E7%94%A8%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%98%E5%8C%96/">
-      <li>用作用域解释一个变量的变化</li>
-    </a>
-    
-    <a href="C++/C-%E8%BF%AD%E4%BB%A3%E5%99%A8/">
-      <li>C++迭代器</li>
-    </a>
-    
-    <a href="C++/C-sort%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/">
-      <li>C++ sort函数详解（转载）</li>
-    </a>
-    
-    <a href="C++/C-lower-bound-and-upper-bound%E5%87%BD%E6%95%B0%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/">
-      <li>C++ lower_bound and upper_bound函数一些记录</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-
-        <hr>
-    
-        <!-- Archives -->
-
-<h5><a href="/archives/">archives</a></h5>
-<div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/04/">April 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">10</span></li></ul>
-</div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-<h5><a href="/categories/">categories</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#C++">
-      <li>C++</li>
-    </a>
-    
-    <a href="/categories/#前端">
-      <li>前端</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-
-    
+        
+      </div>
+    </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->
