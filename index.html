@@ -244,6 +244,15 @@
 
           
           
+          <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
           
           
           <li>
@@ -258,9 +267,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -278,15 +287,6 @@
           </li>
           
           
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
           
           
 
@@ -470,6 +470,86 @@
       <!-- Main Content -->
 
 
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/js/js-同步和异步/">
+    <h2 class="post-title">
+      js-同步和异步
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      js—同步和异步
+一、js中的事件处理机制
+1、进程、线程、协程
+
+
+进程（process）：保存在硬盘上的程序会被载入到内存中运行，在内存空间里面形成一个独立的内存体，这个内存体有自己独立的地址空间，系统也会为应用的每一个进程分配独立的CPU、内存等资源。
+
+
+线程（thread）：进程中执行的每一个任务指的就是线程，系统不会为其分配内存资源，各个线程共享进程拥有的内存资源(线程也被称为轻......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-05-04
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#js" title="js">js</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/js/js-事件循环/">
+    <h2 class="post-title">
+      js-事件循环
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      js—事件循环（宏、微任务）
+一、事件循环的出现
+请注意：在js中，所有的异步任务都是放到事件循环队列中等待执行栈来调用，没有单独的线程
+众所周知，js是单线程语言，同一时间只能处理一件事情，为了协调事件、用户交互、脚本、UI 渲染和网络处理等行为，防止主线程的不阻塞，Event Loop （事件循环）应运而生
+那么，什么是事件循环呢？（浏览器
+
+事件循环即为：浏览器的 js 引擎 中等待任......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-05-04
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#js" title="js">js</a>
+    
+  </div>
+  
+
+</div>
+<hr>
 
 <div class="post-preview">
   
@@ -776,78 +856,6 @@ tips：cin遇到&quot;空格&quot; “TAB” &quot;回车&quot;就会结束读�
 </div>
 <hr>
 
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/C++/静态成员必须初始化吗？/">
-    <h2 class="post-title">
-      静态成员必须初始化吗？
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      静态成员变量必须初始化吗？
-我们知道C++类的静态成员变量是需要初始化的，但为什么要初始化呢。
-其实这句话“静态成员变量是需要初始化的”是有一定问题的，应该说“静态成员变量需要定义”才是准确的，而不是初始化。
-两者的区别在于：初始化是赋一个初始值，而定义是分配内存。
-静态成员变量在类中仅仅是声明，没有定义，所以要在类的外面定义，实际上是给静态成员变量分配内存。
-可以通过以下几个例子更形象的说......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-01
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#C++" title="C++">C++</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/C++/C＋＋中的this/">
-    <h2 class="post-title">
-      C＋＋中的this
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      C++——this的妙用
-123456789101112131415161718192021class A&#123; int i; public: void Hello() &#123; cout &lt;&lt; &quot;hello&quot; &lt;&lt; endl; &#125;&#125;; int main()&#123; A * p = NULL; p-&gt;Hell......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-04-01
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#C++" title="C++">C++</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
 
   <!-- Pager -->
   <ul class="pager">
@@ -896,11 +904,15 @@ tips：cin遇到&quot;空格&quot; “TAB” &quot;回车&quot;就会结束读�
   <div class="tags">
     
     
+    <a href="/tags/#js" title="js" rel="7">js</a>
+    
+    
+    
+    <a href="/tags/#vs code" title="vs code" rel="1">vs code</a>
+    
+    
+    
     <a href="/tags/#hexo" title="hexo" rel="1">hexo</a>
-    
-    
-    
-    <a href="/tags/#Vue" title="Vue" rel="3">Vue</a>
     
     
     
@@ -908,11 +920,7 @@ tips：cin遇到&quot;空格&quot; “TAB” &quot;回车&quot;就会结束读�
     
     
     
-    <a href="/tags/#js" title="js" rel="5">js</a>
-    
-    
-    
-    <a href="/tags/#vs code" title="vs code" rel="1">vs code</a>
+    <a href="/tags/#Vue" title="Vue" rel="3">Vue</a>
     
     
   </div>
@@ -984,6 +992,14 @@ tips：cin遇到&quot;空格&quot; “TAB” &quot;回车&quot;就会结束读�
 <div class="widget">
   <ul>
     
+    <a href="js/js-%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5/">
+      <li>js-同步和异步</li>
+    </a>
+    
+    <a href="js/js-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
+      <li>js-事件循环</li>
+    </a>
+    
     <a href="C++/C-%E2%80%94%E2%80%94%E4%B8%89%E7%A7%8D%E7%BB%A7%E6%89%BF%E5%92%8C%E6%9E%84%E9%80%A0-%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/">
       <li>C++——三种继承和构造/析构函数</li>
     </a>
@@ -994,14 +1010,6 @@ tips：cin遇到&quot;空格&quot; “TAB” &quot;回车&quot;就会结束读�
     
     <a href="C++/C-%E8%BF%AD%E4%BB%A3%E5%99%A8/">
       <li>C++迭代器</li>
-    </a>
-    
-    <a href="C++/C-sort%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/">
-      <li>C++ sort函数详解（转载）</li>
-    </a>
-    
-    <a href="C++/C-lower-bound-and-upper-bound%E5%87%BD%E6%95%B0%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/">
-      <li>C++ lower_bound and upper_bound函数一些记录</li>
     </a>
     
   </ul>
@@ -1019,7 +1027,7 @@ tips：cin遇到&quot;空格&quot; “TAB” &quot;回车&quot;就会结束读�
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/04/">April 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">10</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/04/">April 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="archives/2022/03/">March 2022</a><span class="archive-list-count">10</span></li></ul>
 </div>
 
 
@@ -1031,12 +1039,12 @@ tips：cin遇到&quot;空格&quot; “TAB” &quot;回车&quot;就会结束读�
 <div class="widget">
   <ul>
     
-    <a href="/categories/#C++">
-      <li>C++</li>
-    </a>
-    
     <a href="/categories/#前端">
       <li>前端</li>
+    </a>
+    
+    <a href="/categories/#C++">
+      <li>C++</li>
     </a>
     
   </ul>

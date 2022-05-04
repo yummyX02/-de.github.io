@@ -244,6 +244,15 @@
 
           
           
+          <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
           
           
           <li>
@@ -258,9 +267,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -278,15 +287,6 @@
           </li>
           
           
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
           
           
 
@@ -470,6 +470,78 @@
       <!-- Main Content -->
 
 
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/C++/静态成员必须初始化吗？/">
+    <h2 class="post-title">
+      静态成员必须初始化吗？
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      静态成员变量必须初始化吗？
+我们知道C++类的静态成员变量是需要初始化的，但为什么要初始化呢。
+其实这句话“静态成员变量是需要初始化的”是有一定问题的，应该说“静态成员变量需要定义”才是准确的，而不是初始化。
+两者的区别在于：初始化是赋一个初始值，而定义是分配内存。
+静态成员变量在类中仅仅是声明，没有定义，所以要在类的外面定义，实际上是给静态成员变量分配内存。
+可以通过以下几个例子更形象的说......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-04-01
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#C++" title="C++">C++</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/C++/C＋＋中的this/">
+    <h2 class="post-title">
+      C＋＋中的this
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      C++——this的妙用
+123456789101112131415161718192021class A&#123; int i; public: void Hello() &#123; cout &lt;&lt; &quot;hello&quot; &lt;&lt; endl; &#125;&#125;; int main()&#123; A * p = NULL; p-&gt;Hell......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-04-01
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#C++" title="C++">C++</a>
+    
+  </div>
+  
+
+</div>
+<hr>
 
 <div class="post-preview">
   
@@ -776,86 +848,6 @@ js推荐使用单引号
 </div>
 <hr>
 
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/Vue/Vuex/">
-    <h2 class="post-title">
-      Vuex
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      Vuex
-一、Vuex是什么
-1.概念:
-​	专门在Vue中实现集中式状态(数据)管理的一个Vue插件,对vue应用中
-多个组件的共享状态进行集中式的管理(读/写) ，也是一种组件间通信的方式，且适用于任意组件间通信。
-so？什么是状态管理
-1234567891011121314151617181920new Vue(&#123;  // state  data() &#123;    re......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-03-31
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#Vue" title="Vue">Vue</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/Vue/Vue——路由/">
-    <h2 class="post-title">
-      Vue——路由
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      Vue——路由
-一、何为路由——vue-router
-路由其实就是一种对应关系（一组key-value）：对于前端来说，key—路径；value—组件
-对于后端来说，value是function 用于处理客户端的请求，根据请求路径来匹配函数
-​	多个路由需要经过路由器
-1.单页web（SPA应用）
-2.只有一个完整的页面
-3.点击导航链接不会刷新页面，只会做页面的局部刷新
-4.数据需要通过a......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-03-31
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#Vue" title="Vue">Vue</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
 
   <!-- Pager -->
   <ul class="pager">
@@ -908,11 +900,15 @@ so？什么是状态管理
   <div class="tags">
     
     
+    <a href="/tags/#js" title="js" rel="7">js</a>
+    
+    
+    
+    <a href="/tags/#vs code" title="vs code" rel="1">vs code</a>
+    
+    
+    
     <a href="/tags/#hexo" title="hexo" rel="1">hexo</a>
-    
-    
-    
-    <a href="/tags/#Vue" title="Vue" rel="3">Vue</a>
     
     
     
@@ -920,11 +916,7 @@ so？什么是状态管理
     
     
     
-    <a href="/tags/#js" title="js" rel="5">js</a>
-    
-    
-    
-    <a href="/tags/#vs code" title="vs code" rel="1">vs code</a>
+    <a href="/tags/#Vue" title="Vue" rel="3">Vue</a>
     
     
   </div>
@@ -996,6 +988,14 @@ so？什么是状态管理
 <div class="widget">
   <ul>
     
+    <a href="../../js/js-%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5/">
+      <li>js-同步和异步</li>
+    </a>
+    
+    <a href="../../js/js-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
+      <li>js-事件循环</li>
+    </a>
+    
     <a href="../../C++/C-%E2%80%94%E2%80%94%E4%B8%89%E7%A7%8D%E7%BB%A7%E6%89%BF%E5%92%8C%E6%9E%84%E9%80%A0-%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/">
       <li>C++——三种继承和构造/析构函数</li>
     </a>
@@ -1006,14 +1006,6 @@ so？什么是状态管理
     
     <a href="../../C++/C-%E8%BF%AD%E4%BB%A3%E5%99%A8/">
       <li>C++迭代器</li>
-    </a>
-    
-    <a href="../../C++/C-sort%E5%87%BD%E6%95%B0%E8%AF%A6%E8%A7%A3%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/">
-      <li>C++ sort函数详解（转载）</li>
-    </a>
-    
-    <a href="../../C++/C-lower-bound-and-upper-bound%E5%87%BD%E6%95%B0%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/">
-      <li>C++ lower_bound and upper_bound函数一些记录</li>
     </a>
     
   </ul>
@@ -1031,7 +1023,7 @@ so？什么是状态管理
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2022/04/">April 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/03/">March 2022</a><span class="archive-list-count">10</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/04/">April 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/03/">March 2022</a><span class="archive-list-count">10</span></li></ul>
 </div>
 
 
@@ -1043,12 +1035,12 @@ so？什么是状态管理
 <div class="widget">
   <ul>
     
-    <a href="/categories/#C++">
-      <li>C++</li>
-    </a>
-    
     <a href="/categories/#前端">
       <li>前端</li>
+    </a>
+    
+    <a href="/categories/#C++">
+      <li>C++</li>
     </a>
     
   </ul>
