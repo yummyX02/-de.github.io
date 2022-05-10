@@ -245,31 +245,9 @@
           
           
           <li>
-            <a href="/categories/">
-              
-              CATEGORIES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
             <a href="/about/">
               
               ABOUT
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
               
               
             </a>
@@ -287,6 +265,28 @@
           </li>
           
           
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
           
           
 
@@ -478,6 +478,188 @@
   <!-- top end -->
   
 
+  <a href="/C++/C-sort函数详解（转载）/">
+    <h2 class="post-title">
+      C++ sort函数详解（转载）
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      C++sort函数详解1.sort使用：#include 
+　　  using namespace std;
+作用：排序
+时间复杂度：n*lg(n)
+实现原理：sort并不是简单的快速排序，它对普通的快速排序进行了优化，此外，它还结合了插入排序和推排序。系统会根据你的数据形式和数据量自动选择合适的排序方法，这并不是说它每次排序只选择一种方法，它是在一次完整排序中不同的情况选用不同方法，比如给......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-04-03
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#C++" title="C++">C++</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/C++/C-lower-bound-and-upper-bound函数一些记录/">
+    <h2 class="post-title">
+      C++ lower_bound and upper_bound函数一些记录
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      C++ 中lower_bound函数该函数内置在#include中，使用了二分查找的思想
+tips：返回的是地址
+
+在由小到大的排序数组中
+
+  lower_bound( begin,end,num)：从数组的begin位置到end-1位置二分查找第一个大于或等于num的数字，找到返回该数字的地址，不存在则返回end。通过返回的地址减去起始地址begin,得到找到数字在数组中的下标。
+  u......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-04-03
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#C++" title="C++">C++</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/C++/C-中几乎万能的头文件/">
+    <h2 class="post-title">
+      C++中几乎万能的头文件
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      C++几乎万能的头文件1#include&lt;bits/stdc++.h&gt;
+了解发现它是C++中支持的一个几乎万能的头文件，几乎包含所有的可用到的C++库函数。以后写代码就可以直接引用这一个头文件了，不需要在写一大堆vector、string、map、stack……..
+这是该头文件的详细内容：
+12345678910111213141516171819202122232425262......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-04-03
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#C++" title="C++">C++</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/vs code/vs-code-F5调试中文乱码/">
+    <h2 class="post-title">
+      vs code F5调试中文乱码
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      12345//在tasks.json里的args中添加&quot;-fexec-charset=GBK&quot;,   // 处理mingw中文编码问题&quot;-finput-charset=UTF-8&quot;,// 处理mingw中文编码问题
+完美解决F5调试乱码的问题
+...
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-04-03
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#vs code" title="vs code">vs code</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/C++/C-读取字符串的三种方式/">
+    <h2 class="post-title">
+      C++读取字符串的三种方式
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      C++读取字符串的三种方式一、cintips：cin遇到”空格” “TAB” “回车”就会结束读取
+
+1234567891011121314#include&lt;iostream&gt;using namespace std;int main()&#123;    char s[20];    cin &gt;&gt; s;    cout &lt;&lt; s &lt;&lt; endl......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 王翔_x on
+    2022-04-03
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#C++" title="C++">C++</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
   <a href="/C++/静态成员必须初始化吗？/">
     <h2 class="post-title">
       静态成员必须初始化吗？
@@ -486,12 +668,11 @@
       
     </h3>
     <div class="post-content-preview">
-      静态成员变量必须初始化吗？
-我们知道C++类的静态成员变量是需要初始化的，但为什么要初始化呢。
+      静态成员变量必须初始化吗？我们知道C++类的静态成员变量是需要初始化的，但为什么要初始化呢。
 其实这句话“静态成员变量是需要初始化的”是有一定问题的，应该说“静态成员变量需要定义”才是准确的，而不是初始化。
 两者的区别在于：初始化是赋一个初始值，而定义是分配内存。
 静态成员变量在类中仅仅是声明，没有定义，所以要在类的外面定义，实际上是给静态成员变量分配内存。
-可以通过以下几个例子更形象的说......
+可以通过以下几个例子更形象的说明......
     </div>
   </a>
   
@@ -524,8 +705,7 @@
       
     </h3>
     <div class="post-content-preview">
-      C++——this的妙用
-123456789101112131415161718192021class A&#123; int i; public: void Hello() &#123; cout &lt;&lt; &quot;hello&quot; &lt;&lt; endl; &#125;&#125;; int main()&#123; A * p = NULL; p-&gt;Hell......
+      C++——this的妙用123456789101112131415161718192021class A&#123; int i; public: void Hello() &#123; cout &lt;&lt; &quot;hello&quot; &lt;&lt; endl; &#125;&#125;; int main()&#123; A * p = NULL; p-&gt;Hello......
     </div>
   </a>
   
@@ -558,9 +738,7 @@
       
     </h3>
     <div class="post-content-preview">
-      C++友元函数
-一、友元的作用
-​	 在C++中，我们使用类对数据进行了隐藏和封装，类的数据成员一般都定义为私有成员，成员函数一般都定义为公有的，以此提供类与外界的通讯接口。但是，有时需要定义一些函数，这些函数不是类的一部分，但又需要频繁地访问类的数据成员，这时可以将这些函数定义为该函数的友元函数。除了友元函数外，还有友元类，两者统称为友元。友元的作用是提高了程序的运行效率（即减少了类型检查......
+      C++友元函数一、友元的作用​     在C++中，我们使用类对数据进行了隐藏和封装，类的数据成员一般都定义为私有成员，成员函数一般都定义为公有的，以此提供类与外界的通讯接口。但是，有时需要定义一些函数，这些函数不是类的一部分，但又需要频繁地访问类的数据成员，这时可以将这些函数定义为该函数的友元函数。除了友元函数外，还有友元类，两者统称为友元。友元的作用是提高了程序的运行效率（即减少了类型检......
     </div>
   </a>
   
@@ -593,11 +771,8 @@
       
     </h3>
     <div class="post-content-preview">
-      C++字符串反转的3种方法
-一、调用reverse（）函数
-reverse函数用于反转在[first,last)范围内的顺序（包括first指向的元素，不包括last指向的元素），reverse函数**没有返回值**
-
-123//语法规范template &lt;class BidirectionalIterator&gt;void reverse (BidirectionalIterato......
+      C++字符串反转的3种方法一、调用reverse（）函数 reverse函数用于反转在[first,last)范围内的顺序（包括first指向的元素，不包括last指向的元素），reverse函数**没有返回值**
+123//语法规范template &lt;class BidirectionalIterator&gt;void reverse (BidirectionalIterator ......
     </div>
   </a>
   
@@ -630,10 +805,8 @@ reverse函数用于反转在[first,last)范围内的顺序（包括first指向�
       
     </h3>
     <div class="post-content-preview">
-      hexo new “C++——class和struct的区别（4月的第一篇博客）”
-class 和 struct 最本质的区别 : class 是引用类型，它在堆中分配空间，栈中保存的只是引用；而 struct 是值类型，它在栈中分配空间。
-什么是class?
-class（类）是面向对象编程的基本概念，是一种自定义数据结构类型，通常包含字段、属性、方法、构造函数、索引器、操作符等。在.NET......
+      hexo new “C++——class和struct的区别（4月的第一篇博客）”class 和 struct 最本质的区别 : class 是引用类型，它在堆中分配空间，栈中保存的只是引用；而 struct 是值类型，它在栈中分配空间。
+什么是class?class（类）是面向对象编程的基本概念，是一种自定义数据结构类型，通常包含字段、属性、方法、构造函数、索引器、操作符等。在.NET中，......
     </div>
   </a>
   
@@ -644,203 +817,6 @@ class（类）是面向对象编程的基本概念，是一种自定义数据结
   <div class="tags">
     
     <a href="/tags/#C++" title="C++">C++</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/C++/C++——内存分区模型/">
-    <h2 class="post-title">
-      C++——内存分区模型
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      C++——内存分区模型
-一、内存四区
-C++程序在执行时，将内存大方向划分为4个区域
-●代码区:存放函数体的二进制代码，由操作系统进行管理的
-●全局区:存放全局变量和静态变量以及常量
-●栈区:由编译器自动分配释放,存放函数的参数值,局部变量等
-●堆区:由程序员分配和释放,若程序员不释放程序结束时由操作系统回收
-意义：
-不同区域的数据，赋予不同的生命周期，可以灵活编程
-二、程序运行前
-在程序编......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-03-31
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#C++" title="C++">C++</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/js/js——反转字符串/">
-    <h2 class="post-title">
-      js——反转字符串
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      js——反转字符串
-字符串作在程序中是非常常见的，因为程序中绝大部分的数据都可以当作字符串来处理。在这里介绍几种翻转字符串的方法。
-（1）使用字符串函数
-1234567891011121314//使用数组翻转函数function reverseString(str)&#123;    var array = str.split(&#x27;&#x27;);  //转换成字符串数组    ar......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-03-31
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#js" title="js">js</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/js/js——互动方式/">
-    <h2 class="post-title">
-      js——互动方式
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      js——互动方式
-js推荐使用单引号
-1.document.write();
-（1）这行代码里面的内容将在页面中直接输出（直接向HTML的输出流写内容），但需要加上双引号
-（2）也可以通过一个变量进行输出，不用加双引号
-（3）输出多项内容可以用+号进行连接
-（4）用于输出换行
-2.alert(字符串或变量)；
-这行代码里的内容将会以弹窗的方式显示在页面上
-3.confirm——确认
-包含一个......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-03-31
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#js" title="js">js</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/js/js中this的使用（转载）/">
-    <h2 class="post-title">
-      js中this的使用（转载）
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      js——this的使用（区分this和e.target）
-一、什么是this
-1.解析器在调用函数时，美的都会向函数内部传递进一个隐含的参数
-2.这个隐含的参数就是this，this是一个对象
-3.这个对象我们称为函数执行的上下文对象
-4.根据函数的调用方式不同，this会指向不同的对象
-1234567891011function fun()&#123;    console.log(thi......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-03-31
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#js" title="js">js</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/js/js——事件的冒泡和捕获/">
-    <h2 class="post-title">
-      js——事件的冒泡和捕获
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      js——事件冒泡和捕获
-一、理解
-12345&lt;div id=&quot;root&quot; onclick=&quot;fun1&quot;&gt;    &lt;p onclick = &quot;fun2&quot;&gt;        click me!    &lt;/p&gt;&lt;/div&gt;
-如果两个元素都有一个click的处理函数，那么我们怎么才能知道哪一个函......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 王翔_x on
-    2022-03-31
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#js" title="js">js</a>
     
   </div>
   
@@ -900,7 +876,23 @@ js推荐使用单引号
   <div class="tags">
     
     
-    <a href="/tags/#js" title="js" rel="7">js</a>
+    <a href="/tags/#C++" title="C++" rel="13">C++</a>
+    
+    
+    
+    <a href="/tags/#html" title="html" rel="1">html</a>
+    
+    
+    
+    <a href="/tags/#CSS" title="CSS" rel="2">CSS</a>
+    
+    
+    
+    <a href="/tags/#Vue" title="Vue" rel="3">Vue</a>
+    
+    
+    
+    <a href="/tags/#js" title="js" rel="8">js</a>
     
     
     
@@ -909,14 +901,6 @@ js推荐使用单引号
     
     
     <a href="/tags/#hexo" title="hexo" rel="1">hexo</a>
-    
-    
-    
-    <a href="/tags/#C++" title="C++" rel="13">C++</a>
-    
-    
-    
-    <a href="/tags/#Vue" title="Vue" rel="3">Vue</a>
     
     
   </div>
@@ -988,24 +972,24 @@ js推荐使用单引号
 <div class="widget">
   <ul>
     
-    <a href="../../js/js-%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5/">
-      <li>js-同步和异步</li>
+    <a href="../../js/js%E6%98%AF%E4%B8%80%E9%97%A8%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E8%AF%AD%E8%A8%80/">
+      <li>js是一门什么样的语言</li>
     </a>
     
-    <a href="../../js/js-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/">
-      <li>js-事件循环</li>
+    <a href="../../Vue/%E5%87%A0%E7%A7%8D%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84%E5%8F%AF%E8%A7%86%E7%9A%84%E5%8C%BA%E5%88%AB/">
+      <li>几种控制结构可视的区别</li>
     </a>
     
-    <a href="../../C++/C-%E2%80%94%E2%80%94%E4%B8%89%E7%A7%8D%E7%BB%A7%E6%89%BF%E5%92%8C%E6%9E%84%E9%80%A0-%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/">
-      <li>C++——三种继承和构造/析构函数</li>
+    <a href="../../CSS/div%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%B3%95%EF%BC%886%E7%A7%8D%EF%BC%89/">
+      <li>常用div水平垂直居中方法（4种）</li>
     </a>
     
-    <a href="../../js/%E7%94%A8%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%98%E5%8C%96/">
-      <li>用作用域解释一个变量的变化</li>
+    <a href="../../CSS/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%96%E8%BE%B9%E8%B7%9D%E9%87%8D%E5%8F%A0%EF%BC%9F/">
+      <li>什么是外边距重叠？</li>
     </a>
     
-    <a href="../../C++/C-%E8%BF%AD%E4%BB%A3%E5%99%A8/">
-      <li>C++迭代器</li>
+    <a href="../../HTML/src%E5%92%8Cherf%E7%9A%84%E5%8C%BA%E5%88%AB/">
+      <li>src和herf的区别</li>
     </a>
     
   </ul>
@@ -1023,7 +1007,7 @@ js推荐使用单引号
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/04/">April 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/03/">March 2022</a><span class="archive-list-count">10</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2022/05/">May 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/04/">April 2022</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/03/">March 2022</a><span class="archive-list-count">10</span></li></ul>
 </div>
 
 
@@ -1035,12 +1019,12 @@ js推荐使用单引号
 <div class="widget">
   <ul>
     
-    <a href="/categories/#前端">
-      <li>前端</li>
-    </a>
-    
     <a href="/categories/#C++">
       <li>C++</li>
+    </a>
+    
+    <a href="/categories/#前端">
+      <li>前端</li>
     </a>
     
   </ul>

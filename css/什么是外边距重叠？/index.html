@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://yummyx02.github.io/js/用作用域解释一个变量的变化/">
+  <link rel="canonical" href="https://yummyx02.github.io/CSS/什么是外边距重叠？/">
   <title>
     
-      用作用域解释一个变量的变化 - either strugle | or die
+      什么是外边距重叠？ - either strugle | or die
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -389,14 +389,14 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#js" title="js">js</a>
+              <a class="tag" href="/tags/#CSS" title="CSS">CSS</a>
               
             </div>
-            <h1>用作用域解释一个变量的变化</h1>
+            <h1>什么是外边距重叠？</h1>
             <h2 class="subheading"></h2>
             <span class="meta">
               Posted by 王翔_x on
-              2022-04-11
+              2022-05-10
             </span>
 
 
@@ -408,7 +408,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">134</span> In Total
+              Words <span class="post-count">432</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -470,14 +470,22 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="js的作用域角度解释a变量的变化"><a href="#js的作用域角度解释a变量的变化" class="headerlink" title="js的作用域角度解释a变量的变化"></a>js的作用域角度解释a变量的变化</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">func</span>)</span>&#123;</span><br><span class="line">    func(<span class="string">&quot;changed&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> a=<span class="string">&quot;unchanged&quot;</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">        a=res</span><br><span class="line">    &#125;</span><br><span class="line">    foo(b);</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line">bar()</span><br></pre></td></tr></table></figure>
-<p>先用作用域的思想考虑一下，bar（）调用函数；</p>
-<p>在bar内部，定义a=”unchanged”后，调用foo函数，并传入b这个参数；</p>
-<p>在foo函数中调用b函数，传入”changed”作为res赋值给a。而此时的a指的是”unchanged”；</p>
-<p>接着打印a，此时的a为changed；</p>
-<p>我们来验证一下：</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/11/068352ff66e25e83.png" alt=""></p>
-<p>输出”changed”没有问题</p>
+        <h1 id="什么是外边距重叠，-重叠的结果是什么"><a href="#什么是外边距重叠，-重叠的结果是什么" class="headerlink" title="什么是外边距重叠， 重叠的结果是什么?"></a>什么是外边距重叠， 重叠的结果是什么?</h1><h2 id="一、内容"><a href="#一、内容" class="headerlink" title="一、内容"></a>一、内容</h2><p>在CSS当中，相邻的两个盒⼦（可能是兄弟关系也可能是祖先关系）的外边距可以结合成⼀ 个单独的外边距。这种合并外边距的⽅式被称为折叠，并且因⽽所结合成的外边距称为折叠 外边距。 </p>
+<p><strong>折叠结果遵循下列计算规则</strong>： </p>
+<p>两个相邻的外边距都是正数时，折叠结果是它们两者之间较⼤的值。 </p>
+<p>两个相邻的外边距都是负数时，折叠结果是两者绝对值的较⼤值。 </p>
+<p>两个外边距⼀正⼀负时，折叠结果是两者的相加的和。 </p>
+<h2 id="那么外边距重叠的作用是什么呢？"><a href="#那么外边距重叠的作用是什么呢？" class="headerlink" title="那么外边距重叠的作用是什么呢？"></a>那么外边距重叠的作用是什么呢？</h2><p>当我们上下排列一系列规则的块级元素时，那么块元素之间因为外边距重叠的存在，段落之间就不会产生双倍的距离，这样各处距离就一致了。</p>
+<h2 id="三、外边距不重叠的情况。"><a href="#三、外边距不重叠的情况。" class="headerlink" title="三、外边距不重叠的情况。"></a>三、外边距不重叠的情况。</h2><p>水平margin永远不会重合</p>
+<p>设置了overflow属性(visible除外)的元素和它的子元素之间的margin不会重叠</p>
+<p>设置了绝对定位（position:absolute）的盒模型，垂直margin不会被重叠，和子元素之间也不重叠</p>
+<p>设置了display:inline-block的元素，垂直margin不会重叠，和子元素之间也不重叠</p>
+<p>根元素(如html)与body的margin不会重叠</p>
+<h2 id="四、防止外边距重叠的方法。"><a href="#四、防止外边距重叠的方法。" class="headerlink" title="四、防止外边距重叠的方法。"></a>四、防止外边距重叠的方法。</h2><p>元素绝对定位postion:absolute;一般用在内层元素</p>
+<p>内层元素 加float:left;或display:inline-block;</p>
+<p>外层元素用padding增加边距</p>
+<p>外层元素设置overflow:hidden;</p>
+<p>内层元素透明边框border:1px solid transparent;</p>
 
 
         <hr>
@@ -485,12 +493,12 @@
         <ul class="pager">
           
           <li class="previous">
-            <a href="/C++/C-——三种继承和构造-析构函数/" data-toggle="tooltip" data-placement="top" title="C++——三种继承和构造/析构函数">&larr; Previous Post</a>
+            <a href="/CSS/div水平垂直居中方法（6种）/" data-toggle="tooltip" data-placement="top" title="常用div水平垂直居中方法（4种）">&larr; Previous Post</a>
           </li>
           
           
           <li class="next">
-            <a href="/C++/C-迭代器/" data-toggle="tooltip" data-placement="top" title="C++迭代器">Next Post &rarr;</a>
+            <a href="/HTML/src和herf的区别/" data-toggle="tooltip" data-placement="top" title="src和herf的区别">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -539,7 +547,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=用作用域解释一个变量的变化&body=Hi,I found this website and thought you might like it https://yummyx02.github.io/js/用作用域解释一个变量的变化/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=什么是外边距重叠？&body=Hi,I found this website and thought you might like it https://yummyx02.github.io/CSS/什么是外边距重叠？/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -574,7 +582,7 @@
       repo: '',
       owner: '',
       admin: '',
-      id: 'Mon Apr 11 2022 17:21:03 GMT+0800', // Ensure uniqueness and length less than 50
+      id: 'Tue May 10 2022 22:46:19 GMT+0800', // Ensure uniqueness and length less than 50
       distractionFreeMode: false, // Facebook-like distraction free mode
       perPage: 10,
       pagerDirection: 'last',
@@ -627,7 +635,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#js%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A7%92%E5%BA%A6%E8%A7%A3%E9%87%8Aa%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">js的作用域角度解释a变量的变化</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%96%E8%BE%B9%E8%B7%9D%E9%87%8D%E5%8F%A0%EF%BC%8C-%E9%87%8D%E5%8F%A0%E7%9A%84%E7%BB%93%E6%9E%9C%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">什么是外边距重叠， 重叠的结果是什么?</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%80%E3%80%81%E5%86%85%E5%AE%B9"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">一、内容</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%82%A3%E4%B9%88%E5%A4%96%E8%BE%B9%E8%B7%9D%E9%87%8D%E5%8F%A0%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">那么外边距重叠的作用是什么呢？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%89%E3%80%81%E5%A4%96%E8%BE%B9%E8%B7%9D%E4%B8%8D%E9%87%8D%E5%8F%A0%E7%9A%84%E6%83%85%E5%86%B5%E3%80%82"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">三、外边距不重叠的情况。</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9B%9B%E3%80%81%E9%98%B2%E6%AD%A2%E5%A4%96%E8%BE%B9%E8%B7%9D%E9%87%8D%E5%8F%A0%E7%9A%84%E6%96%B9%E6%B3%95%E3%80%82"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">四、防止外边距重叠的方法。</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -650,7 +658,7 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#js" title="js">js</a>
+            <a class="tag" href="/tags/#CSS" title="CSS">CSS</a>
             
           </div>
         </section>

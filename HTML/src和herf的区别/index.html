@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://yummyx02.github.io/js/用作用域解释一个变量的变化/">
+  <link rel="canonical" href="https://yummyx02.github.io/HTML/src和herf的区别/">
   <title>
     
-      用作用域解释一个变量的变化 - either strugle | or die
+      src和herf的区别 - either strugle | or die
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -389,14 +389,14 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#js" title="js">js</a>
+              <a class="tag" href="/tags/#html" title="html">html</a>
               
             </div>
-            <h1>用作用域解释一个变量的变化</h1>
+            <h1>src和herf的区别</h1>
             <h2 class="subheading"></h2>
             <span class="meta">
               Posted by 王翔_x on
-              2022-04-11
+              2022-05-10
             </span>
 
 
@@ -408,7 +408,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">134</span> In Total
+              Words <span class="post-count">304</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -470,14 +470,24 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="js的作用域角度解释a变量的变化"><a href="#js的作用域角度解释a变量的变化" class="headerlink" title="js的作用域角度解释a变量的变化"></a>js的作用域角度解释a变量的变化</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">func</span>)</span>&#123;</span><br><span class="line">    func(<span class="string">&quot;changed&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> a=<span class="string">&quot;unchanged&quot;</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">        a=res</span><br><span class="line">    &#125;</span><br><span class="line">    foo(b);</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line">bar()</span><br></pre></td></tr></table></figure>
-<p>先用作用域的思想考虑一下，bar（）调用函数；</p>
-<p>在bar内部，定义a=”unchanged”后，调用foo函数，并传入b这个参数；</p>
-<p>在foo函数中调用b函数，传入”changed”作为res赋值给a。而此时的a指的是”unchanged”；</p>
-<p>接着打印a，此时的a为changed；</p>
-<p>我们来验证一下：</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/11/068352ff66e25e83.png" alt=""></p>
-<p>输出”changed”没有问题</p>
+        <h1 id="同为外部资源引入的src和herf的区别"><a href="#同为外部资源引入的src和herf的区别" class="headerlink" title="同为外部资源引入的src和herf的区别"></a>同为外部资源引入的src和herf的区别</h1><h2 id="一、外部资源引入"><a href="#一、外部资源引入" class="headerlink" title="一、外部资源引入"></a>一、外部资源引入</h2><p>首先  src herf都是外部资源引入的方式 不同的是：</p>
+<blockquote>
+<p>src⽤于替换当前元素，href⽤于在当前⽂档和引⽤资源之间确⽴联系。 </p>
+<p>src是source的缩写，指向外部资源的位置，指向的内容将会嵌⼊到⽂档中当前标签所在位 </p>
+<p>置；在请求src资源时会将其指向的资源下载并应⽤到⽂档内，例如js脚本，img图⽚和 </p>
+<p>frame等元素。 </p>
+<script src =”js.js”></script> 
+
+<p>当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执⾏ </p>
+<p>完毕，图⽚和框架等元素也如此，类似于将所指向资源嵌⼊当前标签内。这也是为什么将js </p>
+<p>脚本放在底部⽽不是头部。 </p>
+<p>href是Hypertext Reference的缩写，指向⽹络资源所在位置，建⽴和当前元素（锚点）或 </p>
+<p>当前⽂档（链接）之间的链接，如果我们在⽂档中添加 </p>
+<link href=”common.css” rel=”stylesheet”/> 
+
+<p>那么浏览器会识别该⽂档为css⽂件，就会并⾏下载资源并且不会停⽌对当前⽂档的处理</p>
+</blockquote>
+<p>即就是：src是不支持并行的  而herf是支持并行的</p>
 
 
         <hr>
@@ -485,12 +495,12 @@
         <ul class="pager">
           
           <li class="previous">
-            <a href="/C++/C-——三种继承和构造-析构函数/" data-toggle="tooltip" data-placement="top" title="C++——三种继承和构造/析构函数">&larr; Previous Post</a>
+            <a href="/CSS/什么是外边距重叠？/" data-toggle="tooltip" data-placement="top" title="什么是外边距重叠？">&larr; Previous Post</a>
           </li>
           
           
           <li class="next">
-            <a href="/C++/C-迭代器/" data-toggle="tooltip" data-placement="top" title="C++迭代器">Next Post &rarr;</a>
+            <a href="/js/js-同步和异步/" data-toggle="tooltip" data-placement="top" title="js-同步和异步">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -539,7 +549,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=用作用域解释一个变量的变化&body=Hi,I found this website and thought you might like it https://yummyx02.github.io/js/用作用域解释一个变量的变化/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=src和herf的区别&body=Hi,I found this website and thought you might like it https://yummyx02.github.io/HTML/src和herf的区别/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -574,7 +584,7 @@
       repo: '',
       owner: '',
       admin: '',
-      id: 'Mon Apr 11 2022 17:21:03 GMT+0800', // Ensure uniqueness and length less than 50
+      id: 'Tue May 10 2022 22:43:28 GMT+0800', // Ensure uniqueness and length less than 50
       distractionFreeMode: false, // Facebook-like distraction free mode
       perPage: 10,
       pagerDirection: 'last',
@@ -627,7 +637,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#js%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A7%92%E5%BA%A6%E8%A7%A3%E9%87%8Aa%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">js的作用域角度解释a变量的变化</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#%E5%90%8C%E4%B8%BA%E5%A4%96%E9%83%A8%E8%B5%84%E6%BA%90%E5%BC%95%E5%85%A5%E7%9A%84src%E5%92%8Cherf%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">同为外部资源引入的src和herf的区别</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%80%E3%80%81%E5%A4%96%E9%83%A8%E8%B5%84%E6%BA%90%E5%BC%95%E5%85%A5"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">一、外部资源引入</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -650,7 +660,7 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#js" title="js">js</a>
+            <a class="tag" href="/tags/#html" title="html">html</a>
             
           </div>
         </section>

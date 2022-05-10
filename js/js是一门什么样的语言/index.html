@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="https://yummyx02.github.io/js/用作用域解释一个变量的变化/">
+  <link rel="canonical" href="https://yummyx02.github.io/js/js是一门什么样的语言/">
   <title>
     
-      用作用域解释一个变量的变化 - either strugle | or die
+      js是一门什么样的语言 - either strugle | or die
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -392,11 +392,11 @@
               <a class="tag" href="/tags/#js" title="js">js</a>
               
             </div>
-            <h1>用作用域解释一个变量的变化</h1>
+            <h1>js是一门什么样的语言</h1>
             <h2 class="subheading"></h2>
             <span class="meta">
               Posted by 王翔_x on
-              2022-04-11
+              2022-05-10
             </span>
 
 
@@ -408,7 +408,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">134</span> In Total
+              Words <span class="post-count">155</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -470,27 +470,20 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h1 id="js的作用域角度解释a变量的变化"><a href="#js的作用域角度解释a变量的变化" class="headerlink" title="js的作用域角度解释a变量的变化"></a>js的作用域角度解释a变量的变化</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">func</span>)</span>&#123;</span><br><span class="line">    func(<span class="string">&quot;changed&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> a=<span class="string">&quot;unchanged&quot;</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">        a=res</span><br><span class="line">    &#125;</span><br><span class="line">    foo(b);</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line">bar()</span><br></pre></td></tr></table></figure>
-<p>先用作用域的思想考虑一下，bar（）调用函数；</p>
-<p>在bar内部，定义a=”unchanged”后，调用foo函数，并传入b这个参数；</p>
-<p>在foo函数中调用b函数，传入”changed”作为res赋值给a。而此时的a指的是”unchanged”；</p>
-<p>接着打印a，此时的a为changed；</p>
-<p>我们来验证一下：</p>
-<p><img src="https://s3.bmp.ovh/imgs/2022/04/11/068352ff66e25e83.png" alt=""></p>
-<p>输出”changed”没有问题</p>
+        <h1 id="js是一门什么样的语言"><a href="#js是一门什么样的语言" class="headerlink" title="js是一门什么样的语言"></a>js是一门什么样的语言</h1><p>1.它是动态弱类型语⾔ </p>
+<p>2.动态的原因：静态类型指的是编译器在compile time执⾏类型检查，动态类型指的是编 译器（虚拟机）在runtime执⾏类型检查。简单地说，在声明了⼀个变量之后，不能改 </p>
+<p>变它的类型的语⾔，是静态语⾔； 能够随时改变它的类型的语⾔，是动态语⾔。 </p>
+<p>3.弱类型的原因：</p>
+<p>允许变量类型的隐式转换，允许强制类型转换等，如字符串和数值可以 ⾃动转化；⽽强类型语⾔⼀般不允许这么做。</p>
 
 
         <hr>
         <!-- Pager -->
         <ul class="pager">
           
-          <li class="previous">
-            <a href="/C++/C-——三种继承和构造-析构函数/" data-toggle="tooltip" data-placement="top" title="C++——三种继承和构造/析构函数">&larr; Previous Post</a>
-          </li>
-          
           
           <li class="next">
-            <a href="/C++/C-迭代器/" data-toggle="tooltip" data-placement="top" title="C++迭代器">Next Post &rarr;</a>
+            <a href="/Vue/几种控制结构可视的区别/" data-toggle="tooltip" data-placement="top" title="几种控制结构可视的区别">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -539,7 +532,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=用作用域解释一个变量的变化&body=Hi,I found this website and thought you might like it https://yummyx02.github.io/js/用作用域解释一个变量的变化/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=js是一门什么样的语言&body=Hi,I found this website and thought you might like it https://yummyx02.github.io/js/js是一门什么样的语言/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -574,7 +567,7 @@
       repo: '',
       owner: '',
       admin: '',
-      id: 'Mon Apr 11 2022 17:21:03 GMT+0800', // Ensure uniqueness and length less than 50
+      id: 'Tue May 10 2022 23:38:50 GMT+0800', // Ensure uniqueness and length less than 50
       distractionFreeMode: false, // Facebook-like distraction free mode
       perPage: 10,
       pagerDirection: 'last',
@@ -627,7 +620,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#js%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A7%92%E5%BA%A6%E8%A7%A3%E9%87%8Aa%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">js的作用域角度解释a变量的变化</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#js%E6%98%AF%E4%B8%80%E9%97%A8%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E8%AF%AD%E8%A8%80"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">js是一门什么样的语言</span></a></li></ol>
         
         </div>
       </aside>
