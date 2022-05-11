@@ -245,6 +245,19 @@
           
           
           <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
             <a href="/about/">
               
               ABOUT
@@ -259,19 +272,6 @@
             <a href="/archive/">
               
               ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
-          
-          <li>
-            <a href="/categories/">
-              
-              CATEGORIES
               
               
             </a>
@@ -486,17 +486,9 @@
       
     </h3>
     <div class="post-content-preview">
-      C++——内存分区模型
-一、内存四区
-C++程序在执行时，将内存大方向划分为4个区域
-●代码区:存放函数体的二进制代码，由操作系统进行管理的
-●全局区:存放全局变量和静态变量以及常量
-●栈区:由编译器自动分配释放,存放函数的参数值,局部变量等
-●堆区:由程序员分配和释放,若程序员不释放程序结束时由操作系统回收
-意义：
-不同区域的数据，赋予不同的生命周期，可以灵活编程
-二、程序运行前
-在程序编......
+      C++——内存分区模型一、内存四区C++程序在执行时，将内存大方向划分为4个区域●代码区:存放函数体的二进制代码，由操作系统进行管理的●全局区:存放全局变量和静态变量以及常量●栈区:由编译器自动分配释放,存放函数的参数值,局部变量等●堆区:由程序员分配和释放,若程序员不释放程序结束时由操作系统回收
+意义：不同区域的数据，赋予不同的生命周期，可以灵活编程
+二、程序运行前在程序编译后，生成了ex......
     </div>
   </a>
   
@@ -529,10 +521,9 @@ C++程序在执行时，将内存大方向划分为4个区域
       
     </h3>
     <div class="post-content-preview">
-      js——反转字符串
-字符串作在程序中是非常常见的，因为程序中绝大部分的数据都可以当作字符串来处理。在这里介绍几种翻转字符串的方法。
+      js——反转字符串　　字符串作在程序中是非常常见的，因为程序中绝大部分的数据都可以当作字符串来处理。在这里介绍几种翻转字符串的方法。
 （1）使用字符串函数
-1234567891011121314//使用数组翻转函数function reverseString(str)&#123;    var array = str.split(&#x27;&#x27;);  //转换成字符串数组    ar......
+1234567891011121314//使用数组翻转函数function reverseString(str)&#123;    var array = str.split(&#x27;&#x27;);  //转换成字符串数组    a......
     </div>
   </a>
   
@@ -565,17 +556,13 @@ C++程序在执行时，将内存大方向划分为4个区域
       
     </h3>
     <div class="post-content-preview">
-      js——互动方式
-js推荐使用单引号
-1.document.write();
-（1）这行代码里面的内容将在页面中直接输出（直接向HTML的输出流写内容），但需要加上双引号
+      js——互动方式js推荐使用单引号
+1.document.write();（1）这行代码里面的内容将在页面中直接输出（直接向HTML的输出流写内容），但需要加上双引号
 （2）也可以通过一个变量进行输出，不用加双引号
 （3）输出多项内容可以用+号进行连接
 （4）用于输出换行
-2.alert(字符串或变量)；
-这行代码里的内容将会以弹窗的方式显示在页面上
-3.confirm——确认
-包含一个......
+2.alert(字符串或变量)；这行代码里的内容将会以弹窗的方式显示在页面上
+3.confirm——确认包含一个确定和取......
     </div>
   </a>
   
@@ -608,13 +595,11 @@ js推荐使用单引号
       
     </h3>
     <div class="post-content-preview">
-      js——this的使用（区分this和e.target）
-一、什么是this
-1.解析器在调用函数时，美的都会向函数内部传递进一个隐含的参数
+      js——this的使用（区分this和e.target）一、什么是this1.解析器在调用函数时，美的都会向函数内部传递进一个隐含的参数
 2.这个隐含的参数就是this，this是一个对象
 3.这个对象我们称为函数执行的上下文对象
 4.根据函数的调用方式不同，this会指向不同的对象
-1234567891011function fun()&#123;    console.log(thi......
+1234567891011function fun()&#123;    console.log(this)......
     </div>
   </a>
   
@@ -647,10 +632,8 @@ js推荐使用单引号
       
     </h3>
     <div class="post-content-preview">
-      js——事件冒泡和捕获
-一、理解
-12345&lt;div id=&quot;root&quot; onclick=&quot;fun1&quot;&gt;    &lt;p onclick = &quot;fun2&quot;&gt;        click me!    &lt;/p&gt;&lt;/div&gt;
-如果两个元素都有一个click的处理函数，那么我们怎么才能知道哪一个函......
+      js——事件冒泡和捕获一、理解12345&lt;div id=&quot;root&quot; onclick=&quot;fun1&quot;&gt;    &lt;p onclick = &quot;fun2&quot;&gt;        click me!    &lt;/p&gt;&lt;/div&gt;
+如果两个元素都有一个click的处理函数，那么我们怎么才能知道哪一个函数会......
     </div>
   </a>
   
@@ -683,13 +666,8 @@ js推荐使用单引号
       
     </h3>
     <div class="post-content-preview">
-      Vuex
-一、Vuex是什么
-1.概念:
-​	专门在Vue中实现集中式状态(数据)管理的一个Vue插件,对vue应用中
-多个组件的共享状态进行集中式的管理(读/写) ，也是一种组件间通信的方式，且适用于任意组件间通信。
-so？什么是状态管理
-1234567891011121314151617181920new Vue(&#123;  // state  data() &#123;    re......
+      Vuex一、Vuex是什么1.概念:​    专门在Vue中实现集中式状态(数据)管理的一个Vue插件,对vue应用中多个组件的共享状态进行集中式的管理(读/写) ，也是一种组件间通信的方式，且适用于任意组件间通信。
+so？什么是状态管理1234567891011121314151617181920new Vue(&#123;  // state  data() &#123;    retu......
     </div>
   </a>
   
@@ -722,15 +700,13 @@ so？什么是状态管理
       
     </h3>
     <div class="post-content-preview">
-      Vue——路由
-一、何为路由——vue-router
-路由其实就是一种对应关系（一组key-value）：对于前端来说，key—路径；value—组件
+      Vue——路由一、何为路由——vue-router路由其实就是一种对应关系（一组key-value）：对于前端来说，key—路径；value—组件
 对于后端来说，value是function 用于处理客户端的请求，根据请求路径来匹配函数
-​	多个路由需要经过路由器
+​    多个路由需要经过路由器
 1.单页web（SPA应用）
 2.只有一个完整的页面
 3.点击导航链接不会刷新页面，只会做页面的局部刷新
-4.数据需要通过a......
+4.数据需要通过......
     </div>
   </a>
   
@@ -763,13 +739,10 @@ so？什么是状态管理
       
     </h3>
     <div class="post-content-preview">
-      Vue——组件间通信
-全局事件总线：任意组件间通信
-一、父子间通信（props和emit）
-在通信中，无论是子组件向父组件传值还是父组件向子组件传值，他们都有一个共同点就是有中间介质，子向父的介质是自定义事件，父向子的介质是props中的属性。抓准这两点对于父子通信就好理解了。
-X、父子间通信-父传子（props）
-1、props作用
-props的作用是父组件单向传递数据给子组件。为单向数据......
+      Vue——组件间通信全局事件总线：任意组件间通信
+一、父子间通信（props和emit）在通信中，无论是子组件向父组件传值还是父组件向子组件传值，他们都有一个共同点就是有中间介质，子向父的介质是自定义事件，父向子的介质是props中的属性。抓准这两点对于父子通信就好理解了。
+X、父子间通信-父传子（props）1、props作用props的作用是父组件单向传递数据给子组件。为单向数据流
+pr......
     </div>
   </a>
   
@@ -802,9 +775,8 @@ props的作用是父组件单向传递数据给子组件。为单向数据......
       
     </h3>
     <div class="post-content-preview">
-      解决npm install -g hexo-cli报错hexo not found问题
-作为一个初入IT的小白，最近想搭建一个个人博客算是记录自己的学习，但是安装hexo的时候一直报错bash: hexo: command not found，官网的安装命令如下：
-12345671.npm install hexo-cli -g2.hexo init blog3.cd blog4.npm i......
+      解决npm install -g hexo-cli报错hexo not found问题作为一个初入IT的小白，最近想搭建一个个人博客算是记录自己的学习，但是安装hexo的时候一直报错bash: hexo: command not found，官网的安装命令如下：
+12345671.npm install hexo-cli -g2.hexo init blog3.cd blog4.npm in......
     </div>
   </a>
   
@@ -837,11 +809,9 @@ props的作用是父组件单向传递数据给子组件。为单向数据......
       
     </h3>
     <div class="post-content-preview">
-      C++中inline关键字的理解
-一、为什么使用inline
-​	使用inline关键词 在c/c++中，为了解决一些频繁调用的小函数大量消耗栈空间（栈内存）的问题，特别的引入了inline修饰符，表示为内联函数。
-​	栈空间就是放置程序的局部数据（也就是函数内数据）的内存空间。
-​	在系统下，栈空间是有限的，假如频繁大量的使用就会造成因栈空间不足而导致程序出错的问题，如，函数的死循环递归调......
+      C++中inline关键字的理解一、为什么使用inline​    使用inline关键词 在c/c++中，为了解决一些频繁调用的小函数大量消耗栈空间（栈内存）的问题，特别的引入了inline修饰符，表示为内联函数。
+​    栈空间就是放置程序的局部数据（也就是函数内数据）的内存空间。
+​    在系统下，栈空间是有限的，假如频繁大量的使用就会造成因栈空间不足而导致程序出错的问题，如，函数......
     </div>
   </a>
   
@@ -907,15 +877,11 @@ props的作用是父组件单向传递数据给子组件。为单向数据......
   <div class="tags">
     
     
+    <a href="/tags/#C++" title="C++" rel="13">C++</a>
+    
+    
+    
     <a href="/tags/#html" title="html" rel="1">html</a>
-    
-    
-    
-    <a href="/tags/#CSS" title="CSS" rel="2">CSS</a>
-    
-    
-    
-    <a href="/tags/#vs code" title="vs code" rel="1">vs code</a>
     
     
     
@@ -923,15 +889,19 @@ props的作用是父组件单向传递数据给子组件。为单向数据......
     
     
     
+    <a href="/tags/#CSS" title="CSS" rel="2">CSS</a>
+    
+    
+    
     <a href="/tags/#Vue" title="Vue" rel="3">Vue</a>
     
     
     
-    <a href="/tags/#C++" title="C++" rel="13">C++</a>
-    
-    
-    
     <a href="/tags/#js" title="js" rel="8">js</a>
+    
+    
+    
+    <a href="/tags/#vs code" title="vs code" rel="1">vs code</a>
     
     
   </div>
@@ -1003,16 +973,16 @@ props的作用是父组件单向传递数据给子组件。为单向数据......
 <div class="widget">
   <ul>
     
+    <a href="../../CSS/%E5%B8%B8%E7%94%A8%E5%9B%9B%E7%A7%8D%E8%AE%A9div%E7%9B%92%E5%AD%90%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95/">
+      <li>常用四种让div盒子水平垂直居中的方法</li>
+    </a>
+    
     <a href="../../js/js%E6%98%AF%E4%B8%80%E9%97%A8%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E8%AF%AD%E8%A8%80/">
       <li>js是一门什么样的语言</li>
     </a>
     
     <a href="../../Vue/%E5%87%A0%E7%A7%8D%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84%E5%8F%AF%E8%A7%86%E7%9A%84%E5%8C%BA%E5%88%AB/">
       <li>几种控制结构可视的区别</li>
-    </a>
-    
-    <a href="../../CSS/%E5%B8%B8%E7%94%A8div%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%B3%95%EF%BC%884%E7%A7%8D%EF%BC%89/">
-      <li>常用div水平垂直居中方法（4种）</li>
     </a>
     
     <a href="../../CSS/%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%96%E8%BE%B9%E8%B7%9D%E9%87%8D%E5%8F%A0%EF%BC%9F/">
