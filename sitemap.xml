@@ -249,57 +249,57 @@
 
   <url>
     <loc>https://yummyx02.github.io/</loc>
-    <lastmod>2022-05-11</lastmod>
+    <lastmod>2022-05-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://yummyx02.github.io/tags/C/</loc>
-    <lastmod>2022-05-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://yummyx02.github.io/tags/html/</loc>
-    <lastmod>2022-05-11</lastmod>
+    <lastmod>2022-05-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://yummyx02.github.io/tags/hexo/</loc>
-    <lastmod>2022-05-11</lastmod>
+    <loc>https://yummyx02.github.io/tags/C/</loc>
+    <lastmod>2022-05-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://yummyx02.github.io/tags/CSS/</loc>
-    <lastmod>2022-05-11</lastmod>
+    <loc>https://yummyx02.github.io/tags/css/</loc>
+    <lastmod>2022-05-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://yummyx02.github.io/tags/Vue/</loc>
-    <lastmod>2022-05-11</lastmod>
+    <lastmod>2022-05-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://yummyx02.github.io/tags/js/</loc>
-    <lastmod>2022-05-11</lastmod>
+    <lastmod>2022-05-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yummyx02.github.io/tags/hexo/</loc>
+    <lastmod>2022-05-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://yummyx02.github.io/tags/vs-code/</loc>
-    <lastmod>2022-05-11</lastmod>
+    <lastmod>2022-05-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -308,14 +308,14 @@
   
   <url>
     <loc>https://yummyx02.github.io/categories/C/</loc>
-    <lastmod>2022-05-11</lastmod>
+    <lastmod>2022-05-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://yummyx02.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2022-05-11</lastmod>
+    <lastmod>2022-05-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
