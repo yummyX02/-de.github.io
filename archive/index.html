@@ -244,19 +244,6 @@
           
           
           <li>
-            <a href="/tags/">
-              
-              TAGS
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          
-          
-          <li>
             <a href="/about/">
               
               ABOUT
@@ -267,10 +254,12 @@
           
           
           
+          
+          
           <li>
-            <a href="/archive/">
+            <a href="/tags/">
               
-              ARCHIVES
+              TAGS
               
               
             </a>
@@ -282,6 +271,17 @@
             <a href="/categories/">
               
               CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
               
               
             </a>
@@ -948,11 +948,15 @@
   <div class="tags">
     
     
+    <a href="/tags/#C++" title="C++" rel="13">C++</a>
+    
+    
+    
     <a href="/tags/#html" title="html" rel="1">html</a>
     
     
     
-    <a href="/tags/#C++" title="C++" rel="13">C++</a>
+    <a href="/tags/#Vue" title="Vue" rel="3">Vue</a>
     
     
     
@@ -964,19 +968,15 @@
     
     
     
-    <a href="/tags/#Vue" title="Vue" rel="3">Vue</a>
-    
-    
-    
-    <a href="/tags/#vs code" title="vs code" rel="1">vs code</a>
-    
-    
-    
     <a href="/tags/#计算机网络" title="计算机网络" rel="1">计算机网络</a>
     
     
     
     <a href="/tags/#css" title="css" rel="1">css</a>
+    
+    
+    
+    <a href="/tags/#vs code" title="vs code" rel="1">vs code</a>
     
     
   </div>
@@ -1609,5 +1609,20 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>
