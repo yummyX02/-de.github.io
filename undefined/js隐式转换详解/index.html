@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="undefined">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yummyx02.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="js中的隐式转换详解 一、减乘除  我们在对各种非Number类型运用数学运算符(- \* &#x2F;)时，会先将非Number类型转换为Number类型  12345eg:1-true;&#x2F;&#x2F; true转换为1 1-1&#x3D;01 - null &#x2F;&#x2F; 1,  首先把 null 转换为数字 0， 然后执行 1 - 01 * undefined &#x2F;&#x2F;  NaN, undefined 转换为数字是 NaN2 * [&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js隐式转换详解">
+<meta property="og:url" content="https://yummyx02.github.io/undefined/js%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Struggle in my life">
+<meta property="og:description" content="js中的隐式转换详解 一、减乘除  我们在对各种非Number类型运用数学运算符(- \* &#x2F;)时，会先将非Number类型转换为Number类型  12345eg:1-true;&#x2F;&#x2F; true转换为1 1-1&#x3D;01 - null &#x2F;&#x2F; 1,  首先把 null 转换为数字 0， 然后执行 1 - 01 * undefined &#x2F;&#x2F;  NaN, undefined 转换为数字是 NaN2 * [&amp;">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-05-22T01:42:16.000Z">
+<meta property="article:modified_time" content="2022-05-22T01:42:16.000Z">
+<meta property="article:author" content="王翔_x">
+<meta property="article:tag" content="js">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yummyx02.github.io/undefined/js%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2%E8%AF%A6%E8%A7%A3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"undefined","comments":true,"permalink":"https://yummyx02.github.io/undefined/js%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2%E8%AF%A6%E8%A7%A3/","path":"undefined/js隐式转换详解/","title":"js隐式转换详解"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>js隐式转换详解 | Struggle in my life</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Struggle in my life</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">王翔的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">js中的隐式转换详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%87%8F%E4%B9%98%E9%99%A4"><span class="nav-number">1.1.</span> <span class="nav-text">一、减乘除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%8A%A0%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">二、加法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2%E8%AF%B7%E6%B3%A8%E6%84%8F%EF%BC%9A"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2请注意：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5%E4%B8%AD%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.3.</span> <span class="nav-text">三、逻辑语句中的类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1%E5%8D%95%E4%B8%AA%E5%8F%98%E9%87%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1单个变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E6%B6%89%E5%8F%8A%E7%9A%84%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 &quot;&#x3D;&#x3D; &quot;涉及的隐式转换规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%BB%83%E4%B9%A0"><span class="nav-number">1.4.</span> <span class="nav-text">四、练习</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="王翔_x"
+      src="/images/avl.jpg">
+  <p class="site-author-name" itemprop="name">王翔_x</p>
+  <div class="site-description" itemprop="description">It's an IT blog...</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yummyX02" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yummyX02" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/1245191297@qq.com" title="E-Mail → 1245191297@qq.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="undefined">
+    <link itemprop="mainEntityOfPage" href="https://yummyx02.github.io/undefined/js%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avl.jpg">
+      <meta itemprop="name" content="王翔_x">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Struggle in my life">
+      <meta itemprop="description" content="It's an IT blog...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="js隐式转换详解 | Struggle in my life">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          js隐式转换详解
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-05-22 09:42:16" itemprop="dateCreated datePublished" datetime="2022-05-22T09:42:16+08:00">2022-05-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1>js中的隐式转换详解</h1>
+<h2 id="一、减乘除">一、减乘除</h2>
+<blockquote>
+<p><strong>我们在对各种非<code>Number</code>类型运用数学运算符(<code>- \* /</code>)时，会先将非<code>Number</code>类型转换为<code>Number</code>类型</strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line"><span class="number">1</span>-<span class="literal">true</span>;<span class="comment">// true转换为1 1-1=0</span></span><br><span class="line"><span class="number">1</span> - <span class="literal">null</span> <span class="comment">// 1,  首先把 null 转换为数字 0， 然后执行 1 - 0</span></span><br><span class="line"><span class="number">1</span> * <span class="literal">undefined</span> <span class="comment">//  NaN, undefined 转换为数字是 NaN</span></span><br><span class="line"><span class="number">2</span> * [<span class="string">&#x27;5&#x27;</span>] <span class="comment">//  10， [&#x27;5&#x27;]首先会变成 &#x27;5&#x27;, 然后再变成数字 5</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="二、加法">二、加法</h2>
+<p>加法之所以被单列出来是因为‘+’可以被用来执行字符串的拼接</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;hello&#x27;</span> + <span class="number">666</span>; <span class="comment">// 字符串hello666</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>当一侧为<code>String</code>类型，被识别为字符串拼接，并会优先将另一侧转换为字符串类型。</li>
+<li>当一侧为<code>Number</code>类型，另一侧为原始类型，则将原始类型转换为<code>Number</code>类型。</li>
+<li>当一侧为<code>Number</code>类型，另一侧为引用类型，将引用类型和<code>Number</code>类型转换成字符串后拼接。</li>
+</ul>
+<p>tips:</p>
+<blockquote>
+<p>上述的3个规则 有一定的优先级 规定为优先级为从上到下</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line"><span class="number">1</span>+<span class="string">&quot;123&quot;</span>;<span class="comment">//1123(规则1)</span></span><br><span class="line"><span class="number">1</span>+<span class="literal">true</span>;<span class="comment">//2(规则2)</span></span><br><span class="line"><span class="number">123</span> + &#123;&#125;  <span class="comment">// 123[object Object](规则3)</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-1数据类型">2.1数据类型</h3>
+<blockquote>
+<p>首先 基本数据类型包括6类：==原始数据类型</p>
+<p>boolean string number  undefined null symbol(ES6 新增)</p>
+<p>而引用数据类型则包括：</p>
+<p>统称为object类型 但是其中包括<code>object类型</code>、<code>Array 类型</code>、<code>Date 类型</code>、<code>RegExp 类型</code>、<code>Function 类型</code> 等</p>
+</blockquote>
+<h3 id="2-2请注意：">2.2请注意：</h3>
+<p>1.<strong>基本数据类型是按值访问的</strong>  <strong>而引用类型是按引用访问的</strong></p>
+<p>2.基本类型的值是不变的  因此调用许多方法的时候实际上都不会影响原来的原始数据 只是返回了一个新的数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&quot;123abc456&quot;</span></span><br><span class="line">str.toUperCase();<span class="comment">//123ABC456</span></span><br><span class="line"><span class="built_in">console</span>.log(str);<span class="comment">//123abc456</span></span><br></pre></td></tr></table></figure>
+<p>但是引用数据类型是会改变值的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">	name : <span class="string">&#x27;hello&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line">obj.name = <span class="string">&quot;jony&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.name);<span class="comment">//jony</span></span><br></pre></td></tr></table></figure>
+<p>3.基本数据类型储存在栈中</p>
+<p>引用数据类型储存在堆中</p>
+<p>4.基本数据类型的比较实质上是值的比较</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">undefined</span>;</span><br><span class="line">a == b; <span class="comment">//true</span></span><br><span class="line">a === b; <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>== ----------只进行值的比较（中间会发生数据的隐式转换）</p>
+<p>===---------不仅进行值的比较还会进行数据类型的比较</p>
+</blockquote>
+<p>而引用类型是引用的比较</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;&#125;;    <span class="comment">// 新建一个空对象 obj1</span></span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;&#125;;    <span class="comment">// 新建一个空对象 obj2</span></span><br><span class="line"><span class="built_in">console</span>.log(obj1 == obj2);    <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(obj1 === obj2);   <span class="comment">// false</span></span><br><span class="line"><span class="comment">//因为 obj1 和 obj2 分别引用的是存放在堆内存中的2个不同的对象，故变量 obj1 和 obj2 的值（引用地址）也是不一样的！</span></span><br></pre></td></tr></table></figure>
+<h2 id="三、逻辑语句中的类型转换">三、逻辑语句中的类型转换</h2>
+<h3 id="3-1单个变量">3.1单个变量</h3>
+<p>如果只有单个变量，会先将变量转换为Boolean值</p>
+<blockquote>
+<p>只有 <code>null</code> <code>undefined</code> <code>''</code> <code>NaN</code> <code>0</code> <code>false</code> 这几个是 <code>false</code>，其他的情况都是 <code>true</code>，比如 <code>&#123;&#125;</code> , <code>[]</code>。</p>
+</blockquote>
+<h3 id="3-2-涉及的隐式转换规则">3.2 &quot;== &quot;涉及的隐式转换规则</h3>
+<ul>
+<li><code>NaN</code>和其他任何类型比较永远返回<code>false</code>（包括和他自己）</li>
+<li>Boolean 和其他任何类型比较，Boolean 首先被转换为 Number 类型</li>
+<li><code>String</code>和<code>Number</code>比较，先将<code>String</code>转换为<code>Number</code>类型</li>
+<li>null == undefined<code>比较结果是</code>true<code>，除此之外，</code>null<code>、</code>undefined<code>和其他任何结果的比较值都为</code>false</li>
+<li><code>原始类型</code>和<code>引用类型</code>做比较时，引用类型会依照<code>ToPrimitive</code>规则转换为原始类型</li>
+</ul>
+<blockquote>
+<p><code>ToPrimitive</code>规则，是引用类型向原始类型转变的规则，它遵循先<code>valueOf</code>后<code>toString</code>的模式期望得到一个原始类型</p>
+</blockquote>
+<h2 id="四、练习">四、练习</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> [] == ![]</span><br><span class="line"></span><br><span class="line">	- 第一步，![] 会变成 <span class="literal">false</span></span><br><span class="line">	- 第二步，应用 规则<span class="number">2</span> ，题目变成： [] == <span class="number">0</span></span><br><span class="line">	- 第三步，应用 规则<span class="number">5</span> ，[]的valueOf是<span class="number">0</span>，题目变成： <span class="number">0</span> == <span class="number">0</span></span><br><span class="line">	- 所以， 答案是 <span class="literal">true</span> </span><br></pre></td></tr></table></figure>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://chinese.freecodecamp.org/news/javascript-implicit-type-conversion/">https://chinese.freecodecamp.org/news/javascript-implicit-type-conversion/</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000006752076###">https://segmentfault.com/a/1190000006752076###</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/undefined/%E9%87%8D%E5%BC%80%E5%8D%9A%E5%AE%A2/" rel="prev" title="重开博客">
+                  <i class="fa fa-chevron-left"></i> 重开博客
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/undefined/%E5%B8%B8%E7%94%A8%E7%9A%844%E4%B8%AD%E8%AE%A9div%E7%9B%92%E5%AD%90%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95/" rel="next" title="常用的4中让div盒子水平垂直居中的方法">
+                  常用的4中让div盒子水平垂直居中的方法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王翔_x</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">67k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:01</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"yummyX02/yummyX02.github.io","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

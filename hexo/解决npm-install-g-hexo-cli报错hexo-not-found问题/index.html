@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="hexo">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yummyx02.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="解决npm install -g hexo-cli报错hexo not found问题 作为一个初入IT的小白，最近想搭建一个个人博客算是记录自己的学习，但是安装hexo的时候一直报错bash: hexo: command not found，官网的安装命令如下： 12345671.npm install hexo-cli -g2.hexo init blog3.cd blog4.npm inst">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决npm install -g hexo-cli报错hexo not found问题">
+<meta property="og:url" content="https://yummyx02.github.io/hexo/%E8%A7%A3%E5%86%B3npm-install-g-hexo-cli%E6%8A%A5%E9%94%99hexo-not-found%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="Struggle in my life">
+<meta property="og:description" content="解决npm install -g hexo-cli报错hexo not found问题 作为一个初入IT的小白，最近想搭建一个个人博客算是记录自己的学习，但是安装hexo的时候一直报错bash: hexo: command not found，官网的安装命令如下： 12345671.npm install hexo-cli -g2.hexo init blog3.cd blog4.npm inst">
+<meta property="og:locale">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b358c68850c486e88b60de2b50be2df~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6ec3f7431f345f3a7565938264cdf08~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp">
+<meta property="article:published_time" content="2022-03-31T02:35:26.000Z">
+<meta property="article:modified_time" content="2022-03-31T02:35:26.000Z">
+<meta property="article:author" content="王翔_x">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b358c68850c486e88b60de2b50be2df~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp">
+
+
+<link rel="canonical" href="https://yummyx02.github.io/hexo/%E8%A7%A3%E5%86%B3npm-install-g-hexo-cli%E6%8A%A5%E9%94%99hexo-not-found%E9%97%AE%E9%A2%98/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"hexo","comments":true,"permalink":"https://yummyx02.github.io/hexo/%E8%A7%A3%E5%86%B3npm-install-g-hexo-cli%E6%8A%A5%E9%94%99hexo-not-found%E9%97%AE%E9%A2%98/","path":"hexo/解决npm-install-g-hexo-cli报错hexo-not-found问题/","title":"解决npm install -g hexo-cli报错hexo not found问题"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>解决npm install -g hexo-cli报错hexo not found问题 | Struggle in my life</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Struggle in my life</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">王翔的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">解决npm install -g hexo-cli报错hexo not found问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E7%BD%91%E4%B8%8A%E8%A7%A3%E5%86%B3%E8%BF%99%E4%B8%AA%E9%94%99%E8%AF%AF%E7%9A%84%E6%96%B9%E6%B3%95%E6%9C%89%E4%BB%A5%E4%B8%8B%E5%87%A0%E7%A7%8D%EF%BC%9A"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">总结网上解决这个错误的方法有以下几种：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%99%84%E4%B8%8A%E6%88%91%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">附上我的解决方案：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="王翔_x"
+      src="/images/avl.jpg">
+  <p class="site-author-name" itemprop="name">王翔_x</p>
+  <div class="site-description" itemprop="description">It's an IT blog...</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yummyX02" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yummyX02" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/1245191297@qq.com" title="E-Mail → 1245191297@qq.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="hexo">
+    <link itemprop="mainEntityOfPage" href="https://yummyx02.github.io/hexo/%E8%A7%A3%E5%86%B3npm-install-g-hexo-cli%E6%8A%A5%E9%94%99hexo-not-found%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avl.jpg">
+      <meta itemprop="name" content="王翔_x">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Struggle in my life">
+      <meta itemprop="description" content="It's an IT blog...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="解决npm install -g hexo-cli报错hexo not found问题 | Struggle in my life">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          解决npm install -g hexo-cli报错hexo not found问题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-31 10:35:26" itemprop="dateCreated datePublished" datetime="2022-03-31T10:35:26+08:00">2022-03-31</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>901</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1>解决npm install -g hexo-cli报错hexo not found问题</h1>
+<p>作为一个初入IT的小白，最近想搭建一个个人博客算是记录自己的学习，但是安装hexo的时候一直报错bash: hexo: command not found，官网的安装命令如下：</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.npm install hexo-cli -g</span><br><span class="line"><span class="number">2</span>.hexo init blog</span><br><span class="line"><span class="number">3</span>.cd blog</span><br><span class="line"><span class="number">4</span>.npm install</span><br><span class="line"><span class="number">5</span>.hexo server</span><br><span class="line"><span class="number">1.2.3.4</span>.<span class="number">5</span>.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h4 id="总结网上解决这个错误的方法有以下几种：">总结网上解决这个错误的方法有以下几种：</h4>
+<ul>
+<li>node的npm环境没有配好，重装node，默认路径安装解决</li>
+<li>利用git bash安装的时候没有安装git的，但我觉得你都已经在使用git bash了没有git怎么打开的？小纠结~</li>
+<li>然后还有node不是最新版本的这样</li>
+<li>Mac电脑报错命令前面要加suto这样。但是我的电脑是win10，所以也不行。<br>
+唉，安装了好久好久，failed again and again.中间遇到好多人给我说怎么解决，基本就是上面的几种方法加重装系统，实在不适合我。（ps：我才重装完系统没几天~）</li>
+</ul>
+<h4 id="附上我的解决方案：">附上我的解决方案：</h4>
+<p>前提： 重要！！！</p>
+<ul>
+<li>安装好node，配置好node的环境。</li>
+<li>选择一个磁盘，简历一个文件夹，取名为blog（取啥都行，自己知道以后干嘛的就好）</li>
+<li>打开建好的文件夹，按住shift同时鼠标右键，选择powershell选项打开命令提示符，前提准备就算完成啦。</li>
+<li>然后按照下面的指令一步步输入，然后就好啦~</li>
+</ul>
+<p>在命令的前面加上npx。</p>
+<ul>
+<li>npx hexo init blog</li>
+<li>cd blog</li>
+<li>npm install</li>
+<li>npx hexo server</li>
+<li>本地打开<a href="https://link.juejin.cn?target=http%3A%2F%2Flocalhost%3A4000%2F%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E5%95%A6%EF%BC%88%E6%89%93%E5%BC%80%E6%9C%89%E7%82%B9%E5%A5%BD%E7%9C%8B%E5%93%A6%EF%BC%89">http://localhost:4000/就可以看到啦（打开有点好看哦）</a></li>
+</ul>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b358c68850c486e88b60de2b50be2df~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp" alt="使用命令npm install -g hexo-cli 安装Hexo报错bash: hexo: command not found问题解决_hexo-cli "></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6ec3f7431f345f3a7565938264cdf08~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp" alt="使用命令npm install -g hexo-cli 安装Hexo报错bash: hexo: command not found问题解决_hexo-cli _02"><br>
+最后解释一下，为啥要在前面加上npx。<br>
+在大牛阮一峰的网络日志中，他是这么描述的：“npx 想要解决的主要问题，就是调用项目内部安装的模块”，所以可以理解为在命令行下调用，可以让项目内部安装的模块用起来更方便，npx运行的时候，会到node_modules/.bin路径和环境变量$PATH里面，检查命令是否存在，所以系统命令也可以调用，即上面的命令安装不成功的时候加上npx的话也许就可以成功了哦~</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Vue/Vue%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1/" rel="prev" title="Vue——组件间通信">
+                  <i class="fa fa-chevron-left"></i> Vue——组件间通信
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/C++/C-%E7%9A%84inline%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3/" rel="next" title="C++的inline关键字的理解">
+                  C++的inline关键字的理解 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王翔_x</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">67k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:01</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"yummyX02/yummyX02.github.io","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

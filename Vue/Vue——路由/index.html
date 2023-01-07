@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="Vue">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yummyx02.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Vue——路由 一、何为路由——vue-router 路由其实就是一种对应关系（一组key-value）：对于前端来说，key—路径；value—组件 对于后端来说，value是function 用于处理客户端的请求，根据请求路径来匹配函数 ​	多个路由需要经过路由器 1.单页web（SPA应用） 2.只有一个完整的页面 3.点击导航链接不会刷新页面，只会做页面的局部刷新 4.数据需要通过ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue——路由">
+<meta property="og:url" content="https://yummyx02.github.io/Vue/Vue%E2%80%94%E2%80%94%E8%B7%AF%E7%94%B1/index.html">
+<meta property="og:site_name" content="Struggle in my life">
+<meta property="og:description" content="Vue——路由 一、何为路由——vue-router 路由其实就是一种对应关系（一组key-value）：对于前端来说，key—路径；value—组件 对于后端来说，value是function 用于处理客户端的请求，根据请求路径来匹配函数 ​	多个路由需要经过路由器 1.单页web（SPA应用） 2.只有一个完整的页面 3.点击导航链接不会刷新页面，只会做页面的局部刷新 4.数据需要通过ajax">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-03-31T03:07:03.000Z">
+<meta property="article:modified_time" content="2022-03-31T03:07:03.000Z">
+<meta property="article:author" content="王翔_x">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yummyx02.github.io/Vue/Vue%E2%80%94%E2%80%94%E8%B7%AF%E7%94%B1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"Vue","comments":true,"permalink":"https://yummyx02.github.io/Vue/Vue%E2%80%94%E2%80%94%E8%B7%AF%E7%94%B1/","path":"Vue/Vue——路由/","title":"Vue——路由"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Vue——路由 | Struggle in my life</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Struggle in my life</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">王翔的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Vue——路由</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BD%95%E4%B8%BA%E8%B7%AF%E7%94%B1%E2%80%94%E2%80%94vue-router"><span class="nav-number">1.1.</span> <span class="nav-text">一、何为路由——vue-router</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%B7%AF%E7%94%B1%E4%B8%AD%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.2.</span> <span class="nav-text">二、路由中的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6%E5%90%8D%E8%AF%8D%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.2.1.</span> <span class="nav-text">组件名词介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.2.</span> <span class="nav-text">路由配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%88%86%E7%B1%BB"><span class="nav-number">1.3.</span> <span class="nav-text">三、分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%85%A8%E5%B1%80%E5%AE%88%E5%8D%AB"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.全局守卫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8D%95%E4%B8%AA%E8%B7%AF%E7%94%B1"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.单个路由</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%BB%84%E4%BB%B6%E4%B8%AD"><span class="nav-number">1.4.</span> <span class="nav-text">3.组件中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E8%B7%AF%E7%94%B1%E5%AE%88%E5%8D%AB"><span class="nav-number">1.5.</span> <span class="nav-text">四、路由守卫</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81"><span class="nav-number">1.5.1.</span> <span class="nav-text">为什么需要</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="王翔_x"
+      src="/images/avl.jpg">
+  <p class="site-author-name" itemprop="name">王翔_x</p>
+  <div class="site-description" itemprop="description">It's an IT blog...</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yummyX02" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yummyX02" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/1245191297@qq.com" title="E-Mail → 1245191297@qq.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="Vue">
+    <link itemprop="mainEntityOfPage" href="https://yummyx02.github.io/Vue/Vue%E2%80%94%E2%80%94%E8%B7%AF%E7%94%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avl.jpg">
+      <meta itemprop="name" content="王翔_x">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Struggle in my life">
+      <meta itemprop="description" content="It's an IT blog...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Vue——路由 | Struggle in my life">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Vue——路由
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-31 11:07:03" itemprop="dateCreated datePublished" datetime="2022-03-31T11:07:03+08:00">2022-03-31</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>2.9k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1>Vue——路由</h1>
+<h2 id="一、何为路由——vue-router">一、何为路由——vue-router</h2>
+<p>路由其实就是一种对应关系（一组key-value）：对于前端来说，key—路径；value—组件</p>
+<p>对于后端来说，value是function 用于处理客户端的请求，根据请求路径来匹配函数</p>
+<p>​	多个路由需要经过路由器</p>
+<p>1.单页web（SPA应用）</p>
+<p>2.只有一个完整的页面</p>
+<p>3.点击导航链接不会刷新页面，只会做页面的局部刷新</p>
+<p>4.数据需要通过ajax请求获取</p>
+<span id="more"></span>
+<h2 id="二、路由中的概念">二、路由中的概念</h2>
+<h3 id="组件名词介绍"><strong>组件名词介绍</strong></h3>
+<p><code>&lt;router-view&gt;&lt;/router-view&gt;</code> 呈现路由配置元件<br>
+<code>&lt;router-link&gt;&lt;/router-link&gt;</code> 路由路径<br>
+<code>main.js</code> 进路点</p>
+<h3 id="路由配置"><strong>路由配置</strong></h3>
+<p>router.js(index.js)：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">处理路由配置管理，引入和暴露一些内容等</span><br><span class="line"><span class="comment">// 0. 如果使用模块化机制编程，导入Vue和VueRouter，要调用 Vue.use(VueRouter)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 定义 (路由) 组件。</span></span><br><span class="line"><span class="comment">// 可以从其他文件 import 进来</span></span><br><span class="line"><span class="keyword">const</span> Foo = &#123; <span class="attr">template</span>: <span class="string">&#x27;&lt;div&gt;foo&lt;/div&gt;&#x27;</span> &#125;</span><br><span class="line"><span class="keyword">const</span> Bar = &#123; <span class="attr">template</span>: <span class="string">&#x27;&lt;div&gt;bar&lt;/div&gt;&#x27;</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 定义路由</span></span><br><span class="line"><span class="comment">// 每个路由应该映射一个组件。 其中&quot;component&quot; 可以是</span></span><br><span class="line"><span class="comment">// 通过 Vue.extend() 创建的组件构造器，</span></span><br><span class="line"><span class="comment">// 或者，只是一个组件配置对象。</span></span><br><span class="line"><span class="comment">// 我们晚点再讨论嵌套路由。</span></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&#x27;/foo&#x27;</span>, <span class="attr">component</span>: Foo &#125;,</span><br><span class="line">  &#123; <span class="attr">path</span>: <span class="string">&#x27;/bar&#x27;</span>, <span class="attr">component</span>: Bar &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 创建 router 实例，然后传 `routes` 配置</span></span><br><span class="line"><span class="comment">// 你还可以传别的配置参数, 不过先这么简单着吧。</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  routes <span class="comment">// (缩写) 相当于 routes: routes</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 创建和挂载根实例。</span></span><br><span class="line"><span class="comment">// 记得要通过 router 配置参数注入路由，</span></span><br><span class="line"><span class="comment">// 从而让整个应用都有路由功能</span></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  router</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 现在，应用已经启动了！</span></span><br></pre></td></tr></table></figure>
+<p>main.js:</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">webpack的进入点</span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> vue(&#123;</span><br><span class="line">	router,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>App.vue:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">充当首页</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="三、分类">三、分类</h2>
+<h3 id="1-全局守卫">1.全局守卫</h3>
+<p>是指路由实例上直接操作的钩子函数，他的特点是所有路由配置的组件都会触发，直白点就是触发路由就会触发这些钩子函数。钩子函数按执行顺序包括beforeEach、beforeResolve（2.5+）、afterEach三个</p>
+<p><strong>beforeEach</strong>：路由跳转前触发，参数是to,from,next三个</p>
+<p><strong>beforeResolve</strong>：路由跳转前触发，参数是to,from,next三个</p>
+<p>和beforeEach区别官方解释为：</p>
+<p>区别是<em>在导航被确认之前</em>，同时在所有组件内守卫和异步路由组件被解析之后，解析守卫就被调用。 即在 beforeEach 和 组件内beforeRouteEnter 之后，afterEach之前调用。</p>
+<p><strong>afterEach</strong>：跳转完成后触发，没有next，只有to和from</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach((to, from, <span class="keyword">next</span>) =&gt; &#123;</span><br><span class="line">  <span class="regexp">//</span>to 将要访问的路径</span><br><span class="line">  <span class="regexp">//</span>from 代表从哪个路径跳转而来</span><br><span class="line">  <span class="regexp">//</span><span class="keyword">next</span> 是一个函数，表示放行</span><br><span class="line">  <span class="regexp">//</span> <span class="keyword">next</span>() 放行  <span class="keyword">next</span>(<span class="string">&#x27;/login&#x27;</span>) 强制跳转</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>next：他是最重要的一个参数，他相当于佛珠的线，把一个一个珠子逐个串起来。以下注意点务必牢记：</li>
+<li>1.但凡涉及到有next参数的钩子，必须调用next() 才能继续往下执行下一个钩子，否则路由跳转等会停止。</li>
+<li>2.如果要中断当前的导航要调用next(false)。如果浏览器的 URL 改变了 (可能是用户手动或者浏览器后退按钮)，那么 URL 地址会重置到from路由对应的地址。（主要用于登录验证不通过的处理）</li>
+<li>3.当然next可以这样使用，next(‘/’) 或者 next({ path: ‘/’ }): 跳转到一个不同的地址。意思是当前的导航被中断，然后进行一个新的导航。可传递的参数与router.push中选项一致</li>
+<li>4.在beforeRouteEnter钩子中next((vm)=&gt;{})内接收的回调函数参数为当前组件的实例vm，这个回调函数在生命周期mounted之后调用，也就是，他是所有导航守卫和生命周期函数最后执行的那个钩子。</li>
+<li>5.next(error): (v2.4.0+) 如果传入 next 的参数是一个 Error 实例，则导航会被终止且该错误会被传递给 router.onError() 注册过的回调。</li>
+</ul>
+<h3 id="2-单个路由">2.单个路由</h3>
+<p>是指在单个路由配置的时候也可以设置的钩子函数，但是仅有beforeEnter函数可以用，参数to、from、next</p>
+<h2 id="3-组件中">3.组件中</h2>
+<p>似于组件内的生命周期，相当于为配置路由的组件添加的生命周期钩子函数。钩子函数按执行顺序包括beforeRouteEnter、beforeRouteUpdate (2.2+)、beforeRouteLeave三个</p>
+<h2 id="四、路由守卫">四、路由守卫</h2>
+<h3 id="为什么需要"><strong>为什么需要</strong></h3>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">导航守卫就是路由跳转过程中的一些钩子函数，再直白点路由跳转是一个大的过程，这个大的过程分为跳转前中后等等细小的过程，在每一个过程中都有一函数，这个函数能让你操作一些其他的事儿的时机，路由跳转前做一些验证，比如登录验证，是网站中的普遍需求。对此，vue-route 提供的beforeRouteUpdate可以方便地实现导航守卫（navigation-guards）。导航守卫（navigation-guards）</span><br></pre></td></tr></table></figure>
+<p><strong>在哪儿使用</strong></p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//router下的index.js</span></span><br><span class="line"><span class="comment">//挂载路由导航守卫,控制页面访问权限</span></span><br><span class="line"></span><br><span class="line">router.beforeEach((to, <span class="keyword">from</span>, <span class="keyword">next</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (to.path === <span class="string">&#x27;/login&#x27;</span>) <span class="keyword">return</span> <span class="keyword">next</span>();</span><br><span class="line">  <span class="comment">//获取token</span></span><br><span class="line">  <span class="keyword">const</span> tokenStr = window.sessionStorage.getItem(<span class="string">&#x27;token&#x27;</span>)</span><br><span class="line">  <span class="keyword">if</span> (!tokenStr) <span class="keyword">return</span> <span class="keyword">next</span>(<span class="string">&#x27;/login&#x27;</span>)</span><br><span class="line">  <span class="keyword">next</span>()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export <span class="literal">default</span> router;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Vue/" rel="tag"><i class="fa fa-tag"></i> Vue</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Vue/Vuex/" rel="prev" title="Vuex">
+                  <i class="fa fa-chevron-left"></i> Vuex
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Vue/Vue%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1/" rel="next" title="Vue——组件间通信">
+                  Vue——组件间通信 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王翔_x</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">67k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:01</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"yummyX02/yummyX02.github.io","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="js">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yummyx02.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="js——事件冒泡和捕获 一、理解 12345&lt;div id&#x3D;&quot;root&quot; onclick&#x3D;&quot;fun1&quot;&gt;    &lt;p onclick &#x3D; &quot;fun2&quot;&gt;        click me!    &lt;&#x2F;p&gt;&lt;&#x2F;div&gt; 如果两个元素都有一个click的处理函数，那么我们怎么才能知道哪一个函数会首">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js——事件的冒泡和捕获">
+<meta property="og:url" content="https://yummyx02.github.io/js/js%E2%80%94%E2%80%94%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%86%92%E6%B3%A1%E5%92%8C%E6%8D%95%E8%8E%B7/index.html">
+<meta property="og:site_name" content="Struggle in my life">
+<meta property="og:description" content="js——事件冒泡和捕获 一、理解 12345&lt;div id&#x3D;&quot;root&quot; onclick&#x3D;&quot;fun1&quot;&gt;    &lt;p onclick &#x3D; &quot;fun2&quot;&gt;        click me!    &lt;&#x2F;p&gt;&lt;&#x2F;div&gt; 如果两个元素都有一个click的处理函数，那么我们怎么才能知道哪一个函数会首">
+<meta property="og:locale">
+<meta property="og:image" content="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/4/16/16a2654b0dd928ef~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp">
+<meta property="og:image" content="c:%5CUsers%5C%E9%9D%99%E5%BE%85X%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220323175431656.png">
+<meta property="og:image" content="c:%5CUsers%5C%E9%9D%99%E5%BE%85X%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220323175746434.png">
+<meta property="article:published_time" content="2022-03-31T14:40:50.000Z">
+<meta property="article:modified_time" content="2022-03-31T14:40:50.000Z">
+<meta property="article:author" content="王翔_x">
+<meta property="article:tag" content="js">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/4/16/16a2654b0dd928ef~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp">
+
+
+<link rel="canonical" href="https://yummyx02.github.io/js/js%E2%80%94%E2%80%94%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%86%92%E6%B3%A1%E5%92%8C%E6%8D%95%E8%8E%B7/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"js","comments":true,"permalink":"https://yummyx02.github.io/js/js%E2%80%94%E2%80%94%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%86%92%E6%B3%A1%E5%92%8C%E6%8D%95%E8%8E%B7/","path":"js/js——事件的冒泡和捕获/","title":"js——事件的冒泡和捕获"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>js——事件的冒泡和捕获 | Struggle in my life</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Struggle in my life</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">王翔的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">js——事件冒泡和捕获</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%90%86%E8%A7%A3"><span class="nav-number">1.1.</span> <span class="nav-text">一、理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1"><span class="nav-number">1.1.1.</span> <span class="nav-text">事件冒泡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7"><span class="nav-number">1.1.2.</span> <span class="nav-text">事件捕获</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%E5%92%8C%E4%BA%8B%E4%BB%B6%E6%8D%95%E8%8E%B7%E8%BF%87%E7%A8%8B%E5%9B%BE%EF%BC%9A"><span class="nav-number">1.1.3.</span> <span class="nav-text">事件冒泡和事件捕获过程图：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81addEventListener"><span class="nav-number">1.2.</span> <span class="nav-text">二、addEventListener</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">三、事件代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.传统方法实现：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.事件代理</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="王翔_x"
+      src="/images/avl.jpg">
+  <p class="site-author-name" itemprop="name">王翔_x</p>
+  <div class="site-description" itemprop="description">It's an IT blog...</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yummyX02" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yummyX02" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/1245191297@qq.com" title="E-Mail → 1245191297@qq.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="js">
+    <link itemprop="mainEntityOfPage" href="https://yummyx02.github.io/js/js%E2%80%94%E2%80%94%E4%BA%8B%E4%BB%B6%E7%9A%84%E5%86%92%E6%B3%A1%E5%92%8C%E6%8D%95%E8%8E%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avl.jpg">
+      <meta itemprop="name" content="王翔_x">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Struggle in my life">
+      <meta itemprop="description" content="It's an IT blog...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="js——事件的冒泡和捕获 | Struggle in my life">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          js——事件的冒泡和捕获
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-31 22:40:50" itemprop="dateCreated datePublished" datetime="2022-03-31T22:40:50+08:00">2022-03-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1>js——事件冒泡和捕获</h1>
+<h2 id="一、理解">一、理解</h2>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;root&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;fun1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">onclick</span> = <span class="string">&quot;fun2&quot;</span>&gt;</span></span><br><span class="line">        click me!</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果两个元素都有一个click的处理函数，那么我们怎么才能知道哪一个函数会首先被触发呢？</p>
+<span id="more"></span>
+<h3 id="事件冒泡">事件冒泡</h3>
+<p>比喻事件的触发就像泡泡从水底下向上冒一样，即：事件会从最内部的元素开始发生，一直向上传播，直到document对象</p>
+<p>例如：假设我点击p</p>
+<p><strong>p -&gt; div -&gt; body -&gt; html -&gt; document</strong></p>
+<h3 id="事件捕获">事件捕获</h3>
+<p>与冒泡相反，从最外层向内（点击对象）触发，同样点击p</p>
+<p><strong>document -&gt; html -&gt; body -&gt; div -&gt; p</strong></p>
+<h3 id="事件冒泡和事件捕获过程图："><strong>事件冒泡和事件捕获过程图：</strong></h3>
+<p><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2019/4/16/16a2654b0dd928ef~tplv-t2oaga2asx-zoom-in-crop-mark:1304:0:0:0.awebp" alt="img"></p>
+<h2 id="二、addEventListener">二、addEventListener</h2>
+<p>element.addEventListener(event, function, useCapture)</p>
+<p><img src="C:%5CUsers%5C%E9%9D%99%E5%BE%85X%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220323175431656.png" alt="image-20220323175431656"></p>
+<h2 id="三、事件代理">三、事件代理</h2>
+<p>来看一个需求：当我点击每个li标签时，都改变其对应颜色并在下方显示颜色名称</p>
+<p><img src="C:%5CUsers%5C%E9%9D%99%E5%BE%85X%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220323175746434.png" alt="image-20220323175746434"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;color_list&quot;</span>&gt;</span>        </span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>red<span class="tag">&lt;/<span class="name">li</span>&gt;</span>        </span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>orange<span class="tag">&lt;/<span class="name">li</span>&gt;</span>        </span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>yellow<span class="tag">&lt;/<span class="name">li</span>&gt;</span>        </span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>green<span class="tag">&lt;/<span class="name">li</span>&gt;</span>        </span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>blue<span class="tag">&lt;/<span class="name">li</span>&gt;</span>        </span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>purple<span class="tag">&lt;/<span class="name">li</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.color_list</span>&#123;            </span><br><span class="line">    <span class="attribute">display</span>: flex;            </span><br><span class="line">    <span class="attribute">display</span>: -webkit-flex;        </span><br><span class="line">&#125;        </span><br><span class="line"><span class="selector-class">.color_list</span> <span class="selector-tag">li</span>&#123;            </span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;            </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;            </span><br><span class="line">    <span class="attribute">list-style</span>: none;            </span><br><span class="line">    <span class="attribute">text-align</span>: center;            </span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">100px</span>;        </span><br><span class="line">&#125;</span><br><span class="line">//每个<span class="selector-tag">li</span>加上对应的颜色，此处省略</span><br><span class="line"><span class="selector-class">.box</span>&#123;            </span><br><span class="line">    <span class="attribute">width</span>: <span class="number">600px</span>;            </span><br><span class="line">    <span class="attribute">height</span>: <span class="number">150px</span>;            </span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#cccccc</span>;            </span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">150px</span>;            </span><br><span class="line">    <span class="attribute">text-align</span>: center;        </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="1-传统方法实现：">1.传统方法实现：</h3>
+<p>便利循环li，再给每个li添加点击事件，执行函数</p>
+<p>但是，当li非常多时，会造成效率极低</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> color_list = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.color_list&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> colors = color_list.getElementByTagName(<span class="string">&quot;li&quot;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; colors.length; i++)&#123;</span><br><span class="line">	colors[i].addEventListener(<span class="string">&quot;click&quot;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">&quot;this.innerHTML&quot;</span>);</span><br><span class="line">        box.innerHTML = <span class="string">&quot;the color is&quot;</span> + <span class="built_in">this</span>.innerHTML;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-事件代理">2.事件代理</h3>
+<p>利用事件流的特性，我们只绑定一个事件处理函数也可以完成</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 给color_list绑定事件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeColor</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(e.targt.nodeName.toLOwerCase() === <span class="string">&quot;li&quot;</span>)&#123;</span><br><span class="line">        box.innerHTML=<span class="string">&quot;该颜色为 &quot;</span>+e.target.innerHTML;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">color_list.addEventListener(<span class="string">&quot;click&quot;</span>,changeColor,<span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
+<p>说明：由于冒泡机制，当点击任意一个li时，会一次从li向外冒泡到ul，此时触发事件changeColor，根据对应的e.target获取具体的li并执行函数</p>
+<p><strong>使用事件代理的好处不仅在于将多个事件处理函数减为一个，而且对于不同的元素可以有不同的处理方法。假如上述列表元素当中添加了其他的元素节点（如：a、span等），我们不必再一次循环给每一个元素绑定事件，直接修改事件代理的事件处理函数即可。</strong>**<br>
+**</p>
+<p><strong>（1）toLowerCase()</strong> 方法用于把字符串转换为小写。**语法：**stringObject.toLowerCase()</p>
+<p>**返回值：**一个新的字符串，在其中 stringObject 的所有大写字符全部被转换为了小写字符。</p>
+<p><strong>（2）nodeName</strong> 属性指定节点的节点名称。如果节点是元素节点，则 nodeName 属性返回标签名。如果节点是属性节点，则 nodeName 属性返回属性的名称。对于其他节点类型，nodeName 属性返回不同节点类型的不同名称。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/js/js%E4%B8%ADthis%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89/" rel="prev" title="js中this的使用（转载）">
+                  <i class="fa fa-chevron-left"></i> js中this的使用（转载）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Vue/Vuex/" rel="next" title="Vuex">
+                  Vuex <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王翔_x</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">67k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:01</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"yummyX02/yummyX02.github.io","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>
