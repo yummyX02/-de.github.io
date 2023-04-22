@@ -312,13 +312,6 @@
   </url>
   
   <url>
-    <loc>https://yummyx02.github.io/tags/Vue/</loc>
-    <lastmod>2023-04-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://yummyx02.github.io/tags/html/</loc>
     <lastmod>2023-04-22</lastmod>
     <changefreq>daily</changefreq>
@@ -326,14 +319,14 @@
   </url>
   
   <url>
-    <loc>https://yummyx02.github.io/tags/hexo/</loc>
+    <loc>https://yummyx02.github.io/tags/js/</loc>
     <lastmod>2023-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://yummyx02.github.io/tags/js/</loc>
+    <loc>https://yummyx02.github.io/tags/Vue/</loc>
     <lastmod>2023-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -369,6 +362,13 @@
   
   <url>
     <loc>https://yummyx02.github.io/tags/css/</loc>
+    <lastmod>2023-04-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yummyx02.github.io/tags/hexo/</loc>
     <lastmod>2023-04-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
