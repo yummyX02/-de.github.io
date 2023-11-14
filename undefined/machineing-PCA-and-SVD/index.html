@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="undefined">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/myicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/myicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yummyx02.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="主成分分析 一、定义  即一种非监督的机器学习算法，用户探索高位数据结构的技术，主要用于对数据进行降维   所谓降维则是将高纬度的数据保留最重要的特征,去除噪声和不重要的特征,从而提升数据处理速度的目的。  1.主要思想：  将n维数据特征映射到k维上，这k维即是全新的正交特征（主成分）。 本质上是将方差最大的方向作为主要特征，并且在各个正交方向上将数据“离相关”，也就是让它们在不同正交方向上没有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="machineing-PCA and SVD">
+<meta property="og:url" content="https://yummyx02.github.io/undefined/machineing-PCA-and-SVD/index.html">
+<meta property="og:site_name" content="Struggle in my life">
+<meta property="og:description" content="主成分分析 一、定义  即一种非监督的机器学习算法，用户探索高位数据结构的技术，主要用于对数据进行降维   所谓降维则是将高纬度的数据保留最重要的特征,去除噪声和不重要的特征,从而提升数据处理速度的目的。  1.主要思想：  将n维数据特征映射到k维上，这k维即是全新的正交特征（主成分）。 本质上是将方差最大的方向作为主要特征，并且在各个正交方向上将数据“离相关”，也就是让它们在不同正交方向上没有">
+<meta property="og:locale">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1217155/201910/1217155-20191029211231030-946005898.png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTaw9BibsJ6fW2vSt0DuhDiaoArxjCjcFH1sdMSichRCP5ibDkudVyaQ7kQQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTELopuzG6vep3eD26v7RuMrfYxJEavNs6Nc226UTLrBko4xXSMkFTPg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTSIrHZNicepicgxWsdCeOfITDoR79B2SLnuDzMicG1pbKlyg5ojCtkG5ibw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTZs3GVnbGdhGUMZWTmI2GNxxGZAQUk2S6aXXMVicvnbHN8UODJ42I2GA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTDz6gZIGHlxcGKPXn02sUu4yVTInFpXrFTEbIZUBjFFYcRuJIDtNBnw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTibpdjY39e0kHWiaUF1PHjEfXovvTWaFmlopSu9RgPicvVzdpcZdqpyhiaA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTPYUzPs4Ig6ib5Olkdsf435LiaBhUSXGJHmFiccbM5Wic8U2xj1PC8VTtSw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTWnK5zQjFFzut7ib0STAFq1ibhJicQ0G03GviaaAJQFf4ksKY9BwxicdzWpQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTBLavOzlUHPSQDWKJL6p32M07STdGZX0UuBXq9h5tUeklqWALqwU1Nw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-5ee98f8f3426b845bc1c5038ecd29593_720w.webp">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTpzVVLmibiaLDReljtGsXwGkXoFOV87WxLT0SouSoUPE31ZIbTwZ7htXQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="c:%5CUsers%5CDELL%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231029193510556.png">
+<meta property="og:image" content="c:%5CUsers%5CDELL%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231029193529893.png">
+<meta property="og:image" content="c:%5CUsers%5CDELL%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231029193510556.png">
+<meta property="og:image" content="c:%5CUsers%5CDELL%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231029193529893.png">
+<meta property="article:published_time" content="2023-11-14T15:27:16.000Z">
+<meta property="article:modified_time" content="2023-11-14T15:27:16.000Z">
+<meta property="article:author" content="王翔_x">
+<meta property="article:tag" content="machineing">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1217155/201910/1217155-20191029211231030-946005898.png">
+
+
+<link rel="canonical" href="https://yummyx02.github.io/undefined/machineing-PCA-and-SVD/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"undefined","comments":true,"permalink":"https://yummyx02.github.io/undefined/machineing-PCA-and-SVD/","path":"undefined/machineing-PCA-and-SVD/","title":"machineing-PCA and SVD"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>machineing-PCA and SVD | Struggle in my life</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Struggle in my life</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">王翔的博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>Links</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">主成分分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">一、定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%B8%BB%E8%A6%81%E6%80%9D%E6%83%B3%EF%BC%9A"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1.主要思想：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%EF%BC%9A"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">2.主要工作：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%80%E4%BA%9B%E6%A6%82%E5%BF%B5%E8%BE%A8%E6%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">二、一些概念辨析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%89%B9%E5%BE%81%E5%80%BC%E3%80%81%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">1.特征值、特征向量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81SVD%EF%BC%88%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">三、SVD（奇异值分解）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">1.定义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%BA%94%E7%94%A8"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">2.应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%87%AA%E8%A1%8C%E8%A7%A3%E9%87%8A"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">3.自行解释</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="王翔_x"
+      src="/images/avl.jpg">
+  <p class="site-author-name" itemprop="name">王翔_x</p>
+  <div class="site-description" itemprop="description">It's an IT blog...</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yummyX02" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yummyX02" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/1245191297@qq.com" title="E-Mail → 1245191297@qq.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+      
+      
+        <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+        <div class="widget-wrap">
+          <h3 class="widget-title">Tag Cloud</h3>
+    <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="250" height="250" id="resCanvas" style="width:100%">
+              <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Yolo/" rel="tag">Yolo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machineing/" rel="tag">machineing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vs-code/" rel="tag">vs code</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E9%A1%B9/" rel="tag">杂项</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a><span class="tag-list-count">1</span></li></ul>
+            </canvas>
+          </div>
+        </div>
+      
+      
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="undefined">
+    <link itemprop="mainEntityOfPage" href="https://yummyx02.github.io/undefined/machineing-PCA-and-SVD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avl.jpg">
+      <meta itemprop="name" content="王翔_x">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Struggle in my life">
+      <meta itemprop="description" content="It's an IT blog...">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="machineing-PCA and SVD | Struggle in my life">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          machineing-PCA and SVD
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-11-14 23:27:16" itemprop="dateCreated datePublished" datetime="2023-11-14T23:27:16+08:00">2023-11-14</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1>主成分分析</h1>
+<h2 id="一、定义">一、定义</h2>
+<ul>
+<li>即一种非监督的机器学习算法，用户探索高位数据结构的技术，主要用于对数据进行降维</li>
+</ul>
+<blockquote>
+<p>所谓降维则是将高纬度的数据保留最重要的特征,去除噪声和不重要的特征,从而提升数据处理速度的目的。</p>
+</blockquote>
+<h4 id="1-主要思想：">1.主要思想：</h4>
+<ul>
+<li>将n维数据特征映射到k维上，这k维即是全新的正交特征（主成分）。</li>
+<li>本质上是将方差最大的方向作为主要特征，并且在各个正交方向上将数据“离相关”，也就是让它们在不同正交方向上没有相关性。</li>
+</ul>
+<p><img src="https://img2018.cnblogs.com/blog/1217155/201910/1217155-20191029211231030-946005898.png" alt="img"></p>
+<h4 id="2-主要工作：">2.主要工作：</h4>
+<p>​	从原始数据中找到一组相互正交的坐标轴：第一个坐标轴是原始数据中方差最大的方向，第二个坐标轴是与第一个坐标轴正交的平面方差最大的方向，第三个轴是与第1,2个轴正交的平面中方差最大的。依次类推，可以得到n个这样的坐标轴。通过这种方式获得的新的坐标轴，我们发现，大部分方差都包含在前面k个坐标轴中，后面的坐标轴所含的方差几乎为0。于是，我们可以忽略余下的坐标轴，只保留前面k个含有绝大部分方差的坐标轴。事实上，这相当于只保留包含绝大部分方差的维度特征，而忽略包含方差几乎为0的特征维度，实现对数据特征的降维处理。</p>
+<blockquote>
+<p>1.通过计算数据矩阵的协方差矩阵，然后得到协方差矩阵的特征值特征向量，选择**特征值最大(即方差最大)**的k个特征所对应的特征向量组成的矩阵。这样就可以将数据矩阵转换到新的空间当中，实现数据特征的降维。</p>
+</blockquote>
+<h2 id="二、一些概念辨析">二、一些概念辨析</h2>
+<h4 id="1-特征值、特征向量">1.特征值、特征向量</h4>
+<ul>
+<li>如果一个向量v是矩阵A的特征向量，将一定可以表示成下面的形式：</li>
+</ul>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTaw9BibsJ6fW2vSt0DuhDiaoArxjCjcFH1sdMSichRCP5ibDkudVyaQ7kQQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="Image"></p>
+<blockquote>
+<p>其中，λ是特征向量v对应的特征值，一个矩阵的一组特征向量是一组正交向量。</p>
+</blockquote>
+<p>***思考：***为什么一个向量和一个数相乘的效果与一个矩阵和一个向量相乘的效果是一样的呢？</p>
+<p>答案：矩阵A与向量v相乘，本质上是对向量v进行了一次线性变换（旋转或拉伸），而该变换的效果为常数λ乘以向量v。当我们求特征值与特征向量的时候，就是为了求矩阵A能使哪些向量（特征向量）只发生伸缩变换，而变换的程度可以用特征值λ表示。</p>
+<ul>
+<li>
+<p><strong>特征值与特征向量的几何意义</strong></p>
+<ul>
+<li>对称矩阵</li>
+</ul>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTELopuzG6vep3eD26v7RuMrfYxJEavNs6Nc226UTLrBko4xXSMkFTPg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="Image"></p>
+<p>乘一个向量：<img src="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTSIrHZNicepicgxWsdCeOfITDoR79B2SLnuDzMicG1pbKlyg5ojCtkG5ibw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="Image"></p>
+<p>效果：<img src="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTZs3GVnbGdhGUMZWTmI2GNxxGZAQUk2S6aXXMVicvnbHN8UODJ42I2GA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="Image"></p>
+<ul>
+<li>
+<p>非对称矩阵</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTDz6gZIGHlxcGKPXn02sUu4yVTInFpXrFTEbIZUBjFFYcRuJIDtNBnw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="Image"></p>
+<p>效果：<img src="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTibpdjY39e0kHWiaUF1PHjEfXovvTWaFmlopSu9RgPicvVzdpcZdqpyhiaA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="Image"></p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>其实是在平面上对一个轴进行的拉伸变换，如蓝色的箭头所示，蓝色的箭头是一个最主要的变换方向（变换的方向可能不止一个）</p>
+</blockquote>
+<ul>
+<li><strong>特征值分解</strong>：解|λE-A| = 0</li>
+</ul>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTPYUzPs4Ig6ib5Olkdsf435LiaBhUSXGJHmFiccbM5Wic8U2xj1PC8VTtSw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="Image"></p>
+<blockquote>
+<p>其中，Q是矩阵A的特征向量组成的矩阵，<img src="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTWnK5zQjFFzut7ib0STAFq1ibhJicQ0G03GviaaAJQFf4ksKY9BwxicdzWpQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="Image">则是一个对角阵，对角线上的元素就是特征值。</p>
+<p>Σ矩阵是一个对角矩阵，里面的特征值是由大到小排列的，这些特征值所对应的特征向量就是描述这个矩阵变换方向（从主要的变化到次要的变化排列）。</p>
+</blockquote>
+<p><strong>那么对于一个高维矩阵，这样分解，就可以得到前N个特征向量，就对应了这个矩阵最主要的N个变化方向。就可以近似这个矩阵变换，即：提取这个矩阵最主要的特征。</strong></p>
+<p>但是！注意：<strong>特征值分解也有很多的局限，比如说变换的矩阵必须是方阵。</strong></p>
+<h2 id="三、SVD（奇异值分解）">三、<strong>SVD（奇异值分解）</strong></h2>
+<h4 id="1-定义：">1.定义：</h4>
+<p>​	奇异值是矩阵的特征值；</p>
+<p>​	奇异值分解是一个能适用于任意矩阵的一种分解的方法，对于任意矩阵A总是存在一个奇异值分解:</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTBLavOzlUHPSQDWKJL6p32M07STdGZX0UuBXq9h5tUeklqWALqwU1Nw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="Image"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-5ee98f8f3426b845bc1c5038ecd29593_720w.webp" alt="img"></p>
+<blockquote>
+<p>假设A是一个<code>m*n</code>的矩阵:</p>
+<ul>
+<li>
+<p>U是一个<code>m*m</code>的方阵，U里面的正交向量被称为左奇异向量。</p>
+</li>
+<li>
+<p>Σ是一个m*n的矩阵，Σ除了对角线其它元素都为0，对角线上的元素称为奇异值。</p>
+</li>
+<li>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/rB4jswrswuypRuABCGAYIouIazEuNcZTpzVVLmibiaLDReljtGsXwGkXoFOV87WxLT0SouSoUPE31ZIbTwZ7htXQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="Image">是v的转置矩阵，是一个<code>n*n</code>的矩阵，它里面的正交向量被称为右奇异值向量。</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>求<img src="C:%5CUsers%5CDELL%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231029193510556.png" alt="image-20231029193510556">的特征值和特征向量，用单位化的特征向量构成 U</li>
+<li>求 <img src="C:%5CUsers%5CDELL%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231029193529893.png" alt="image-20231029193529893"> 的特征值和特征向量，用单位化的特征向量构成 V</li>
+<li>将 <img src="C:%5CUsers%5CDELL%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231029193510556.png" alt="image-20231029193510556">或者  <img src="C:%5CUsers%5CDELL%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20231029193529893.png" alt="image-20231029193529893">的特征值求平方根，然后构成 Σ</li>
+</ul>
+<h4 id="2-应用">2.应用</h4>
+<p>1)降维</p>
+<p>通过奇异值分解的公式，我们可以很容易看出来，原来矩阵A的特征有n维。经过SVD分解后，可以用前r个非零奇异值对应的奇异向量表示矩阵A的主要特征，这样就把矩阵A进行了降维。</p>
+<p>2)压缩</p>
+<p>通过奇异值分解的公式，我们可以看出来，矩阵A经过SVD分解后，要表示原来的大矩阵A，我们只需要存储U、Σ、V三个较小的矩阵即可。而这三个较小规模的矩阵占用内存上也是远远小于原有矩阵A的，这样SVD分解就起到了压缩的作用。</p>
+<h4 id="3-自行解释">3.自行解释</h4>
+<p>在我看来，SVD是对数据进行有效特征整理的过程。首先，对于一个m×n矩阵A，我们可以理解为其有m个数据，n个特征，（想象成一个n个特征组成的坐标系中的m个点），然而一般情况下，这n个特征并不是正交的，也就是说这n个特征并不能归纳这个数据集的特征。因为非正交特征表达更困难，也更容易出现冗余特征。</p>
+<p>SVD的作用就相当于是一个坐标系变换的过程，从一个不标准的n维坐标系，转换为一个标准的k维坐标系，并且使这个数据集中的点，到这个新坐标系的欧式距离为最小值（也就是这些点在这个新坐标系中的投影方差最大化），其实就是一个最小二乘的过程。</p>
+<p>进一步，如何使数据在新坐标系中的投影最大化呢，那么我们就需要让这个新坐标系中的基尽可能的不相关，我们可以用协方差来衡量这种相关性。A^T·A中计算的便是n×n的协方差矩阵，每一个值代表着原来的n个特征之间的相关性。</p>
+<p>当对这个协方差矩阵进行特征分解之后，我们可以得到奇异值和右奇异矩阵，而这个右奇异矩阵则是一个新的坐标系，奇异值则对应这个新坐标系中每个基对于整体数据的影响大小，我们这时便可以提取奇异值最大的k个基，作为新的坐标，这便是PCA的原理。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/machineing/" rel="tag"><i class="fa fa-tag"></i> machineing</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/undefined/Yolo-v3-init/" rel="next" title="Yolo_v3 init">
+                  Yolo_v3 init <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王翔_x</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">70k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:03</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"yummyX02/yummyX02.github.io","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>
