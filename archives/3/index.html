@@ -323,9 +323,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>C++读取字符串的三种方式</h1>
-<h2 id="一、cin">一、cin</h2>
-<p>tips：<strong>cin遇到&quot;空格&quot; “TAB” &quot;回车&quot;就会结束读取</strong></p>
+          <h1 id="C-读取字符串的三种方式"><a href="#C-读取字符串的三种方式" class="headerlink" title="C++读取字符串的三种方式"></a>C++读取字符串的三种方式</h1><h2 id="一、cin"><a href="#一、cin" class="headerlink" title="一、cin"></a>一、cin</h2><p>tips：<strong>cin遇到”空格” “TAB” “回车”就会结束读取</strong></p>
 <hr>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">20</span>];</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    cout &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输入：qwertyu</span></span><br><span class="line"><span class="comment">//输出：qwertyu</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	输入：qwer tyu</span></span><br><span class="line"><span class="comment">	输出：qwer</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
@@ -418,11 +416,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>静态成员变量必须初始化吗？</h1>
-<p>我们知道C++类的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E9%9D%99%E6%80%81%E6%88%90%E5%91%98&amp;spm=1001.2101.3001.7020">静态成员</a>变量是需要初始化的，但为什么要初始化呢。</p>
+          <h1 id="静态成员变量必须初始化吗？"><a href="#静态成员变量必须初始化吗？" class="headerlink" title="静态成员变量必须初始化吗？"></a>静态成员变量必须初始化吗？</h1><p>我们知道C++类的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=静态成员&amp;spm=1001.2101.3001.7020">静态成员</a>变量是需要初始化的，但为什么要初始化呢。</p>
 <p>其实这句话“静态成员变量是需要初始化的”是有一定问题的，应该说“静态成员变量需要定义”才是准确的，而不是初始化。</p>
-<p>两者的区别在于：初始化是赋一个初始值，而定义是分配<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%86%85%E5%AD%98&amp;spm=1001.2101.3001.7020">内存</a>。</p>
-<p>静态成员变量在类中仅仅是声明，没有定义，所以要在类的外面定义，实际上是给静态成员变量分配内存。</p>
+<p>两者的区别在于：初始化是赋一个初始值，而定义是分配<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=内存&amp;spm=1001.2101.3001.7020">内存</a>。</p>
+<p>静态成员变量在类中仅仅是声明，没有定义，所以要在类的外面定义，实际上是给静态成员变量分配内存。<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/C++/%E9%9D%99%E6%80%81%E6%88%90%E5%91%98%E5%BF%85%E9%A1%BB%E5%88%9D%E5%A7%8B%E5%8C%96%E5%90%97%EF%BC%9F/#more" rel="contents">
@@ -513,8 +510,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>C++——this的妙用</h1>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"> <span class="keyword">int</span> i;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> A * p = <span class="literal">NULL</span>;</span><br><span class="line"> p-&gt;<span class="built_in">Hello</span>(); <span class="comment">//结果会怎样？</span></span><br><span class="line">&#125;</span><br><span class="line">#结果会输出hello</span><br><span class="line"><span class="comment">//用C语言思想转换一下看看</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125; </span><br><span class="line"># 成员函数相当于如下形式：</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">(A * <span class="keyword">this</span> )</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line"> </span><br><span class="line">p-&gt;<span class="built_in">Hello</span>(); </span><br><span class="line"># 执行<span class="built_in">Hello</span>()形式相当于：</span><br><span class="line"><span class="built_in">Hello</span>(p);</span><br></pre></td></tr></table></figure>
+          <h1 id="C-——this的妙用"><a href="#C-——this的妙用" class="headerlink" title="C++——this的妙用"></a>C++——this的妙用</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"> <span class="keyword">int</span> i;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> A * p = <span class="literal">NULL</span>;</span><br><span class="line"> p-&gt;<span class="built_in">Hello</span>(); <span class="comment">//结果会怎样？</span></span><br><span class="line">&#125;</span><br><span class="line">#结果会输出hello</span><br><span class="line"><span class="comment">//用C语言思想转换一下看看</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125; </span><br><span class="line"># 成员函数相当于如下形式：</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">(A * <span class="keyword">this</span> )</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line"> </span><br><span class="line">p-&gt;<span class="built_in">Hello</span>(); </span><br><span class="line"># 执行<span class="built_in">Hello</span>()形式相当于：</span><br><span class="line"><span class="built_in">Hello</span>(p);</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/C++/C%EF%BC%8B%EF%BC%8B%E4%B8%AD%E7%9A%84this/#more" rel="contents">
@@ -605,9 +601,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>C++友元函数</h1>
-<h2 id="一、友元的作用">一、友元的作用</h2>
-<p>​	 在C++中，我们使用类对数据进行了<strong>隐藏和封装</strong>，类的数据成员一般都定义为私有成员，成员函数一般都定义为公有的，以此<strong>提供类与外界的通讯接口</strong>。但是，有时需要定义一些函数，这些函数<strong>不是类的一部分</strong>，但又需要<strong>频繁地访问类的数据成员</strong>，这时可以将这些函数定义为该函数的友元函数。除了友元函数外，还有友元类，两者统称为友元。友元的作用是提高了程序的运行效率（即减少了类型检查和安全性检查等都需要时间开销），但它破坏了类的封装性和隐藏性，使得非成员函数可以访问类的私有成员</p>
+          <h1 id="C-友元函数"><a href="#C-友元函数" class="headerlink" title="C++友元函数"></a>C++友元函数</h1><h2 id="一、友元的作用"><a href="#一、友元的作用" class="headerlink" title="一、友元的作用"></a>一、友元的作用</h2><p>​     在C++中，我们使用类对数据进行了<strong>隐藏和封装</strong>，类的数据成员一般都定义为私有成员，成员函数一般都定义为公有的，以此<strong>提供类与外界的通讯接口</strong>。但是，有时需要定义一些函数，这些函数<strong>不是类的一部分</strong>，但又需要<strong>频繁地访问类的数据成员</strong>，这时可以将这些函数定义为该函数的友元函数。除了友元函数外，还有友元类，两者统称为友元。友元的作用是提高了程序的运行效率（即减少了类型检查和安全性检查等都需要时间开销），但它破坏了类的封装性和隐藏性，使得非成员函数可以访问类的私有成员</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/C++/C%EF%BC%8B%EF%BC%8B%E5%8F%8B%E5%85%83%E5%87%BD%E6%95%B0/#more" rel="contents">
@@ -698,11 +692,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>C++字符串反转的3种方法</h1>
-<h2 id="一、调用reverse（）函数">一、调用reverse（）函数</h2>
-<pre><code>reverse函数用于反转在[first,last)范围内的顺序（包括first指向的元素，不包括last指向的元素），reverse函数**没有返回值**
-</code></pre>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//语法规范</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">BidirectionalIterator</span>&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span> <span class="params">(BidirectionalIterator first,BidirectionalIterator last)</span></span>;</span><br></pre></td></tr></table></figure>
+          <h1 id="C-字符串反转的3种方法"><a href="#C-字符串反转的3种方法" class="headerlink" title="C++字符串反转的3种方法"></a>C++字符串反转的3种方法</h1><h2 id="一、调用reverse（）函数"><a href="#一、调用reverse（）函数" class="headerlink" title="一、调用reverse（）函数"></a>一、调用reverse（）函数</h2><pre><code> reverse函数用于反转在[first,last)范围内的顺序（包括first指向的元素，不包括last指向的元素），reverse函数**没有返回值**
+</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//语法规范</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">BidirectionalIterator</span>&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span> <span class="params">(BidirectionalIterator first,BidirectionalIterator last)</span></span>;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/C++/C++%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/#more" rel="contents">
@@ -793,8 +784,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>hexo new “C++——class和struct的区别（4月的第一篇博客）”</h1>
-<p>class 和 struct 最本质的区别 : class 是引用类型，它在堆中分配空间，栈中保存的只是引用；而 struct 是值类型，它在栈中分配空间。</p>
+          <h1 id="hexo-new-“C-——class和struct的区别（4月的第一篇博客）”"><a href="#hexo-new-“C-——class和struct的区别（4月的第一篇博客）”" class="headerlink" title="hexo new “C++——class和struct的区别（4月的第一篇博客）”"></a>hexo new “C++——class和struct的区别（4月的第一篇博客）”</h1><p>class 和 struct 最本质的区别 : class 是引用类型，它在堆中分配空间，栈中保存的只是引用；而 struct 是值类型，它在栈中分配空间。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/C++/C++%E2%80%94class%E5%92%8Cstruct%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%884%E6%9C%88%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%89/#more" rel="contents">
@@ -885,13 +875,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>C++——内存分区模型</h1>
-<h2 id="一、内存四区">一、内存四区</h2>
-<p>C++程序在执行时，将内存大方向划分为4个区域<br>
-●代码区:存放函数体的二进制代码，由操作系统进行管理的<br>
-●全局区:存放全局变量和静态变量以及常量<br>
-●栈区:由编译器自动分配释放,存放函数的参数值,局部变量等<br>
-●堆区:由程序员分配和释放,若程序员不释放程序结束时由操作系统回收</p>
+          <h1 id="C-——内存分区模型"><a href="#C-——内存分区模型" class="headerlink" title="C++——内存分区模型"></a>C++——内存分区模型</h1><h2 id="一、内存四区"><a href="#一、内存四区" class="headerlink" title="一、内存四区"></a>一、内存四区</h2><p>C++程序在执行时，将内存大方向划分为4个区域<br>●代码区:存放函数体的二进制代码，由操作系统进行管理的<br>●全局区:存放全局变量和静态变量以及常量<br>●栈区:由编译器自动分配释放,存放函数的参数值,局部变量等<br>●堆区:由程序员分配和释放,若程序员不释放程序结束时由操作系统回收</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/C++/C++%E2%80%94%E2%80%94%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E6%A8%A1%E5%9E%8B/#more" rel="contents">
@@ -991,8 +975,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>js——反转字符串</h1>
-<p>字符串作在程序中是非常常见的，因为程序中绝大部分的数据都可以当作字符串来处理。在这里介绍几种翻转字符串的方法。</p>
+          <h1 id="js——反转字符串"><a href="#js——反转字符串" class="headerlink" title="js——反转字符串"></a>js——反转字符串</h1><p>　　字符串作在程序中是非常常见的，因为程序中绝大部分的数据都可以当作字符串来处理。在这里介绍几种翻转字符串的方法。</p>
 <p>（1）使用字符串函数</p>
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用数组翻转函数</span></span><br><span class="line">function reverseString(<span class="built_in">str</span>)&#123;</span><br><span class="line">    var array = <span class="built_in">str</span>.<span class="built_in">split</span>(<span class="string">&#x27;&#x27;</span>);  <span class="comment">//转换成字符串数组</span></span><br><span class="line">    array = array.<span class="built_in">reverse</span>();</span><br><span class="line">    <span class="built_in">str</span> = array.<span class="built_in">join</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">str</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//简写</span></span><br><span class="line">function reverseString1(<span class="built_in">str</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">str</span>.<span class="built_in">split</span>(<span class="string">&#x27;&#x27;</span>).<span class="built_in">reverse</span>().<span class="built_in">join</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">console.<span class="built_in">log</span>(reverseString(<span class="string">&quot;helloworld&quot;</span>));  <span class="comment">//dlrowolleh</span></span><br><span class="line">console.<span class="built_in">log</span>(reverseString1(<span class="string">&quot;helloworld&quot;</span>));  <span class="comment">//dlrowolleh</span></span><br></pre></td></tr></table></figure>
 <p>（2）使用for循环</p>
@@ -1091,10 +1074,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>js——互动方式</h1>
-<p>js推荐使用单引号</p>
-<h2 id="1-document-write">1.document.write();</h2>
-<p>（1）这行代码里面的内容将在页面中直接输出（直接向HTML的输出流写内容），但需要加上双引号</p>
+          <h1 id="js——互动方式"><a href="#js——互动方式" class="headerlink" title="js——互动方式"></a>js——互动方式</h1><p>js推荐使用单引号</p>
+<h2 id="1-document-write"><a href="#1-document-write" class="headerlink" title="1.document.write();"></a>1.document.write();</h2><p>（1）这行代码里面的内容将在页面中直接输出（直接向HTML的输出流写内容），但需要加上双引号</p>
 <p>（2）也可以通过一个变量进行输出，不用加双引号</p>
 <p>（3）输出多项内容可以用+号进行连接</p>
 <p>（4）<br>用于输出换行</p>
@@ -1147,7 +1128,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">70k</span>
+    <span title="Word count total">69k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">

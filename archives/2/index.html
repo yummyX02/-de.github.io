@@ -238,14 +238,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>几种控制结构可视的区别</h1>
-<h2 id="一、html中">一、html中</h2>
-<h3 id="display-none-与-visibility-hidden-的区别是什么">display : none 与 visibility:hidden 的区别是什么?</h3>
-<blockquote>
-<p>display : 隐藏对应的元素但不挤占该元素原来的空间。</p>
-<p>visibility: 隐藏对应的元素并且挤占该元素原来的空间。</p>
-<p>即是，使⽤CSS display:none属性后，HTML元素（对象）的宽度、⾼度等各种属性值都将“丢失”;⽽使⽤visibility:hidden属性后，HTML元素（对象）仅仅是在视觉上看不⻅</p>
-<p>（完全透明），⽽它所占据的空间位置仍然存在。</p>
+          <h1 id="几种控制结构可视的区别"><a href="#几种控制结构可视的区别" class="headerlink" title="几种控制结构可视的区别"></a>几种控制结构可视的区别</h1><h2 id="一、html中"><a href="#一、html中" class="headerlink" title="一、html中"></a>一、html中</h2><h3 id="display-none-与-visibility-hidden-的区别是什么"><a href="#display-none-与-visibility-hidden-的区别是什么" class="headerlink" title="display : none 与 visibility:hidden 的区别是什么?"></a>display : none 与 visibility:hidden 的区别是什么?</h3><blockquote>
+<p>display : 隐藏对应的元素但不挤占该元素原来的空间。 </p>
+<p>visibility: 隐藏对应的元素并且挤占该元素原来的空间。 </p>
+<p>即是，使⽤CSS display:none属性后，HTML元素（对象）的宽度、⾼度等各种属性值都将“丢失”;⽽使⽤visibility:hidden属性后，HTML元素（对象）仅仅是在视觉上看不⻅ </p>
+<p>（完全透明），⽽它所占据的空间位置仍然存在。 </p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -337,21 +334,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>同为外部资源引入的src和herf的区别</h1>
-<h2 id="一、外部资源引入">一、外部资源引入</h2>
-<p>首先  src herf都是外部资源引入的方式 不同的是：</p>
+          <h1 id="同为外部资源引入的src和herf的区别"><a href="#同为外部资源引入的src和herf的区别" class="headerlink" title="同为外部资源引入的src和herf的区别"></a>同为外部资源引入的src和herf的区别</h1><h2 id="一、外部资源引入"><a href="#一、外部资源引入" class="headerlink" title="一、外部资源引入"></a>一、外部资源引入</h2><p>首先  src herf都是外部资源引入的方式 不同的是：</p>
 <blockquote>
-<p>src⽤于替换当前元素，href⽤于在当前⽂档和引⽤资源之间确⽴联系。</p>
-<p>src是source的缩写，指向外部资源的位置，指向的内容将会嵌⼊到⽂档中当前标签所在位</p>
-<p>置；在请求src资源时会将其指向的资源下载并应⽤到⽂档内，例如js脚本，img图⽚和</p>
-<p>frame等元素。</p>
+<p>src⽤于替换当前元素，href⽤于在当前⽂档和引⽤资源之间确⽴联系。 </p>
+<p>src是source的缩写，指向外部资源的位置，指向的内容将会嵌⼊到⽂档中当前标签所在位 </p>
+<p>置；在请求src资源时会将其指向的资源下载并应⽤到⽂档内，例如js脚本，img图⽚和 </p>
+<p>frame等元素。 </p>
 <script src =”js.js”></script> 
-<p>当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执⾏</p>
-<p>完毕，图⽚和框架等元素也如此，类似于将所指向资源嵌⼊当前标签内。这也是为什么将js</p>
-<p>脚本放在底部⽽不是头部。</p>
-<p>href是Hypertext Reference的缩写，指向⽹络资源所在位置，建⽴和当前元素（锚点）或</p>
-<p>当前⽂档（链接）之间的链接，如果我们在⽂档中添加</p>
+
+<p>当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执⾏ </p>
+<p>完毕，图⽚和框架等元素也如此，类似于将所指向资源嵌⼊当前标签内。这也是为什么将js </p>
+<p>脚本放在底部⽽不是头部。 </p>
+<p>href是Hypertext Reference的缩写，指向⽹络资源所在位置，建⽴和当前元素（锚点）或 </p>
+<p>当前⽂档（链接）之间的链接，如果我们在⽂档中添加 </p>
 <link href=”common.css” rel=”stylesheet”/> 
+
 <p>那么浏览器会识别该⽂档为css⽂件，就会并⾏下载资源并且不会停⽌对当前⽂档的处理</p>
 </blockquote>
 <p>即就是：src是不支持并行的  而herf是支持并行的</p>
@@ -438,17 +435,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>js—同步和异步</h1>
-<h2 id="一、js中的事件处理机制">一、js中的事件处理机制</h2>
-<h3 id="1、进程、线程、协程">1、进程、线程、协程</h3>
-<ol>
-<li>
-<p>进程（process）：保存在硬盘上的程序会被载入到内存中运行，在内存空间里面形成一个独立的内存体，这个内存体有自己独立的地址空间，系统也会为应用的每一个进程分配独立的CPU、内存等资源。</p>
+          <h1 id="js—同步和异步"><a href="#js—同步和异步" class="headerlink" title="js—同步和异步"></a>js—同步和异步</h1><h2 id="一、js中的事件处理机制"><a href="#一、js中的事件处理机制" class="headerlink" title="一、js中的事件处理机制"></a>一、js中的事件处理机制</h2><h3 id="1、进程、线程、协程"><a href="#1、进程、线程、协程" class="headerlink" title="1、进程、线程、协程"></a>1、进程、线程、协程</h3><ol>
+<li><p>进程（process）：保存在硬盘上的程序会被载入到内存中运行，在内存空间里面形成一个独立的内存体，这个内存体有自己独立的地址空间，系统也会为应用的每一个进程分配独立的CPU、内存等资源。</p>
 </li>
-<li>
-<p>线程（thread）：进程中执行的每一个任务指的就是线程，系统不会为其分配内存资源，各个线程共享进程拥有的内存资源(线程也被称为轻量级进程)。</p>
+<li><p>线程（thread）：进程中执行的每一个任务指的就是线程，系统不会为其分配内存资源，各个线程共享进程拥有的内存资源(线程也被称为轻量级进程)。</p>
 <blockquote>
-<p>即：线程为进程的子集</p>
+<p> 即：线程为进程的子集</p>
 </blockquote>
           <!--noindex-->
             <div class="post-button">
@@ -540,11 +532,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>js—事件循环（宏、微任务）</h1>
-<h2 id="一、事件循环的出现">一、事件循环的出现</h2>
-<p><strong>请注意：在js中，所有的异步任务都是放到事件循环队列中等待执行栈来调用，没有单独的线程</strong></p>
-<p>众所周知，js是单线程语言，同一时间只能处理一件事情，为了协调事件、用户交互、脚本、UI 渲染和网络处理等行为，防止主线程的不阻塞，Event Loop （事件循环）应运而生</p>
-<p>那么，什么是事件循环呢？（浏览器</p>
+          <h1 id="js—事件循环（宏、微任务）"><a href="#js—事件循环（宏、微任务）" class="headerlink" title="js—事件循环（宏、微任务）"></a>js—事件循环（宏、微任务）</h1><h2 id="一、事件循环的出现"><a href="#一、事件循环的出现" class="headerlink" title="一、事件循环的出现"></a>一、事件循环的出现</h2><p><strong>请注意：在js中，所有的异步任务都是放到事件循环队列中等待执行栈来调用，没有单独的线程</strong></p>
+<p>  众所周知，js是单线程语言，同一时间只能处理一件事情，为了协调事件、用户交互、脚本、UI 渲染和网络处理等行为，防止主线程的不阻塞，Event Loop （事件循环）应运而生</p>
+<p>  那么，什么是事件循环呢？（浏览器</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/js/js-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/#more" rel="contents">
@@ -644,20 +634,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>C++——继承</h1>
-<h2 id="1）基类成员对派生类的可见性">1）基类成员对派生类的可见性</h2>
-<ol>
-<li>
-<p>公有继承(public) ：基类的公有成员和保护成员作为派生类的成员时，它们都保持原有的状态，而基类的私有成员仍然是私有的，不能被这个派生类的子类所访问。</p>
-</li>
-<li>
-<p>私有继承(private) ：基类的公有成员和保护成员都作为派生类的私有成员，并且不能被这个派生类的子类所访问。</p>
-</li>
-<li>
-<p>保护继承(protected) ：基类的所有公有成员和保护成员都成为派生类的保护成员，并且只能被它的派生类成员函数或友元访问，基类的私有成员仍然是私有的。</p>
-</li>
+          <h1 id="C-——继承"><a href="#C-——继承" class="headerlink" title="C++——继承"></a>C++——继承</h1><h2 id="1）基类成员对派生类的可见性"><a href="#1）基类成员对派生类的可见性" class="headerlink" title="1）基类成员对派生类的可见性"></a>1）基类成员对派生类的可见性</h2><ol>
+<li>公有继承(public) ：基类的公有成员和保护成员作为派生类的成员时，它们都保持原有的状态，而基类的私有成员仍然是私有的，不能被这个派生类的子类所访问。</li>
 </ol>
-<p>下面列出三种不同的继承方式的基类特性和派生类特性。</p>
+<ol>
+<li>私有继承(private) ：基类的公有成员和保护成员都作为派生类的私有成员，并且不能被这个派生类的子类所访问。</li>
+</ol>
+<ol>
+<li>保护继承(protected) ：基类的所有公有成员和保护成员都成为派生类的保护成员，并且只能被它的派生类成员函数或友元访问，基类的私有成员仍然是私有的。</li>
+</ol>
+<p>下面列出三种不同的继承方式的基类特性和派生类特性。　　</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/C++/C-%E2%80%94%E2%80%94%E4%B8%89%E7%A7%8D%E7%BB%A7%E6%89%BF%E5%92%8C%E6%9E%84%E9%80%A0-%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/#more" rel="contents">
@@ -739,7 +725,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>394</span>
+      <span>354</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -757,8 +743,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>js的作用域角度解释a变量的变化</h1>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">func</span>)</span>&#123;</span><br><span class="line">    func(<span class="string">&quot;changed&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> a=<span class="string">&quot;unchanged&quot;</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">        a=res</span><br><span class="line">    &#125;</span><br><span class="line">    foo(b);</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line">bar()</span><br></pre></td></tr></table></figure>
+          <h1 id="js的作用域角度解释a变量的变化"><a href="#js的作用域角度解释a变量的变化" class="headerlink" title="js的作用域角度解释a变量的变化"></a>js的作用域角度解释a变量的变化</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">func</span>)</span>&#123;</span><br><span class="line">    func(<span class="string">&quot;changed&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> a=<span class="string">&quot;unchanged&quot;</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">        a=res</span><br><span class="line">    &#125;</span><br><span class="line">    foo(b);</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line">bar()</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/js/%E7%94%A8%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%A7%A3%E9%87%8A%E4%B8%80%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%98%E5%8C%96/#more" rel="contents">
@@ -849,10 +834,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>C++迭代器</h1>
-<p><strong>迭代器 (iterator)</strong> 是 C++ 程序中常用的一种设计模式，它最重要的作用是为访问容器提供了统一的接口，将容器和算法连接起来</p>
+          <h1 id="C-迭代器"><a href="#C-迭代器" class="headerlink" title="C++迭代器"></a>C++迭代器</h1><p><strong>迭代器 (iterator)</strong> 是 C++ 程序中常用的一种设计模式，它最重要的作用是为访问容器提供了统一的接口，将容器和算法连接起来</p>
 <ul>
-<li>C++ STL 有许多容器，例如 vector、list、deque、map、unordered_map</li>
+<li>C++ STL 有许多容器，例如 vector、list、deque、map、unordered_map </li>
 </ul>
           <!--noindex-->
             <div class="post-button">
@@ -926,7 +910,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>2.7k</span>
+      <span>2.5k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -944,10 +928,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>C++sort函数详解</h1>
-<h2 id="1-sort">1.sort</h2>
-<p>使用：#include <algorithm></p>
-<p>using namespace std;</p>
+          <h1 id="C-sort函数详解"><a href="#C-sort函数详解" class="headerlink" title="C++sort函数详解"></a>C++sort函数详解</h1><h2 id="1-sort"><a href="#1-sort" class="headerlink" title="1.sort"></a>1.sort</h2><p>使用：#include <algorithm></p>
+<p>　　  using namespace std;</p>
 <p>作用：排序</p>
 <p>时间复杂度：<strong>n*lg(n)</strong></p>
           <!--noindex-->
@@ -1040,12 +1022,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>C++ 中lower_bound函数</h1>
-<p>该函数内置在#include<algorithm>中，使用了二分查找的思想</p>
+          <h1 id="C-中lower-bound函数"><a href="#C-中lower-bound函数" class="headerlink" title="C++ 中lower_bound函数"></a>C++ 中lower_bound函数</h1><p>该函数内置在#include<algorithm>中，使用了二分查找的思想</p>
 <p><strong>tips：返回的是地址</strong></p>
 <ul>
-<li>
-<p>在由小到大的排序数组中</p>
+<li><p>在由小到大的排序数组中</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/C++/C-lower-bound-and-upper-bound%E5%87%BD%E6%95%B0%E4%B8%80%E4%BA%9B%E8%AE%B0%E5%BD%95/#more" rel="contents">
@@ -1136,9 +1116,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>C++几乎万能的头文件</h1>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>了解发现它是C++中支持的一个几乎万能的头文件，几乎包含所有的可用到的C++库函数。以后写代码就可以直接引用这一个头文件了，不需要在写一大堆vector、string、map、stack…</p>
+          <h1 id="C-几乎万能的头文件"><a href="#C-几乎万能的头文件" class="headerlink" title="C++几乎万能的头文件"></a>C++几乎万能的头文件</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>了解发现它是C++中支持的一个几乎万能的头文件，几乎包含所有的可用到的C++库函数。以后写代码就可以直接引用这一个头文件了，不需要在写一大堆vector、string、map、stack……..</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/C++/C-%E4%B8%AD%E5%87%A0%E4%B9%8E%E4%B8%87%E8%83%BD%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6/#more" rel="contents">
@@ -1188,7 +1167,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">70k</span>
+    <span title="Word count total">69k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
