@@ -19,12 +19,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yummyx02.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="C++——this的妙用123456789101112131415161718192021class A&amp;#123; int i; public: void Hello() &amp;#123; cout &lt;&lt; &quot;hello&quot; &lt;&lt; endl; &amp;#125;&amp;#125;; int main()&amp;#123; A * p &#x3D; NULL; p-&gt;Hello();">
+    <meta name="description" content="C++——this的妙用 123456789101112131415161718192021class A&amp;#123; int i; public: void Hello() &amp;#123; cout &lt;&lt; &quot;hello&quot; &lt;&lt; endl; &amp;#125;&amp;#125;; int main()&amp;#123; A * p &#x3D; NULL; p-&gt;Hello()">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C＋＋中的this">
 <meta property="og:url" content="https://yummyx02.github.io/C++/C%EF%BC%8B%EF%BC%8B%E4%B8%AD%E7%9A%84this/index.html">
 <meta property="og:site_name" content="Struggle in my life">
-<meta property="og:description" content="C++——this的妙用123456789101112131415161718192021class A&amp;#123; int i; public: void Hello() &amp;#123; cout &lt;&lt; &quot;hello&quot; &lt;&lt; endl; &amp;#125;&amp;#125;; int main()&amp;#123; A * p &#x3D; NULL; p-&gt;Hello();">
+<meta property="og:description" content="C++——this的妙用 123456789101112131415161718192021class A&amp;#123; int i; public: void Hello() &amp;#123; cout &lt;&lt; &quot;hello&quot; &lt;&lt; endl; &amp;#125;&amp;#125;; int main()&amp;#123; A * p &#x3D; NULL; p-&gt;Hello()">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-04-01T13:30:14.000Z">
 <meta property="article:modified_time" content="2022-04-01T13:30:14.000Z">
@@ -113,7 +113,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-%E2%80%94%E2%80%94this%E7%9A%84%E5%A6%99%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">C++——this的妙用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tips"><span class="nav-number">1.1.</span> <span class="nav-text">tips</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">C++——this的妙用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tips"><span class="nav-number">1.1.</span> <span class="nav-text">tips</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -250,7 +250,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="C-——this的妙用"><a href="#C-——this的妙用" class="headerlink" title="C++——this的妙用"></a>C++——this的妙用</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"> <span class="keyword">int</span> i;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> A * p = <span class="literal">NULL</span>;</span><br><span class="line"> p-&gt;<span class="built_in">Hello</span>(); <span class="comment">//结果会怎样？</span></span><br><span class="line">&#125;</span><br><span class="line">#结果会输出hello</span><br><span class="line"><span class="comment">//用C语言思想转换一下看看</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125; </span><br><span class="line"># 成员函数相当于如下形式：</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">(A * <span class="keyword">this</span> )</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line"> </span><br><span class="line">p-&gt;<span class="built_in">Hello</span>(); </span><br><span class="line"># 执行<span class="built_in">Hello</span>()形式相当于：</span><br><span class="line"><span class="built_in">Hello</span>(p);</span><br></pre></td></tr></table></figure>
+        <h1>C++——this的妙用</h1>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"> <span class="keyword">int</span> i;</span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> A * p = <span class="literal">NULL</span>;</span><br><span class="line"> p-&gt;<span class="built_in">Hello</span>(); <span class="comment">//结果会怎样？</span></span><br><span class="line">&#125;</span><br><span class="line">#结果会输出hello</span><br><span class="line"><span class="comment">//用C语言思想转换一下看看</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125; </span><br><span class="line"># 成员函数相当于如下形式：</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Hello</span><span class="params">(A * <span class="keyword">this</span> )</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;hello&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line"> </span><br><span class="line">p-&gt;<span class="built_in">Hello</span>(); </span><br><span class="line"># 执行<span class="built_in">Hello</span>()形式相当于：</span><br><span class="line"><span class="built_in">Hello</span>(p);</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
 <ul>
 <li><strong>所以，实际上每个成员函数的第一个参数默认都有个指向对象的 this 指针，上述情况下如果该指向的对象是空，相当于成员函数的第一个参数是NULL，那么只要成员函数没有使用到成员变量，也是可以正常执行</strong></li>
@@ -259,7 +260,8 @@
 <ul>
 <li><strong>其作用就是指向成员函数所作用的对象，所以非静态成员函数中可以直接使用 this 来代表指向该函数作用的对象的指针</strong></li>
 </ul>
-<h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><p>静态成员函数是不能使用 this 指针，因为静态成员函数相当于是共享的变量，不属于某个对象的变量。</p>
+<h2 id="tips">tips</h2>
+<p>静态成员函数是不能使用 this 指针，因为静态成员函数相当于是共享的变量，不属于某个对象的变量。</p>
 
     </div>
 
@@ -316,7 +318,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">69k</span>
+    <span title="Word count total">70k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">

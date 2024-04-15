@@ -247,7 +247,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="js——this的使用（区分this和e-target）"><a href="#js——this的使用（区分this和e-target）" class="headerlink" title="js——this的使用（区分this和e.target）"></a>js——this的使用（区分this和e.target）</h1><h2 id="一、什么是this"><a href="#一、什么是this" class="headerlink" title="一、什么是this"></a>一、什么是this</h2><p>1.解析器在调用函数时，美的都会向函数内部传递进一个隐含的参数</p>
+          <h1>js——this的使用（区分this和e.target）</h1>
+<h2 id="一、什么是this">一、什么是this</h2>
+<p>1.解析器在调用函数时，美的都会向函数内部传递进一个隐含的参数</p>
 <p>2.这个隐含的参数就是this，this是一个对象</p>
 <p>3.这个对象我们称为函数执行的上下文对象</p>
 <p>4.根据函数的调用方式不同，this会指向不同的对象</p>
@@ -350,7 +352,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="js——事件冒泡和捕获"><a href="#js——事件冒泡和捕获" class="headerlink" title="js——事件冒泡和捕获"></a>js——事件冒泡和捕获</h1><h2 id="一、理解"><a href="#一、理解" class="headerlink" title="一、理解"></a>一、理解</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;root&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;fun1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">onclick</span> = <span class="string">&quot;fun2&quot;</span>&gt;</span></span><br><span class="line">        click me!</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          <h1>js——事件冒泡和捕获</h1>
+<h2 id="一、理解">一、理解</h2>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;root&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;fun1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">onclick</span> = <span class="string">&quot;fun2&quot;</span>&gt;</span></span><br><span class="line">        click me!</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>如果两个元素都有一个click的处理函数，那么我们怎么才能知道哪一个函数会首先被触发呢？</p>
           <!--noindex-->
             <div class="post-button">
@@ -442,8 +446,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h1><h2 id="一、Vuex是什么"><a href="#一、Vuex是什么" class="headerlink" title="一、Vuex是什么"></a>一、Vuex是什么</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1.概念:"></a>1.概念:</h3><p>​    专门在Vue中实现集中式状态(数据)管理的一个Vue插件,对vue应用中<br>多个组件的共享状态进行集中式的管理(读/写) ，也是一种组件间通信的方式，且适用于任意组件间通信。</p>
-<h3 id="so？什么是状态管理"><a href="#so？什么是状态管理" class="headerlink" title="so？什么是状态管理"></a>so？什么是状态管理</h3>
+          <h1>Vuex</h1>
+<h2 id="一、Vuex是什么">一、Vuex是什么</h2>
+<h3 id="1-概念">1.概念:</h3>
+<p>​	专门在Vue中实现集中式状态(数据)管理的一个Vue插件,对vue应用中<br>
+多个组件的共享状态进行集中式的管理(读/写) ，也是一种组件间通信的方式，且适用于任意组件间通信。</p>
+<h3 id="so？什么是状态管理">so？什么是状态管理</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Vue/Vuex/#more" rel="contents">
@@ -534,9 +542,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Vue——路由"><a href="#Vue——路由" class="headerlink" title="Vue——路由"></a>Vue——路由</h1><h2 id="一、何为路由——vue-router"><a href="#一、何为路由——vue-router" class="headerlink" title="一、何为路由——vue-router"></a>一、何为路由——vue-router</h2><p>路由其实就是一种对应关系（一组key-value）：对于前端来说，key—路径；value—组件</p>
+          <h1>Vue——路由</h1>
+<h2 id="一、何为路由——vue-router">一、何为路由——vue-router</h2>
+<p>路由其实就是一种对应关系（一组key-value）：对于前端来说，key—路径；value—组件</p>
 <p>对于后端来说，value是function 用于处理客户端的请求，根据请求路径来匹配函数</p>
-<p>​    多个路由需要经过路由器</p>
+<p>​	多个路由需要经过路由器</p>
 <p>1.单页web（SPA应用）</p>
 <p>2.只有一个完整的页面</p>
 <p>3.点击导航链接不会刷新页面，只会做页面的局部刷新</p>
@@ -631,9 +641,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Vue——组件间通信"><a href="#Vue——组件间通信" class="headerlink" title="Vue——组件间通信"></a>Vue——组件间通信</h1><p>全局事件总线：任意组件间通信</p>
-<h2 id="一、父子间通信（props和emit）"><a href="#一、父子间通信（props和emit）" class="headerlink" title="一、父子间通信（props和emit）"></a>一、父子间通信（props和emit）</h2><p><strong>在通信中，无论是子组件向父组件传值还是父组件向子组件传值，他们都有一个共同点就是有中间介质，子向父的介质是自定义事件，父向子的介质是props中的属性。抓准这两点对于父子通信就好理解了。</strong></p>
-<h2 id="X、父子间通信-父传子（props）"><a href="#X、父子间通信-父传子（props）" class="headerlink" title="X、父子间通信-父传子（props）"></a>X、父子间通信-父传子（props）</h2>
+          <h1>Vue——组件间通信</h1>
+<p>全局事件总线：任意组件间通信</p>
+<h2 id="一、父子间通信（props和emit）">一、父子间通信（props和emit）</h2>
+<p><strong>在通信中，无论是子组件向父组件传值还是父组件向子组件传值，他们都有一个共同点就是有中间介质，子向父的介质是自定义事件，父向子的介质是props中的属性。抓准这两点对于父子通信就好理解了。</strong></p>
+<h2 id="X、父子间通信-父传子（props）">X、父子间通信-父传子（props）</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Vue/Vue%E2%80%94%E2%80%94%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1/#more" rel="contents">
@@ -724,7 +736,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="解决npm-install-g-hexo-cli报错hexo-not-found问题"><a href="#解决npm-install-g-hexo-cli报错hexo-not-found问题" class="headerlink" title="解决npm install -g hexo-cli报错hexo not found问题"></a>解决npm install -g hexo-cli报错hexo not found问题</h1><p>作为一个初入IT的小白，最近想搭建一个个人博客算是记录自己的学习，但是安装hexo的时候一直报错bash: hexo: command not found，官网的安装命令如下：</p>
+          <h1>解决npm install -g hexo-cli报错hexo not found问题</h1>
+<p>作为一个初入IT的小白，最近想搭建一个个人博客算是记录自己的学习，但是安装hexo的时候一直报错bash: hexo: command not found，官网的安装命令如下：</p>
 <figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.npm install hexo-cli -g</span><br><span class="line"><span class="number">2</span>.hexo init blog</span><br><span class="line"><span class="number">3</span>.cd blog</span><br><span class="line"><span class="number">4</span>.npm install</span><br><span class="line"><span class="number">5</span>.hexo server</span><br><span class="line"><span class="number">1.2.3.4</span>.<span class="number">5</span>.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
@@ -798,7 +811,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>413</span>
+      <span>417</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -816,9 +829,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="C-中inline关键字的理解"><a href="#C-中inline关键字的理解" class="headerlink" title="C++中inline关键字的理解"></a>C++中inline关键字的理解</h1><h2 id="一、为什么使用inline"><a href="#一、为什么使用inline" class="headerlink" title="一、为什么使用inline"></a>一、为什么使用inline</h2><p>​    使用inline关键词 在c/c++中，为了解决一些频繁调用的小函数大量消耗栈空间（栈内存）的问题，特别的引入了inline修饰符，表示为<a href="https://link.juejin.cn?target=https%3A%2F%2Fso.csdn.net%2Fso%2Fsearch%3Fq%3D%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%26spm%3D1001.2101.3001.7020">内联函数</a>。</p>
-<p>​    栈空间就是<strong>放置程序的局部数据（也就是函数内数据）的内存空间</strong>。</p>
-<p>​    在系统下，栈空间是有限的，假如频繁大量的使用就会造成因栈空间不足而导致程序出错的问题，如，函数的死循环<a href="https://link.juejin.cn?target=https%3A%2F%2Fso.csdn.net%2Fso%2Fsearch%3Fq%3D%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8%26spm%3D1001.2101.3001.7020">递归调用</a>的最终结果就是导致栈内存空间枯竭。</p>
+          <h1>C++中inline关键字的理解</h1>
+<h2 id="一、为什么使用inline">一、为什么使用inline</h2>
+<p>​	使用inline关键词 在c/c++中，为了解决一些频繁调用的小函数大量消耗栈空间（栈内存）的问题，特别的引入了inline修饰符，表示为<a href="https://link.juejin.cn?target=https%3A%2F%2Fso.csdn.net%2Fso%2Fsearch%3Fq%3D%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%26spm%3D1001.2101.3001.7020">内联函数</a>。</p>
+<p>​	栈空间就是<strong>放置程序的局部数据（也就是函数内数据）的内存空间</strong>。</p>
+<p>​	在系统下，栈空间是有限的，假如频繁大量的使用就会造成因栈空间不足而导致程序出错的问题，如，函数的死循环<a href="https://link.juejin.cn?target=https%3A%2F%2Fso.csdn.net%2Fso%2Fsearch%3Fq%3D%E9%80%92%E5%BD%92%E8%B0%83%E7%94%A8%26spm%3D1001.2101.3001.7020">递归调用</a>的最终结果就是导致栈内存空间枯竭。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/C++/C-%E7%9A%84inline%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E7%90%86%E8%A7%A3/#more" rel="contents">
@@ -868,7 +883,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">69k</span>
+    <span title="Word count total">70k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">

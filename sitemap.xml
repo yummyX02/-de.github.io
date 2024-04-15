@@ -326,13 +326,6 @@
   </url>
   
   <url>
-    <loc>https://yummyx02.github.io/tags/Vue/</loc>
-    <lastmod>2024-04-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://yummyx02.github.io/tags/hexo/</loc>
     <lastmod>2024-04-15</lastmod>
     <changefreq>daily</changefreq>
@@ -354,7 +347,7 @@
   </url>
   
   <url>
-    <loc>https://yummyx02.github.io/tags/Yolo/</loc>
+    <loc>https://yummyx02.github.io/tags/Vue/</loc>
     <lastmod>2024-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -362,6 +355,13 @@
   
   <url>
     <loc>https://yummyx02.github.io/tags/machineing/</loc>
+    <lastmod>2024-04-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://yummyx02.github.io/tags/Yolo/</loc>
     <lastmod>2024-04-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
